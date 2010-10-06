@@ -1,0 +1,70 @@
+# Colors
+color attachment white	 		magenta
+
+color	body		default			default
+color 	body	 	brightgreen 	default		"[[:alnum:]][-+.#_[:alnum:]]*@[-+.[:alnum:]]*[[:alnum:]]"
+color 	body	  	cyan	   		default		"(https?|ftp)://[^ ]+" 
+color 	body	  	cyan	   		default		"[^ ]+@[^ ]+" # Email addresses (roughly)
+color 	body	  	cyan	   		default		"(www\\.)?[^ ]+\\.(com|net|org|biz|us|de|co|info|tv)(:[^ ]+)?([^ ]+)*"
+color 	body	  	cyan	   		default		"<URL:[^ ]+>"
+#color	body	  	red		   		default		"\\<([[:digit:]]{1,3}\\.){3}[[:digit:]]{1,3}" # IP Addresses
+color 	body	  	yellow		 	default		"\s[;:8]-?[pPD$*)/(|]\s"  # colorize smileys
+#color	body		brightcyan		default		"^>.*$"  # quoted message
+
+color quoted0	cyan			default
+color quoted1	brightcyan		default
+color quoted2	brightyellow	default
+color quoted3	brightblue		default
+color quoted4	brightred		default
+
+color bold	  	green	  		default
+
+color error	 	red				default
+
+color header 	red			 	default 	"^.*:"
+color header 	brightgreen		default  	"^Subject:"
+color header 	yellow			default  	"^Bcc"
+color header 	yellow			default  	"^Cc"
+color header 	yellow			default  	"^Date"
+color header 	yellow			default  	"^From"
+color header 	yellow			default  	"^To"
+color header	yellow	 		default  	"^message-id:"
+color header	yellow	 		default  	"^message-id: .*pine"
+color header	yellow	 		default  	"^newsgroups:"
+color header	yellow	 		default  	"^Organi.ation:"  
+color header	yellow	 		default  	"^reply-to:"
+color header	yellow	 		default  	"^User-Agent:"  
+color header 	red				default  	"^X-.*:"
+color header	yellow	 		default  	"^x-mailer:"
+color header	yellow	 		default  	"^X-Message-Flag:"
+color header	yellow	 		default  	"^X-SpamProbe:"
+color header	red				default		"^X-SpamProbe: SPAM"
+color header	red				default		"^x-spam-rule:"
+color header	brightred		default		"^X-Spam-Status:"
+color header	yellow			default		"^X-WebTV-Stationery:"
+color header	brightred		default		"^In-Reply-To:"
+
+color index 	brightmagenta 	default 	~T  #tagged
+color index 	green 			default 	~N	#new
+color index 	green 			default 	~U	#unread
+#color index 	brightblack		 	default 	~v  #part of collapsed thread
+color index 	brightgreen 	default 	~F  #flagged
+color index 	brightgreen 	blue	 	'~N ~F' #flagged new
+color index 	brightgreen 	cyan	 	'~O ~F' #flagged unread
+color index 	red 			default 	~D	#deleted
+color index		brightblue		default		'~h "X-Spam-Status: Yes"'
+color index		brightblack		default		'~D ~h "X-Spam-Status: Yes"' # Spam deleted
+color index		brightred		default		'~h "X-Spam-Status:.*score=(4\.[5-9])"'
+#color index		magenta			default		'~h "X-Spam-Status:.*score=([6-9]|1[0-9])\."'
+
+color markers   red				blue
+color message   white			blue
+color status 	white 			blue
+color signature brightblue		default
+color sidebar_new yellow		default
+color sidebar	default			default
+
+color indicator	brightyellow	red 		# cursor
+color tree		blue			default
+
+# vim:filetype=muttrc:

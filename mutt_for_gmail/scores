@@ -1,0 +1,32 @@
+## Add a point to GPG signed messages
+score "~g" 1
+
+## Add a point to GPG encrypted messages
+score "~G" 1
+
+## Add a point to Flagged messages
+score "~F" 1
+
+## Add a point to messages from a known mailing list 
+## * Use the, `subscribe' and `lists' command to tell mutt about lists
+score "~l" 1
+
+## Add a point to old (unread) messages
+score "~O" 1
+
+## Add a point to messages addressed to you 
+score "~p" 1
+
+## Add a point to messages from you
+score "~P" 1
+
+## Add a point to messages you replied to (using mutt)
+score "~Q" 1
+
+## Add a point to read messages
+score "~R" 1
+
+## Add a point to messages less than 80,000 bytes 
+score "~z 0-80000" 1
+
+# vim:filetype=muttrc:

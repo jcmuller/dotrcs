@@ -1,0 +1,37 @@
+# Settings for GMail
+#
+# Replace account.name and password
+#
+
+alternates "account.name@gmail.com"
+set use_from
+
+# Base hook to reset account variables to known state before activating new ones
+account-hook . 'unset preconnect imap_user imap_pass imap_authenticators; set ssl_starttls=ask-yes'
+
+account-hook imaps://imap.gmail.com/ 'set imap_user=account.name@gmail.com imap_pass=password smtp_pass=password'
+folder-hook imaps://imap.gmail.com/ 'set realname="Your Real Name"
+		set from="Your Real Name <account.name@gmail.com>"
+		set folder=imaps://imap.gmail.com
+		set spoolfile=imaps://imap.gmail.com/INBOX
+		set record=imaps://imap.gmail.com/Sent
+		set postponed=imaps://imap.gmail.com/Drafts
+		mailboxes  =INBOX \
+				   =Deleted Messages \
+				   =Junk \
+				   =Sent \
+				   =[Gmail].All\ Mail \
+				   =[Gmail].Drafts \
+				   =[Gmail].Sent\ Mail \
+				   =[Gmail].Spam \
+				   =[Gmail].Starred \
+				   =[Gmail].Trash
+		set signature=/path/to/signature_gmail
+		set smtp_url="smtps://account.name\@gmail.com@smtp.gmail.com/"
+		set header_cache=~/.mutt/cache_gmail
+		set message_cachedir=~/.mutt/cache_gmail_body/'
+
+# Reding mail
+set timeout=15
+set mail_check=60
+

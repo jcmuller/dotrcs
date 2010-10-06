@@ -1,0 +1,29 @@
+# Change ~/.mutt to the appropriate directories
+#
+# Install this file in ~/.muttrc
+#
+
+# Common behaviour
+source ~/.mutt/muttrc_common
+
+# Accounts
+source ~/.mutt/muttrc_local
+
+# Colors
+source ~/.mutt/colors
+
+# Macros
+source ~/.mutt/macros
+
+# Scores
+source ~/.mutt/scores
+
+# Cryptographic Encryption
+source ~/.mutt/crypto
+
+set alias_file=~/.mutt/alias
+set sort_alias= alias
+set reverse_alias=yes
+source $alias_file
+
+folder-hook . my_hdr X-OS: `uname -mnrs`

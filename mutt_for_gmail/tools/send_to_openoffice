@@ -1,0 +1,25 @@
+#!/usr/bin/perl
+
+use strict;
+use FileHandle;
+
+my $file;
+{
+	my $n = `mktemp -p /tmp/ mutt_XXXXXXXXXX`;
+	$n =~ s/\n//g;
+	system(qq|mv "$n" "$n.doc"|);
+	$file = "$n.doc";
+}
+
+{
+	my $fh = new FileHandle("> $file");
+
+	if (defined $fh)
+	{
+		print $fh join('', <>);
+	}
+	$fh->close();
+}
+
+system('oowriter', $file);
+
