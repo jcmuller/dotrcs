@@ -1,0 +1,245 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; .emacs
+;; $Id: emacs 261 2010-03-15 15:34:06Z sputnik $
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; emacs initialization
+
+(setq load-path
+      (append (list "~/elisp") load-path))
+
+;;; uncomment this line to disable loading of "default.el" at startup
+;; (setq inhibit-default-init t)
+
+;; enable visual feedback on selections
+(setq transient-mark-mode t)
+
+;; enable parens matching
+(setq show-paren-mode t)
+
+;; default to better frame titles
+(setq frame-title-format
+      (concat  "%f - emacs@" system-name))
+(setq default-frame-alist
+      '((width  . 100)
+		(height . 45)))
+
+(if (>= emacs-major-version 23)
+	(progn
+	  (set-frame-font "DejaVu Sans Mono-10")
+	  (add-to-list 'default-frame-alist '(font ."DejaVu Sans Mono-10"))))
+
+(modify-frame-parameters nil '((wait-for-wm . nil)))
+
+(setq default-frame-alist
+	   '((width	 . 100)
+		(height . 45)))
+
+(setq xterm-mouse-mode t)
+(setq mouse-wheel-mode t)
+
+(global-set-key "t" (quote goto-line))
+(global-set-key "c" (quote compile))
+
+(setq user-full-name "Your Full Name")
+(setq user-email-address "example@example.com")
+(tool-bar-mode -1)
+(setq-default tab-width 4)
+(flyspell-mode)
+(set-background-color "black")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; load modes
+
+(require 'erin)
+(require 'apache-mode)
+(require 'auto-complete)
+(require 'cperl-mode)
+(require 'ruby-mode)
+(require 'generic-x)
+(require 'psvn)
+
+(load-file "~/elisp/graphviz-dot-mode.el")
+(autoload 'css-mode "css-mode")
+
+(when (locate-library "javascript")
+  (autoload 'javascript-mode "javascript" nil t)
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode)))
+
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'sgml-mode-hook 'turn-off-auto-fill)
+(add-hook 'ruby-mode-hook 'turn-on-font-lock)
+
+										; set the mode to use for various extensions
+(setq auto-mode-alist
+      (append
+       (list
+		'("\\.s?html$" . html-mode)
+		'("\\.\\([pP][Llm]\\|al\\)$" . cperl-mode)
+		'("\\.xml$" . xml-mode)
+		'("\\.htaccess$"   . apache-mode)
+		'("httpd\\.conf$"  . apache-mode)
+		'("srm\\.conf$"    . apache-mode)
+		'("access\\.conf$" . apache-mode)
+		'("NOTES\\'" . text-mode)
+		'("README\\'" . text-mode)
+		'("TODO\\'" . text-mode)
+		'("\\.include\\'" . nxhtml-mumamo)
+		'("\\.template\\'" . nxhtml-mumamo)
+		'("0\\.wiki\\.ref\\." . erin-mode)
+		'("emacs" . emacs-lisp-mode)
+		'("\\.css\\'" . css-mode)
+		'("\\.rb\\'" . ruby-mode)
+		'("\\.rhtml\\'" . ruby-mode)
+		) auto-mode-alist))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; cperl mode
+(add-to-list 'interpreter-mode-alist '("perl" . cperl-mode))
+
+(defun load-cperl-outline-settings ()
+  (define-prefix-command 'cm-map nil "Outline-")
+										; HIDE
+  (define-key cm-map "q" 'hide-sublevels)    ; Hide everything but the top-level headings
+  (define-key cm-map "t" 'hide-body)         ; Hide everything but headings (all body lines)
+  (define-key cm-map "o" 'hide-other)        ; Hide other branches
+  (define-key cm-map "c" 'hide-entry)        ; Hide this entry's body
+  (define-key cm-map "l" 'hide-leaves)       ; Hide body lines in this entry and sub-entries
+  (define-key cm-map "d" 'hide-subtree)      ; Hide everything in this entry and sub-entries
+										; SHOW
+  (define-key cm-map "a" 'show-all)          ; Show (expand) everything
+  (define-key cm-map "e" 'show-entry)        ; Show this heading's body
+  (define-key cm-map "i" 'show-children)     ; Show this heading's immediate child sub-headings
+  (define-key cm-map "k" 'show-branches)     ; Show all sub-headings under this heading
+  (define-key cm-map "s" 'show-subtree)      ; Show (expand) everything in this heading & below
+										; MOVE
+  (define-key cm-map "u" 'outline-up-heading)                ; Up
+  (define-key cm-map "n" 'outline-next-visible-heading)      ; Next
+  (define-key cm-map "p" 'outline-previous-visible-heading)  ; Previous
+  (define-key cm-map "f" 'outline-forward-same-level)        ; Forward - same level
+  (define-key cm-map "b" 'outline-backward-same-level)       ; Backward - same level
+  (global-set-key "\M-o" cm-map)
+  )
+
+(let ((load_cperl_variables t))
+  (if load_cperl_variables
+      (progn
+		(autoload 'cperl-mode "cperl-mode" "alternate perl mode" t)
+		(cperl-set-style "C++")
+		;;(cperl-set-style "PerlStyle")
+		(setq cperl-invalid-face (quote off)) ;; get rid of trailing space underscore 
+		(setq cperl-electric-keywords t) ;; expand keywords
+		(setq cperl-hairy t) ;; Turns on most of the CPerlMode options
+		
+		;; Outline-minor-mode key map
+		(load-cperl-outline-settings)
+		
+		(add-hook 'cperl-mode-hook 'my-cperl-customizations t)
+		(defun my-cperl-customizations ()
+		  "cperl-mode customizations that must be done after cperl-mode loads"
+		  ;; Set ouline minor mode 
+		  (outline-minor-mode)
+		  (abbrev-mode)
+		  (auto-complete-mode)
+		  (flyspell-mode)
+		  (setq tab-width 4)
+
+		  (defun cperl-outline-level ()
+			(looking-at outline-regexp)
+			(let ((match (match-string 1)))
+			  (cond
+			   ((eq match "=head1" ) 1)
+			   ((eq match "package") 2)
+			   ((eq match "=head2" ) 3)
+			   ((eq match "=item"  ) 4)
+			   ((eq match "sub"    ) 5)
+			   (t 7)
+			   )))
+		  
+		  (setq outline-regexp        cperl-outline-regexp)
+		  (setq outline-level        'cperl-outline-level)
+
+		  ;;(setq cperl-outline-regexp  my-cperl-outline-regexp)
+		  (setq cperl-autoindent-on-semi t)
+		  (setq cperl-auto-newline-after-colon t)
+		  (setq cperl-electric-lbrace-space 0)
+
+		  (setq cperl-indent-level 4)
+		  (setq tab-width 4)
+		  (setq cperl-extra-newline-before-brace t)
+		  (set-face-background 'cperl-array-face "wheat")
+		  (set-face-background 'cperl-hash-face "wheat")
+		  )
+		
+		;; Find File and Point
+		(defun perl-module-path (module-name)
+		  (let* ((file-name
+				  (concat (replace-regexp-in-string "::" "/" module-name)
+						  ".pm"))
+				 (command-line
+				  (concat "perl -M'"
+						  module-name
+						  "' -e'print $INC{q{"
+						  file-name
+						  "}}'"))
+				 (path (shell-command-to-string command-line))
+				 (cant-locate (string-match "^Can't locate " path)))
+			(if cant-locate
+				nil
+			  path)))
+		
+		(defun find-perl-module (module-name)
+		  (interactive "sPerl module name: ")
+		  (let ((path (perl-module-path module-name)))
+			(if path
+				(find-file path)
+			  (error "Module '%s' not found" module-name))))
+		
+		;; Always highlight scalars
+		(setq cperl-highlight-variables-indiscriminately t)
+		
+		;; Perl Tidy
+		(defun perltidy-region ()
+		  "Run perltidy on the current region."
+		  (interactive)
+		  (save-excursion
+			(shell-command-on-region (point) (mark) "perltidy -q" nil t)))
+		(defun perltidy-defun ()
+		  "Run perltidy on the current defun."
+		  (interactive)
+		  (save-excursion (mark-defun)
+						  (perltidy-region)))
+		(global-set-key "p" (quote perltidy-defun))
+		(global-set-key "P" (quote perltidy-region))
+		)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Disabled server because I do instantiate many different emacs sessions
+
+;;(server-start)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
+ '(display-time-mode t)
+ '(fringe-mode (quote (nil . 0)) nil (fringe))
+ '(inhibit-startup-screen t)
+ '(scroll-bar-mode (quote right))
+ '(show-paren-mode t)
+ '(size-indication-mode t)
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
