@@ -1,0 +1,56 @@
+Some of my favorite bash tricks (most of these come straight from Emacs):
+
+Of course, most of these will ONLY work when 'set -o emacs'
+	
+C-F Move to next character
+C-B Move to previous character
+C-A Jump to beginning of line (bol)
+C-E Jump to end of line (eol)
+M-B Jump to previous word
+M-F Jump to next word
+C-/ Undo
+C-X C-X Swap point. There are two marks. You can move around, C-X C-X, move
+		some more, and then switch between points.
+C-X C-E Edit command in $EDITOR
+
+C-K Kill line from point to eol
+C-U Kill line from point to bol
+M-D Kill next word
+M-Backspace Kill previous word
+C-H Kill previous character (doesn't go into kill ring)
+C-D Kill next character (doesn't go into kill ring)
+C-Y Yank killed text
+
+C-R Recall text backward
+C-S Recall text forward (might not work depending on terminal settings. It
+		could stop flow. If this happens, C-Q restores it)
+
+history Show history
+
+
+In .bashrc (or .bash_profile, .profile, etc.), I like to add
+"$(parse_git_branch)$(parse_svn_revision)$(parse_cvs_tag)" to PS1 and define
+
+parse_cvs_tag()
+{
+    [[ -d "CVS" ]] && ([[ -e "CVS/Tag" ]] && sed -e 's/^T/ (/' -e 's/^N/ (/' -e 's/^D/ Date /' -e 's/$/)/' CVS/Tag || echo ' (HEAD)')
+}
+
+parse_git_branch()
+{
+    local DIRTY STATUS
+    STATUS=$(git status 2>/dev/null)
+    [ $? -eq 128 ] && return
+    [[ "$STATUS" == *'working directory clean'* ]] || DIRTY=' *'
+    echo " ($(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* //')$DIRTY)"
+}
+
+parse_svn_revision()
+{   
+    local REV=$(svnversion 2>/dev/null)
+    [ $? -eq 0 ] || return
+    [ "$REV" == 'exported' ] && return
+    echo " ($REV)"
+}
+
+Note: for some big repositories, this PS1 format might slow things down a bit. Use at your own risk :)
