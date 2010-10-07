@@ -17,6 +17,7 @@ C-K Kill line from point to eol
 C-U Kill line from point to bol
 M-D Kill next word
 M-Backspace Kill previous word
+C-W Kill previous word (to previous space)
 C-H Kill previous character (doesn't go into kill ring)
 C-D Kill next character (doesn't go into kill ring)
 C-Y Yank killed text
