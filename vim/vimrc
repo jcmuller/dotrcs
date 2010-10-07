@@ -13,6 +13,7 @@ set noexpandtab
 set hlsearch
 set incsearch
 set laststatus=2
+set listchars=tab:\|\-,eol:
 set mouse= "a all modes, n normal mode, v visual mode, '' no mouse
 set nolinebreak
 set nowrapscan
