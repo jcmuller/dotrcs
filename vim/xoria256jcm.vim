@@ -1,11 +1,8 @@
-" Install at $VIMRUNPATH/colors/
-"
 " Vim color file
 "
 " Name:       xoria256.vim
 " Version:    1.1
 " Maintainer:	Dmitriy Y. Zotikov (xio) <xio@ungrund.org>
-" Modified by: Juan C. Muller <jcmuller@gmail.com>
 "
 " Should work in recent 256 color terminals.  88-color terms like urxvt are
 " unsupported.
@@ -48,13 +45,13 @@ hi Cursor                                 ctermbg=214 guibg=#ffaf00
 hi CursorLine                             ctermbg=238 guibg=#444444
 hi FoldColumn   ctermfg=248 guifg=#a8a8a8 ctermbg=bg  guibg=bg
 hi Folded       ctermfg=255 guifg=#eeeeee ctermbg=60  guibg=#5f5f87
-hi IncSearch    ctermfg=0   guifg=#000000 ctermbg=223 guibg=#ffdfaf cterm=none gui=none
+hi IncSearch    ctermfg=0   guifg=#000000 ctermbg=220 guibg=#ffdfaf cterm=none gui=none
 hi NonText      ctermfg=248 guifg=#a8a8a8                           cterm=bold gui=bold
 hi Pmenu        ctermfg=0   guifg=#000000 ctermbg=246 guibg=#949494
 hi PmenuSbar                              ctermbg=243 guibg=#767676
 hi PmenuSel     ctermfg=0   guifg=#000000 ctermbg=243 guibg=#767676
 hi PmenuThumb                             ctermbg=252 guibg=#d0d0d0
-hi Search       ctermfg=0   guifg=#000000 ctermbg=149 guibg=#afdf5f
+hi Search       ctermfg=0   guifg=#000000 ctermbg=223 guibg=#ffdfaf
 hi SignColumn   ctermfg=248 guifg=#a8a8a8
 hi SpecialKey   ctermfg=77  guifg=#5fdf5f
 hi StatusLine                             ctermbg=239 guibg=#4e4e4e cterm=bold gui=bold
