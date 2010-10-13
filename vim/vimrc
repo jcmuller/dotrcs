@@ -1,5 +1,3 @@
-" $Id: vimrc 261 2010-03-15 15:34:06Z sputnik $
-
 " Turn off compatibility with VI.
 set nocompatible
 
@@ -29,6 +27,7 @@ set tabstop=4
 set tagbsearch
 set term=xterm
 set textwidth=0
+set undofile	" Turn on vim 7.3's ability to undo across sessions.
 set viminfo='10,\"100,:20,%,n~/.viminfo
 set wrapmargin=0
 
