@@ -1,0 +1,5 @@
+--type-add=ruby=.feature
+--type-set=cucumber=.feature
+--type-add=js=.coffee
+--type-add=css=.scss
+--type-add=html=.handlebars
