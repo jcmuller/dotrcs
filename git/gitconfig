@@ -1,0 +1,25 @@
+[user]
+	name = Juan C. Müller
+	email = jcmuller@gmail.com
+[core]
+	excludesfile = /Users/jcmuller/.gitignore
+	quotepath = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Testing/Git Clients/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[help]
+	autocorrect = 1
+[color]
+	ui = 1
+[github]
+	user = jcmuller
+	token = TOKEN
+[url "https://github.com/"]
+  insteadOf = "gh:"
+[push]
+	default = current
+[init]
+	templatedir = /Users/jcmuller/.git_template

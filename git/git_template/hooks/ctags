@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+PATH="/usr/local/bin:$PATH"
+trap "rm -f .git/tags.$$" EXIT
+ctags -Rf.git/tags.$$ --exclude=.git
+mv .git/tags.$$ .git/tags
