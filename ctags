@@ -18,7 +18,3 @@
 --regex-coffee=/(constructor: \()@[A-Za-z.]+(, @([A-Za-z.]+)){7}/\3/f,field/
 --regex-coffee=/(constructor: \()@[A-Za-z.]+(, @([A-Za-z.]+)){8}/\3/f,field/
 --regex-coffee=/(constructor: \()@[A-Za-z.]+(, @([A-Za-z.]+)){9}/\3/f,field/
-
-#--langdef=myruby
-#--langmap=myruby:.rb
-#--regex-myruby=/(?:^|=[ \t])*class (?:[A-Za-z]+::)*([A-Za-z]+)( < [A-Za-z.]+)?$/\1/c,class/
