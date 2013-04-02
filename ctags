@@ -18,3 +18,24 @@
 --regex-coffee=/(constructor: \()@[A-Za-z.]+(, @([A-Za-z.]+)){7}/\3/f,field/
 --regex-coffee=/(constructor: \()@[A-Za-z.]+(, @([A-Za-z.]+)){8}/\3/f,field/
 --regex-coffee=/(constructor: \()@[A-Za-z.]+(, @([A-Za-z.]+)){9}/\3/f,field/
+
+--langmap=ruby:+.rake
+
+--regex-ruby=/(^|;)class[[:space:]]+([A-Z][[:alnum:]]+)::([A-Z][[:alnum:]]+)/\3/c,class,constant/
+--regex-ruby=/(^|;)class[[:space:]]+[A-Z][[:alnum:]]+::[A-Z][[:alnum:]]+::([A-Z][[:alnum:]]+)/\2/c,class,constant/
+--regex-ruby=/(^|;)class[[:space:]]+[A-Z][[:alnum:]]+::[A-Z][[:alnum:]]+::[A-Z][[:alnum:]]+::([A-Z][[:alnum:]]+)/\2/c,class,constant/
+
+--regex-ruby=/(^|;)module[[:space:]]+[A-Z][[:alnum:]]+::([A-Z][[:alnum:]]+)/\2/m,module,constant/
+--regex-ruby=/(^|;)module[[:space:]]+[A-Z][[:alnum:]]+::[A-Z][[:alnum:]]+::([A-Z][[:alnum:]]+)/\2/m,module,constant/
+--regex-ruby=/(^|;)module[[:space:]]+[A-Z][[:alnum:]]+::[A-Z][[:alnum:]]+::[A-Z][[:alnum:]]+::([A-Z][[:alnum:]]+)/\2/m,module,constant/
+
+--regex-ruby=/(^|[:;])[ \t]*([A-Z][[:alnum:]_]+) *=/\2/c,class,constant/
+--regex-ruby=/(^|;)[ \t]*(has_many|belongs_to|has_one|has_and_belongs_to_many)\(? *:([[:alnum:]_]+)/\3/f,function,association/
+--regex-ruby=/(^|;)[ \t]*(named_)?scope\(? *:([[:alnum:]_]+)/\3/f,function,named_scope/
+--regex-ruby=/(^|;)[ \t]*expose\(? *:([[:alnum:]_]+)/\2/f,function,exposure/
+--regex-ruby=/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2/f,function,aasm_event/
+--regex-ruby=/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2!/f,function,aasm_event/
+--regex-ruby=/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2?/f,function,aasm_event/
+
+--regex-ruby=/(^|;)[ \t]*namespace\(? *[:"]?([[:alnum:]_]+)/\2/f,module,namespace/
+--regex-ruby=/(^|;)[ \t]*task\(? *[:"]?([[:alnum:]_]+)/\2/f,function,task/
