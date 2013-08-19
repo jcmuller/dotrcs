@@ -17,9 +17,14 @@
 [github]
 	user = jcmuller
 	token = TOKEN
-[url "https://github.com/"]
+[url "git@github.com:"]
   insteadOf = "gh:"
 [push]
 	default = current
 [init]
 	templatedir = /Users/jcmuller/.git_template
+[branch]
+	autosetuprebase = always
+[alias]
+	co = checkout
+	ci = commit

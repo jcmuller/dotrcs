@@ -26,3 +26,7 @@ nohup.out
 tags*
 xcuserdata
 zeus.json
+*.pyc
+Procfile.mine
+config.json
+.lvimrc
