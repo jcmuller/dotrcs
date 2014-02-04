@@ -42,7 +42,7 @@
 --type-add=cpp:ext:cpp,cc,cxx,m,hpp,hh,h,hxx
 --type-add=csharp:ext:cs
 --type-add=css:ext:css
---type-add=css=.scss
+--type-add=css=.scss,.sass
 --type-add=dart:ext:dart
 --type-add=delphi:ext:pas,int,dfm,nfm,dof,dpk,dproj,groupproj,bdsgroup,bdsproj
 --type-add=elisp:ext:el
@@ -102,5 +102,6 @@
 --type-set=coffee=.coffee
 --type-set=config=.conf
 --type-set=cucumber=.feature
+--type-set=markdown=.markdown,.md,.mkdn
 
 --known-types
