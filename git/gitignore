@@ -13,7 +13,7 @@
 .DS_Store
 .dropbox
 .rbenv-*
-.ruby-version
+.ruby-gemset
 .svn
 .zeus.rb
 Session.vim
@@ -23,10 +23,13 @@ custom_plan.rb
 errors
 fse-out.log
 nohup.out
-tags*
+tags
+tags.*
 xcuserdata
 zeus.json
 *.pyc
 Procfile.mine
 config.json
 .lvimrc
+platform-rails3.2
+Procfile.*
