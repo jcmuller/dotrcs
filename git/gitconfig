@@ -16,7 +16,9 @@
 	ui = 1
 [github]
 	user = jcmuller
+	password = !security find-internet-password -a jcmuller -s github.com -w | tr -d '\n'
 	token = TOKEN
+	prq-token = TOKEN
 [url "git@github.com:"]
   insteadOf = "gh:"
 [push]
@@ -28,3 +30,6 @@
 [alias]
 	co = checkout
 	ci = commit
+	local-ignore = update-index --assume-unchanged
+	local-unignore = update-index --no-assume-unchanged
+	local-ignored = !git ls-files -v | grep "^[[:lower:]]"
