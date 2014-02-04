@@ -39,7 +39,15 @@
 --regex-ruby=/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2?/f,function,aasm_event/
 
 --regex-ruby=/(^|;)[ \t]*namespace\(? *[:"]?([[:alnum:]_]+)/\2/f,module,namespace/
---regex-ruby=/(^|;)[ \t]*task\(? *[:"]?([[:alnum:]_]+)/\2/f,function,task/
+--regex-ruby=/(^|;)[ \t]*task\(? *[:"]?([[:alnum:]_]+)/\2/t,task,task/
+--regex-ruby=/(^|;)[ \t]*alias_method\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
+
+--regex-ruby=/(^|;)[ \t]*value\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
+--regex-ruby=/(^|;)[ \t]*counter\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
+--regex-ruby=/(^|;)[ \t]*list\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
+--regex-ruby=/(^|;)[ \t]*set\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
+--regex-ruby=/(^|;)[ \t]*hash_key\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
+--regex-ruby=/(^|;)[ \t]*sorted_set\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
 
 --langdef=js
 --langmap=js:.js
