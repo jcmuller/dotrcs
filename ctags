@@ -1,5 +1,6 @@
 --langdef=coffee
 --langmap=coffee:.coffee
+--langmap=coffee:+.coffee.erb
 --regex-coffee=/([A-Za-z]+\.)?([A-Za-z.]+) = .*\.(extend|create)/\2/c,class/
 --regex-coffee=/(^|=[ \t])*class ([A-Za-z]+\.)*([A-Za-z]+)( extends [A-Za-z.]+)?$/\3/c,class/
 --regex-coffee=/^[ \t]*(module\.)?(exports\.)?@?([A-Za-z.]+):.*[-=]>.*$/\3/m,method/
@@ -32,7 +33,7 @@
 
 --regex-ruby=/(^|[:;])[ \t]*([A-Z][[:alnum:]_]+) *=/\2/c,class,constant/
 --regex-ruby=/(^|;)[ \t]*(has_many|belongs_to|has_one|has_and_belongs_to_many)\(? *:([[:alnum:]_]+)/\3/f,function,association/
---regex-ruby=/(^|;)[ \t]*(named_)?scope\(? *:([[:alnum:]_]+)/\3/f,function,named_scope/
+--regex-ruby=/(^|;)[ \t]*(named_)?scope\(? *:([[:alnum:]_?!]+)/\3/f,function,named_scope/
 --regex-ruby=/(^|;)[ \t]*expose\(? *:([[:alnum:]_]+)/\2/f,function,exposure/
 --regex-ruby=/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2/f,function,aasm_event/
 --regex-ruby=/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2!/f,function,aasm_event/
@@ -40,9 +41,14 @@
 
 --regex-ruby=/(^|;)[ \t]*namespace\(? *[:"]?([[:alnum:]_]+)/\2/f,module,namespace/
 --regex-ruby=/(^|;)[ \t]*task\(? *[:"]?([[:alnum:]_]+)/\2/t,task,task/
---regex-ruby=/(^|;)[ \t]*alias_method\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
+--regex-ruby=/(^|;)[ \t]*alias_method\(? *[:"]?([[:alnum:]_?!]+)/\2/m,method,alias/
+--regex-ruby=/(^|;)[ \t]*alias_attribute\(? *[:"]?([[:alnum:]_?!]+)/\2/m,method,alias/
 
---regex-ruby=/(^|;)[ \t]*value\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
+--regex-ruby=/(^|;)[ \t]*delegate\(? *[:"]?([[:alnum:]_?!]+[?!]?)/\2/m,method,delegate/
+--regex-ruby=/(^|;)[ \t]*delegate\(? *[:"]?[[:alnum:]_?!]+[?!]?"?,[ \t]*[:"]?([[:alnum:]_]+[?!]?)/\2/m,method,delegate/
+--regex-ruby=/(^|;)[ \t]*delegate\(? *[:"]?[[:alnum:]_?!]+[?!]?"?,*[:"]?[[:alnum:]_]+[?!]?"?,[ \t]*[:"]?([[:alnum:]_]+[?!]?)/\2/m,method,delegate/
+
+--regex-ruby=/(^|;)[ \t]*value\(? *[:"]?([[:alnum:]_?!]+)/\2/m,method,alias/
 --regex-ruby=/(^|;)[ \t]*counter\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
 --regex-ruby=/(^|;)[ \t]*list\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
 --regex-ruby=/(^|;)[ \t]*set\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
