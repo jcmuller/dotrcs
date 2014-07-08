@@ -7,13 +7,18 @@
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
+[merge]
+  tool = vimdiff
+  #tool = /usr/local/bin/mvimdiff
+[mergetool]
+  prompt = false
 [mergetool "sourcetree"]
 	cmd = /Applications/Testing/Git Clients/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [help]
 	autocorrect = 1
 [color]
-	ui = 1
+	ui = true
 [github]
 	user = jcmuller
 	password = !security find-internet-password -a jcmuller -s github.com -w | tr -d '\n'
@@ -27,9 +32,13 @@
 	templatedir = /Users/jcmuller/.git_template
 [branch]
 	autosetuprebase = always
+#[remote "origin"]
+  #fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 [alias]
 	co = checkout
 	ci = commit
 	local-ignore = update-index --assume-unchanged
 	local-unignore = update-index --no-assume-unchanged
 	local-ignored = !git ls-files -v | grep "^[[:lower:]]"
+[rerere]
+	enabled = true
