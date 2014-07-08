@@ -9,13 +9,13 @@ set check_new=yes
 # Browser sort
 set sort=threads
 set sort_browser=reverse-date 	# showing mbox list default to newest first
-set sort_aux=reverse-last-date-received 
+set sort_aux=reverse-last-date-received
 								# showing threads with youngest message last
 set abort_nosubject=ask-no		# Abort, if message has no subject.
 set abort_unmodified=ask-yes	# Abort, if message wasn't edited.
 set beep=yes					# Beep on errors
 set beep_new=yes				# Beep on new messages
-set collapse_unread=no			# Don't collapse threads with unread messages 
+set collapse_unread=no			# Don't collapse threads with unread messages
 set delete=yes					# Don't ask for confirmation when deleting messages
 set fast_reply=yes				# Start editing message on reply, group reply and forward
 set honor_followup_to=yes		# Ask whether to honor Mail-Followup-To header
@@ -52,7 +52,7 @@ hdr_order Subject: Date: From: To: CC: Bcc:
 set index_format="%-30.30L%3M %-33.33s %[%m/%d %k:%M] [%Z]%5c"
 
 # Composing Mail
-set editor="tools/truncate_mail.pl %s; vim -c 'set tw=70 ft=mail noautoindent nocindent nosmartindent expandtab nonumber' %s"
+set editor="~/.mutt/tools/truncate_mail.pl %s; vim -c 'set tw=70 ft=mail noautoindent nocindent nosmartindent expandtab nonumber' %s"
 set markers=no
 set include=yes
 set forward_format="Fwd: %s"
@@ -62,7 +62,7 @@ set folder_format="%F %-8.8u %-8.8g %d %8s %N %f"
 set copy=yes
 
 # View special formats
-set mailcap_path=~/.mailcap
+set mailcap_path=~/.mutt/mailcap
 auto_view text/html
 
 # External address book
