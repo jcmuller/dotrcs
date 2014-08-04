@@ -1,0 +1,41 @@
+{
+  "focus-ccw": {
+    "mod": "mod1",
+    "key": "k"
+  },
+  "focus-cw": {
+    "mod": "mod1",
+    "key": "j"
+  },
+  "swap-ccw": {
+    "mod": "mod2",
+    "key": "k"
+  },
+  "swap-cw": {
+    "mod": "mod2",
+    "key": "j"
+  },
+
+  "layouts": [
+    "tall",
+    "wide",
+    "fullscreen",
+    "column",
+    "row",
+    "floating",
+    "widescreen-tall"
+  ],
+
+  "floating": [
+    "com.apple.Notes",
+    "com.apple.systempreferences",
+    "com.apple.finder"
+  ],
+
+  "enables-layout-hud-on-space-change": false,
+  "mouse-follows-focus": true,
+
+  "----INTERESTING_COMMANDS---": [
+    "osascript -e 'id of app \"Finder\"'"
+  ]
+}
