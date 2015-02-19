@@ -2,6 +2,6 @@
 
 set -e
 PATH="/usr/local/bin:$PATH"
-trap "rm -f .git/tags.$$" EXIT
-ctags -Rf.git/tags.$$ --exclude=.git
-mv .git/tags.$$ .git/tags
+trap "rm -f tags.$$" EXIT
+ctags -Rftags.$$ --exclude=.git
+mv tags.$$ tags

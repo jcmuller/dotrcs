@@ -1,44 +1,44 @@
 [user]
-	name = Juan C. Müller
-	email = jcmuller@gmail.com
+  name = Juan C. Müller
+  email = jcmuller@gmail.com
 [core]
-	excludesfile = /Users/jcmuller/.gitignore
-	quotepath = false
+  excludesfile = /home/jcmuller/.gitignore
+  quotepath = false
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
 [merge]
   tool = vimdiff
   #tool = /usr/local/bin/mvimdiff
 [mergetool]
   prompt = false
 [mergetool "sourcetree"]
-	cmd = /Applications/Testing/Git Clients/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/Testing/Git Clients/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 [help]
-	autocorrect = 1
+  autocorrect = 1
 [color]
-	ui = true
+  ui = true
 [github]
-	user = jcmuller
-	password = !security find-internet-password -a jcmuller -s github.com -w | tr -d '\n'
-	token = TOKEN
-	prq-token = TOKEN
+  user = jcmuller
+  password = !security find-internet-password -a jcmuller -s github.com -w | tr -d '\n'
+  token = TOKEN
+  prq-token = TOKEN
 [url "git@github.com:"]
   insteadOf = "gh:"
 [push]
-	default = current
+  default = current
 [init]
-	templatedir = /Users/jcmuller/.git_template
+  templatedir = /home/jcmuller/.git_template
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 #[remote "origin"]
   #fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 [alias]
-	co = checkout
-	ci = commit
-	local-ignore = update-index --assume-unchanged
-	local-unignore = update-index --no-assume-unchanged
-	local-ignored = !git ls-files -v | grep "^[[:lower:]]"
+  co = checkout
+  ci = commit
+  local-ignore = update-index --assume-unchanged
+  local-unignore = update-index --no-assume-unchanged
+  local-ignored = !git ls-files -v | grep "^[[:lower:]]"
 [rerere]
-	enabled = true
+  enabled = true

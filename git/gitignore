@@ -1,7 +1,6 @@
 "Icon\r"
 #*#
 **/.DS_Store
-*.gem
 *.o
 *.obj
 *.orig
@@ -34,6 +33,7 @@ fse-out.log
 nohup.out
 platform-rails3.2
 /tags
+/source/tags
 /tags.*
 xcuserdata
 zeus.json
