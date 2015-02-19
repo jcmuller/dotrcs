@@ -1,0 +1,4 @@
+#!/bin/bash
+
+id=$(xinput --list | fgrep 'Synaptics TouchPad' | sed -e 's/^.\+id=\([0-9]\+\).\+$/\1/')
+xinput set-prop $id "Device Enabled" 0

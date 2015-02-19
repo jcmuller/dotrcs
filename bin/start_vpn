@@ -1,0 +1,15 @@
+#!/bin/bash -ex
+
+OPENVPN="/usr/local/sbin/openvpn"
+CLOSE_ALL="close_all"
+
+vpns=$(for i in ~/Dropbox/vpns/*ovpn; do basename $i .ovpn; done)
+vpns="$vpns $CLOSE_ALL"
+vpn=$(echo $vpns | dmenu -p "VPN:" -lines 20 -sep ' ')
+
+if [[ "$vpn" = "$CLOSE_ALL" ]]
+then
+  killall $OPENVPN
+else
+  $OPENVPN --config ~/Dropbox/vpns/${vpn}.ovpn --auth-user-pass ~/.openvpnrc --auth-nocache
+fi

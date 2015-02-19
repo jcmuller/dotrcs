@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# For this to work, whatever pianobar is using as event_command needs to do
+# something like:
+# print $sfh "$1. $2\n" if (/station(\d+)=(.+)$/);
+# into /tmp/pianobar_stations
+
+if [[ -n "$@" ]]
+then
+  station=$(echo $@ | sed -e 's/\([0-9]\+\)\..*/\1/')
+  echo "s$station" > ~/.config/pianobar/ctl
+else
+  cat /tmp/pianobar_stations
+fi
