@@ -1,0 +1,78 @@
+general {
+  output_format = "i3bar"
+  colors = true
+  interval = 5
+}
+
+order += "disk /"
+#order += "run_watch DHCP"
+#order += "run_watch OVPN"
+#order += "path_exists VPN"
+order += "ethernet tun0"
+order += "wireless wlan0"
+#order += "ethernet eth0"
+order += "battery 0"
+order += "cpu_temperature 0"
+order += "load"
+order += "volume master"
+
+wireless wlan0 {
+  format_up = "W: (%quality at %essid, %bitrate) %ip"
+  format_down = "W: down"
+}
+
+ethernet eth0 {
+  # if you use %speed, i3status requires the cap_net_admin capability
+  format_up = "E: %ip (%speed)"
+  format_down = "E: down"
+}
+
+ethernet tun0 {
+  # if you use %speed, i3status requires the cap_net_admin capability
+  format_up = "VPN: %ip (%speed)"
+  format_down = "VPN: no"
+}
+
+battery 0 {
+  format = "%status %percentage %remaining"
+  format_down = "No battery"
+  path = "/sys/class/power_supply/BAT%d/uevent"
+  low_threshold = 10
+}
+
+# run_watch DHCP {
+#   pidfile = "/var/run/dhclient*.pid"
+# }
+
+#run_watch OVPN {
+  #pidfile = "/var/run/openvpn*.pid"
+#}
+
+#path_exists VPN {
+  #path = "/proc/sys/net/ipv4/conf/tun0"
+#}
+
+tztime local {
+  format = "%a %m/%d/%Y %I:%M%P"
+}
+
+load {
+  format = "%1min %5min %15min"
+}
+
+cpu_temperature 0 {
+  format = "T: %degrees C"
+  path = "/sys/devices/platform/coretemp.0/temp1_input"
+}
+
+disk "/" {
+  format = "/ %free"
+}
+
+volume master {
+  format = "V: %volume"
+  format_muted = "V: muted"
+  device = "default"
+  mixer = "Master"
+  mixer_idx = 0
+}
