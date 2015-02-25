@@ -4,17 +4,36 @@ general {
   interval = 5
 }
 
+#order += "window_title"
+#order += "weather_yahoo nyc"
+order += "dpms"
 order += "disk /"
 #order += "run_watch DHCP"
 #order += "run_watch OVPN"
 #order += "path_exists VPN"
 order += "ethernet tun0"
-order += "wireless wlan0"
+#order += "wireless wlan0"
 #order += "ethernet eth0"
 order += "battery 0"
+order += "battery 1"
+order += "battery_level"
 order += "cpu_temperature 0"
 order += "load"
+order += "sysdata"
 order += "volume master"
+
+weather_yahoo nyc {
+  cache_timeout = 1800
+  request_timeout = 10
+  city_code = "USNY3792"
+  forecast_days = 2
+}
+
+battery_level {
+  format = "Battery: {}"
+  mode = "ascii_bar"
+  on_click 1 = "exec gnome-power-statistics"
+}
 
 wireless wlan0 {
   format_up = "W: (%quality at %essid, %bitrate) %ip"
@@ -29,15 +48,25 @@ ethernet eth0 {
 
 ethernet tun0 {
   # if you use %speed, i3status requires the cap_net_admin capability
-  format_up = "VPN: %ip (%speed)"
-  format_down = "VPN: no"
+  format_up = "VPN"
+  format_down = "VPN"
+  on_click 1 = "exec --no-startup-id start_vpn"
 }
 
 battery 0 {
-  format = "%status %percentage %remaining"
+  format = "%status %percentage %remaining (%emptytime %consumption)"
   format_down = "No battery"
   path = "/sys/class/power_supply/BAT%d/uevent"
   low_threshold = 10
+  on_click 1 = "exec gnome-power-statistics"
+}
+
+battery 1 {
+  format = "%status %percentage %remaining (%emptytime %consumption)"
+  format_down = "No battery"
+  path = "/sys/class/power_supply/BAT%d/uevent"
+  low_threshold = 10
+  on_click 1 = "exec gnome-power-statistics"
 }
 
 # run_watch DHCP {
@@ -62,17 +91,23 @@ load {
 
 cpu_temperature 0 {
   format = "T: %degrees C"
-  path = "/sys/devices/platform/coretemp.0/temp1_input"
+  path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
 }
 
 disk "/" {
   format = "/ %free"
+  on_click 1 = "exec thunar /"
 }
 
 volume master {
-  format = "V: %volume"
-  format_muted = "V: muted"
+  format = "♪: %volume"
+  format_muted = "V: mute"
   device = "default"
   mixer = "Master"
   mixer_idx = 0
+  on_click 1 = "exec pianobar-pause"
+  on_click 2 = "exec --no-startup-id /usr/bin/pactl set-sink-mute   @DEFAULT_SINK@ toggle && killall -USR1 py3status"
+  on_click 3 = "exec pianobar-choose-station"
+  on_click 4 = "exec --no-startup-id /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-5%' && killall -USR1 i3status"
+  on_click 5 = "exec --no-startup-id /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+5%' && killall -USR1 i3status"
 }
