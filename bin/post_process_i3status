@@ -5,7 +5,9 @@ require 'json'
 $stdout.sync = false
 
 def egress_ip
-  %x(dig +short myip.opendns.com @resolver1.opendns.com).chomp
+  %x(dig +short myip.opendns.com @resolver1.opendns.com).chomp.tap do |egress|
+    return "n/a" unless $?.success?
+  end
 end
 
 puts STDIN.readline
