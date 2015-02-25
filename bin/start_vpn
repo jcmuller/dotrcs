@@ -9,7 +9,7 @@ vpn=$(echo $vpns | dmenu -p "VPN:" -lines 20 -sep ' ')
 
 if [[ "$vpn" = "$CLOSE_ALL" ]]
 then
-  killall $OPENVPN
+  sudo /usr/bin/killall $OPENVPN
 else
-  $OPENVPN --config ~/Dropbox/vpns/${vpn}.ovpn --auth-user-pass ~/.openvpnrc --auth-nocache
+  sudo $OPENVPN --config ~/Dropbox/vpns/${vpn}.ovpn --auth-user-pass ~/.openvpnrc --auth-nocache
 fi
