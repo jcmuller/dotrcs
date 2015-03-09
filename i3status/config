@@ -4,34 +4,58 @@ general {
   interval = 5
 }
 
-#order += "window_title"
-#order += "weather_yahoo nyc"
+order += "my_weather_yahoo nyc"
+order += "simple_button lock"
+order += "simple_button sleep"
+order += "simple_button modmap"
+order += "egress"
 order += "dpms"
 order += "disk /"
-#order += "run_watch DHCP"
-#order += "run_watch OVPN"
-#order += "path_exists VPN"
 order += "ethernet tun0"
 #order += "wireless wlan0"
 #order += "ethernet eth0"
 order += "battery 0"
 order += "battery 1"
 order += "battery_level"
-order += "cpu_temperature 0"
 order += "load"
-order += "sysdata"
+order += "my_sysdata"
 order += "volume master"
 
-weather_yahoo nyc {
+egress {
+  format = "E: {egress}"
+  color = "ffff00"
+}
+
+disk "/" {
+  format = "/ %free"
+  on_click 1 = "exec thunar /"
+}
+
+simple_button lock {
+  text = "LOCK"
+  on_click 1 = "exec i3lock -d -I2"
+}
+
+simple_button sleep {
+  text = "SLEEP"
+  on_click 1 = "exec --no-startup-id ~/bin/sleep.sh"
+}
+
+simple_button modmap {
+  text = "FIX INPUTS"
+  color = "00DD11"
+  on_click 1 = "exec --no-startup-id xmodmap ~/.xmodmaprc; xinput set-int-prop 'SynPS/2 Synaptics TouchPad' 'Synaptics Tap Action' 8 0 0 0 0 1 3 2"
+}
+
+my_weather_yahoo nyc {
   cache_timeout = 1800
-  request_timeout = 10
-  city_code = "USNY3792"
+  city_code = "10002"
   forecast_days = 2
 }
 
 battery_level {
   format = "Battery: {}"
-  mode = "ascii_bar"
+  mode = "bar"
   on_click 1 = "exec gnome-power-statistics"
 }
 
@@ -54,7 +78,7 @@ ethernet tun0 {
 }
 
 battery 0 {
-  format = "%status %percentage %remaining (%emptytime %consumption)"
+  format = "%status %percentage"
   format_down = "No battery"
   path = "/sys/class/power_supply/BAT%d/uevent"
   low_threshold = 10
@@ -62,7 +86,7 @@ battery 0 {
 }
 
 battery 1 {
-  format = "%status %percentage %remaining (%emptytime %consumption)"
+  format = "%status %percentage %remaining (%consumption)"
   format_down = "No battery"
   path = "/sys/class/power_supply/BAT%d/uevent"
   low_threshold = 10
@@ -73,30 +97,16 @@ battery 1 {
 #   pidfile = "/var/run/dhclient*.pid"
 # }
 
-#run_watch OVPN {
-  #pidfile = "/var/run/openvpn*.pid"
-#}
+# run_watch OVPN {
+#   pidfile = "/var/run/openvpn*.pid"
+# }
 
-#path_exists VPN {
-  #path = "/proc/sys/net/ipv4/conf/tun0"
-#}
-
-tztime local {
-  format = "%a %m/%d/%Y %I:%M%P"
-}
+# path_exists VPN {
+#   path = "/proc/sys/net/ipv4/conf/tun0"
+# }
 
 load {
   format = "%1min %5min %15min"
-}
-
-cpu_temperature 0 {
-  format = "T: %degrees C"
-  path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
-}
-
-disk "/" {
-  format = "/ %free"
-  on_click 1 = "exec thunar /"
 }
 
 volume master {
