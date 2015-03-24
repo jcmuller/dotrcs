@@ -33,7 +33,7 @@ disk "/" {
 
 simple_button lock {
   text = "LOCK"
-  on_click 1 = "exec i3lock -d -I2"
+  on_click 1 = "exec --no-startup-id i3lock -d -e -b -I 2 -c 000000"
 }
 
 simple_button sleep {
