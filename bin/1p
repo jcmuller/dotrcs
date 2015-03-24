@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/wine ~/.wine/drive_c/Program\ Files\ \(x86\)/1Password\ 4/1Password.exe
