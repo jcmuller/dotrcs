@@ -8,11 +8,11 @@ order += "my_weather_yahoo nyc"
 order += "simple_button lock"
 order += "simple_button sleep"
 order += "simple_button modmap"
-order += "egress"
 order += "dpms"
 order += "disk /"
+order += "egress"
 order += "ethernet tun0"
-#order += "wireless wlan0"
+order += "wireless wlan0"
 #order += "ethernet eth0"
 order += "battery 0"
 order += "battery 1"
@@ -60,7 +60,8 @@ battery_level {
 }
 
 wireless wlan0 {
-  format_up = "W: (%quality at %essid, %bitrate) %ip"
+  #format_up = "W: (%quality at %essid, %bitrate) %ip"
+  format_up = "W: %ip (%quality)"
   format_down = "W: down"
 }
 
