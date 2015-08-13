@@ -114,7 +114,6 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Workspaces
-workspace 1 output DVI1
 workspace 1 output DP1
 workspace 2 output eDP1
 workspace 3 output DP1
@@ -124,6 +123,18 @@ workspace 6 output eDP1
 workspace 7 output DP1
 workspace 8 output eDP1
 workspace 9 output DP1
+
+#workspace 1 output HDMI1
+#workspace 3 output HDMI1
+#workspace 5 output HDMI1
+#workspace 7 output HDMI1
+#workspace 9 output HDMI1
+#
+#workspace 1 output DP2
+#workspace 3 output DP2
+#workspace 5 output DP2
+#workspace 7 output DP2
+#workspace 9 output DP2
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -170,6 +181,10 @@ bindsym $mod+p mode "pianobar"
 
 # Floating windows
 for_window [title="^Authy$"] floating enable, border normal
+for_window [title="Mozilla Firefox"]  border normal
+for_window [title="Firefox Developer Edition"]  border 1pixel
+for_window [title="Firefox Preferences"]  floating enable
+for_window [title="About Mozilla Firefox"]  floating enable
 for_window [title="Google Chrome"]    border 1pixel
 for_window [title="Google+ Hangouts"] border 1pixel
 for_window [title="Slack"]            border 1pixel
@@ -178,8 +193,10 @@ for_window [title="^Buddy List$"]  floating enable
 for_window [class="1Password.exe"] floating enable
 for_window [class="shutter"]       floating enable
 
-for_window [title="^pianobar$"] floating enable
+for_window [title="^pianobar$"] floating disable
+for_window [title="^BlueProximity Preferences$"] floating enable
 assign [title="^pianobar$"] 9
+assign [instance="Bojoco - Mozilla Firefox"] 7
 
 # Scratchpad
 bindsym $mod+Shift+n move scratchpad
@@ -207,6 +224,9 @@ bar {
   }
 }
 
+new_window pixel 3
+new_window normal 3
+
 # Bindings
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -216,9 +236,9 @@ bindsym $mod+r exec dmenu_run -p "run:" -levenshtein-sort -lines 20
 bindsym XF86Search exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "app:" -lines 20'
 bindsym $mod+space exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "app:" -lines 20'
 
-bindsym XF86AudioLowerVolume exec --no-startup-id /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-5%' && killall -USR1 py3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+5%' && killall -USR1 py3status
-bindsym XF86AudioMute        exec --no-startup-id /usr/bin/pactl set-sink-mute   @DEFAULT_SINK@ toggle && killall -USR1 py3status
+bindsym XF86AudioLowerVolume exec --no-startup-id /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-1%' && killall -USR1 py3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+1%' && killall -USR1 py3status
+bindsym XF86AudioMute        exec --no-startup-id /usr/bin/pactl set-sink-mute   @DEFAULT_SINK@ toggle   && killall -USR1 py3status
 #bindsym XF86AudioMicMute     exec --no-startup-id /usr/bin/pactl
 
 bindsym XF86AudioPause exec --no-startup-id ~/bin/pianobar-toggle

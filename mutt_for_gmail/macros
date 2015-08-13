@@ -9,8 +9,8 @@ macro index  ,R         "<tag-pattern>~N<enter><tag-prefix><toggle-new><tag-pref
 # Mark tagged messages read
 macro index  ,r         "<tag-prefix><toggle-new><tag-prefix><clear-flag>*"	"mark tagged read"
 
-macro attach,browser		\cv			"|tools/send_to_firefox\n" "Send file to firefox"
-macro attach,browser		\co			"|tools/send_to_openoffice\n" "Send file to OpenOffice.org Writer"
+macro attach,browser		\cv			"|~/.mutt/tools/send_to_firefox\n" "Send file to firefox"
+macro attach,browser		\co			"|~/.mutt/tools/send_to_openoffice\n" "Send file to OpenOffice.org Writer"
 
 
 # Sidebar Control
