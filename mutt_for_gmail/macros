@@ -1,33 +1,35 @@
 # Change tools/ and ~/.mutt to the appropriate directories
 #
 # URL View
-macro pager \cu 		"|urlview\n" 		"Send URL to urlview"
+macro pager \cu "|urlview\n" "Send URL to urlview"
 
 # Mark all new messages read
-macro index  ,R         "<tag-pattern>~N<enter><tag-prefix><toggle-new><tag-prefix><clear-flag>*"	"mark all read"
+macro index ,R "<tag-pattern>~N<enter><tag-prefix><toggle-new><tag-prefix><clear-flag>*"    "mark all read"
 
 # Mark tagged messages read
-macro index  ,r         "<tag-prefix><toggle-new><tag-prefix><clear-flag>*"	"mark tagged read"
+macro index ,r "<tag-prefix><toggle-new><tag-prefix><clear-flag>*"    "mark tagged read"
 
-macro attach,browser		\cv			"|~/.mutt/tools/send_to_firefox\n" "Send file to firefox"
-macro attach,browser		\co			"|~/.mutt/tools/send_to_openoffice\n" "Send file to OpenOffice.org Writer"
+macro attach,browser \cv "|~/.mutt/tools/send_to_firefox\n" "Send file to firefox"
+macro attach,browser \co "|~/.mutt/tools/send_to_openoffice\n" "Send file to OpenOffice.org Writer"
 
+# Delete
+#macro index <Esc>D "<delete-pattern>" "Delete all messages that match..."
 
 # Sidebar Control
 # Vim-like bindings
-macro index,pager 	K			"<sidebar-prev>" "Previous sidebar folder"
-macro index,pager 	J			"<sidebar-next>" "Next sidebar folder"
-macro index,pager	\e<Space>	"<sidebar-open>" "Open sidebar folder"
-macro index,pager	\eo			"<sidebar-open>" "Open sidebar folder"
+macro index,pager K         "<sidebar-prev>" "Previous sidebar folder"
+macro index,pager J         "<sidebar-next>" "Next sidebar folder"
+macro index,pager \e<Space> "<sidebar-open>" "Open sidebar folder"
+macro index,pager \eo       "<sidebar-open>" "Open sidebar folder"
 # Emacs-like bindings
-macro index,pager 	\cP			"<sidebar-prev>" "Previous sidebar folder"
-macro index,pager 	\cN			"<sidebar-next>" "Next sidebar folder"
-macro index,pager	\cO			"<sidebar-open>" "Open sidebar folder"
+macro index,pager \cP       "<sidebar-prev>" "Previous sidebar folder"
+macro index,pager \cN       "<sidebar-next>" "Next sidebar folder"
+macro index,pager \cO       "<sidebar-open>" "Open sidebar folder"
 
-macro index,pager	y			"<change-folder>?<toggle-mailboxes>"
+macro index,pager y "<change-folder>?<toggle-mailboxes>"
 
 ### SPAM handlers
-macro index,pager 	\cb 		"<pipe-message>sa-learn --spam --no-sync<enter>s=.Junk\n"	"learn this message as spam"
-macro index,pager 	\cg 		"<pipe-message>sa-learn --ham --no-sync<enter>s="			"learn this message as not spam"
+macro index,pager \cb "<pipe-message>sa-learn --spam --no-sync<enter>s=.Junk\n"    "learn this message as spam"
+macro index,pager \cg "<pipe-message>sa-learn --ham --no-sync<enter>s="            "learn this message as not spam"
 
 # vim:set ft=muttrc:
