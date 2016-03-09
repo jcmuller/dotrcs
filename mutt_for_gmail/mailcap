@@ -1,21 +1,24 @@
 # Install at ~/.mailcap
 
-text/html; elinks -dump -dump-charset iso-8859-1 -default-mime-type text/html %s; needsterminal; copiousoutput;
-#text/html; echo && /usr/bin/w3m -dump %s; nametemplate=%s.html; copiousoutput
-#text/html; /usr/bin/lynx -force_html -vikeys %s
-application/vnd.ms-excel; /usr/bin/ooffice %s
-application/vnd.openxmlformats-officedocument.wordprocessingml.document; /usr/bin/ooffice %s
-application/msexcel; /usr/bin/ooffice %s
-application/vnd.ms-powerpoint; /usr/bin/ooffice %s
+application/msexcel; /usr/bin/wvWare %s | /usr/bin/elinks -dump; copiousoutput
 application/msword; /usr/bin/wvWare %s | /usr/bin/elinks -dump; copiousoutput
+#application/pdf; /usr/bin/evince %s
 application/pdf; /usr/bin/evince %s
 application/postscript ; evince %s
-application/zip; /usr/bin/unzip -l %s; copiousoutput
-application/rar; /usr/bin/unrar l %s; copiousoutput
-image/psd; /usr/bin/gimp %s; 
-image/*; /usr/bin/eog %s; test=test -n "$DISPLAY"
-#image/*; /usr/bin/display %s; test=test -n "$DISPLAY"
 application/psd; gimp %s
+application/rar; /usr/bin/unrar l %s; copiousoutput
+application/vnd.ms-excel; /usr/bin/wvWare %s | /usr/bin/elinks -dump; copiousoutput
+application/vnd.ms-powerpoint; /usr/bin/wvWare %s | /usr/bin/elinks -dump; copiousoutput
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; /usr/bin/wvWare %s | /usr/bin/elinks -dump; copiousoutput
+#application/vnd.openxmlformats-officedocument.wordprocessingml.document; /usr/bin/ooffice %s
+application/zip; /usr/bin/unzip -l %s; copiousoutput
 audio/*; mplayer %s
+image/psd; /usr/bin/gimp %s; 
+#image/*; /usr/bin/display %s; test=test -n "$DISPLAY"
+#image/*; /usr/bin/eog %s; test=test -n "$DISPLAY"
+#image/*; /usr/bin/mirage %s; test=test -n "$DISPLAY"
+image/*; /usr/bin/eog %s; test=test -n "$DISPLAY"
+#text/html; echo && /usr/bin/w3m -dump %s; nametemplate=%s.html; copiousoutput
+text/html; elinks -dump -dump-charset iso-8859-1 -default-mime-type text/html %s; needsterminal; copiousoutput;
+#text/html; /usr/bin/lynx -force_html -vikeys %s
 video/*; mplayer %s
-
