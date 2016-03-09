@@ -28,7 +28,6 @@ apps/*Examples/**/*.xcodeproj
 config.json
 custom_plan.rb
 erd.pdf
-errors
 fse-out.log
 nohup.out
 platform-rails3.2
