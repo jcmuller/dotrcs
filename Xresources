@@ -57,3 +57,4 @@ rofi.bordercolor: #277
 rofi.padding:     3
 rofi.lines:       5
 rofi.borderwidth: 3
+rofi.levenshtein-sort: true
