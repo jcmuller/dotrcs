@@ -1,76 +1,90 @@
 # Change tools/ and ~/.mutt to the appropriate directories
 #
 # Local folder
-set mbox_type=Maildir
-set folder=~/mail
+set mbox_type = Maildir
+set folder    = ~/Mail
+#macro index,pager c
 
-set check_new=yes
+set check_new = yes
 
 # Browser sort
-set sort=threads
-set sort_browser=reverse-date 	# showing mbox list default to newest first
-set sort_aux=reverse-last-date-received
-								# showing threads with youngest message last
-set abort_nosubject=ask-no		# Abort, if message has no subject.
-set abort_unmodified=ask-yes	# Abort, if message wasn't edited.
-set beep=yes					# Beep on errors
-set beep_new=yes				# Beep on new messages
-set collapse_unread=no			# Don't collapse threads with unread messages
-set delete=yes					# Don't ask for confirmation when deleting messages
-set fast_reply=yes				# Start editing message on reply, group reply and forward
-set honor_followup_to=yes		# Ask whether to honor Mail-Followup-To header
-set include=yes					# quote message, when replying
-set markers=no 					# don't put '+' at the beginning of wrapped lines
-set mark_old=no 				# when leaving a box don't mark new messages old
-set mime_forward=ask-no			# use MIME when forwarding mails.
-set move=no 					# Don't move read messages to mbox !very important
-set pager_context=5 			# when scrolling, how many lines stay?
-set pager_index_lines=6 		# how large is the index window?
-set pager_stop=yes 				# don't flip messages
-set tilde						# pad bottom of screen with ~
-set postpone=ask-no				# ask for postponing when doing an Abort.
-set print=ask-yes				# ask whether you really want to print.
-set print_command="enscript -Email -G -fTimes-Roman12"
-set print_split=yes				# Issue a print command per message, instead of just \n in between
-set quit=ask-no					# ask before quitting.
-set read_inc=10 				# while reading mbox, count message every X
-set recall=ask-no				# ask for using postponed message.
-set simple_search="~f %s | ~t %s | ~s %s"
-set strict_threads=yes			# dont try to create threads by subject line
-set suspend=no					# Don't suspend on ^z
-set mask="!dove|cur|new|tmp|subscription" # mailbox list mask
-set folder_format="%d %8s %N %f"
+set abort_nosubject   = ask-no                               # Abort, if message has no subject.
+set abort_unmodified  = ask-yes                              # Abort, if message wasn't edited.
+set beep_new          = yes                                  # Beep on new messages
+set beep              = yes                                  # Beep on errors
+set collapse_unread   = no                                   # Don't collapse threads with unread messages
+set confirmappend     = yes
+set delete            = yes                                  # Don't ask for confirmation when deleting messages
+set fast_reply        = yes                                  # Start editing message on reply, group reply and forward
+set folder_format     = "%N %f"                       # date ...
+#set folder_format     = "%d %8s %N %f"                       # date ...
+set header_cache      = "~/.mutt/cache"
+set indent_string     = "> "
+#set index_format      = "%-30.30L%3M %-33.33s %[%m/%d %k:%M] [%Z]%5c"
+set index_format      = "%[%m/%d %k:%M] [%Z]%5c %-20.20L%3M %s"
+set honor_followup_to = yes                                  # Ask whether to honor Mail-Followup-To header
+set include           = yes                                  # quote message, when replying
+set markers           = no                                   # don't put '+' at the beginning of wrapped lines
+set mark_old          = no                                   # when leaving a box don't mark new messages old
+set mask              = "!dove|cur|new|tmp|subscription"     # mailbox list mask
+set menu_scroll       = yes
+set mime_forward      = ask-no                               # use MIME when forwarding mails.
+set move              = no                                   # Don't move read messages to mbox !very important
+set pager_context     = 5                                    # when scrolling, how many lines stay?
+set pager_index_lines = 6                                    # how large is the index window?
+set pager_stop        = yes                                  # don't flip messages
+set postpone          = ask-no                               # ask for postponing when doing an Abort.
+set print             = ask-yes                              # ask whether you really want to print.
+set print_command     = "enscript -Email -G -fTimes-Roman12"
+set print_split       = yes                                  # Issue a print command per message, instead of just \n in between
+set quit              = ask-no                               # ask before quitting.
+set read_inc          = 10                                   # while reading mbox, count message every X
+set recall            = ask-no                               # ask for using postponed message.
+set sidebar_width     = 18
+set simple_search     = "~f %s | ~t %s | ~s %s"
+set smart_wrap        = yes
+set sort_aux          = reverse-last-date-received           # showing threads with youngest message last
+set sort_browser      = reverse-date                         # showing mbox list default to newest first
+set sort              = threads
+set strict_threads    = yes                                  # dont try to create threads by subject line
+set suspend           = no                                   # Don't suspend on ^z
+set tilde                                          # pad bottom of screen with ~
 
 #In which order to show the body parts
 alternative_order text/enriched text/plain text text/html application/postscript image/*
 
 # Headers
-ignore *
-unignore Date: From: To: CC: Bcc: Subject: X-Mailer X-OS User-Agent Organization X-Organization
+ignore    *
+unignore  Date: From: To: CC: Bcc: Subject: X-Mailer X-OS User-Agent Organization X-Organization
 hdr_order Subject: Date: From: To: CC: Bcc:
 
-set index_format="%-30.30L%3M %-33.33s %[%m/%d %k:%M] [%Z]%5c"
-
 # Composing Mail
-set editor="~/.mutt/tools/truncate_mail.pl %s; vim -c 'set tw=70 ft=mail noautoindent nocindent nosmartindent expandtab nonumber' %s"
-set markers=no
-set include=yes
-set forward_format="Fwd: %s"
-set folder_format="%F %-8.8u %-8.8g %d %8s %N %f"
+set editor         = "~/.mutt/tools/truncate_mail.pl %s; vim -c 'set tw=70 ft=mail noautoindent nocindent nosmartindent expandtab nonumber' %s"
+set markers        = no
+set include        = yes
+set forward_format = "Fwd: %s"
+set folder_format  = "%F %-8.8u %-8.8g %d %8s %N %f"
+set forward_quote
 
 # Sending Mail
-set copy=yes
+set copy = yes
 
 # View special formats
-set mailcap_path=~/.mutt/mailcap
+set mailcap_path = ~/.mutt/mailcap
 auto_view text/html
 
 # External address book
-set query_command="abook --mutt-query '%s'"
+set query_command = "abook --mutt-query '%s'"
 macro generic,index,pager \ca "<shell-escape>abook<return>" "launch abook"
 macro index,pager A "<pipe-message>abook --add-email<return>" "add the sender address to abook"
 
 # Profiles
-folder-hook .			'unmy_hdr Subject: Bcc: To:'
-folder-hook . 			'exec collapse-all'
+folder-hook . 'unmy_hdr Subject: Bcc: To:'
+folder-hook . 'exec collapse-all'
 
+set alias_file = ~/.mutt/alias
+set sort_alias = alias
+set reverse_alias = yes
+source $alias_file
+
+folder-hook . my_hdr X-OS: `uname -mnrs`
