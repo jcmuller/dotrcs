@@ -65,6 +65,12 @@ iptables -A FORWARD -p tcp --dport 80 -i docker0 -j ACCEPT
 iptables -A FORWARD -p tcp --sport 80 -o docker0 -j ACCEPT
 iptables -A FORWARD -p tcp --dport 443 -i docker0 -j ACCEPT
 iptables -A FORWARD -p tcp --sport 443 -o docker0 -j ACCEPT
+iptables -A FORWARD -p tcp --dport 9418 -i docker0 -j ACCEPT
+iptables -A FORWARD -p tcp --sport 9418 -o docker0 -j ACCEPT
+
+iptables -A OUTPUT -p tcp --dport 6379 -o docker0 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 5432 -o docker0 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 11211 -o docker0 -j ACCEPT
 
 # stupid matrix server
 iptables -A OUTPUT -p tcp --dport 5582 -d 54.243.48.167 -j ACCEPT
