@@ -36,10 +36,10 @@ iptables -P FORWARD DROP
 iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 
-iptables -A INPUT   -m limit --limit 5/min -j LOG --log-prefix "[INPUT] iptables monitoring: "
-iptables -A OUTPUT  -m limit --limit 5/min -j LOG --log-prefix "[OUTPUT] iptables monitoring: "
-iptables -A FORWARD -m limit --limit 5/min -j LOG --log-prefix "[FORWARD] iptables monitoring: "
-iptables -A DOCKER -m limit --limit 5/min -j LOG --log-prefix "[DOCKER] iptables monitoring: "
+iptables -A INPUT            -m limit --limit 5/min -j LOG --log-prefix "[INPUT] iptables monitoring: "
+iptables -A OUTPUT           -m limit --limit 5/min -j LOG --log-prefix "[OUTPUT] iptables monitoring: "
+iptables -A FORWARD          -m limit --limit 5/min -j LOG --log-prefix "[FORWARD] iptables monitoring: "
+iptables -A DOCKER           -m limit --limit 5/min -j LOG --log-prefix "[DOCKER] iptables monitoring: "
 iptables -A DOCKER-ISOLATION -m limit --limit 5/min -j LOG --log-prefix "[DOCKER-ISOLATION] iptables monitoring: "
 
 # Allow outbound connections on the ports we previously decided.
