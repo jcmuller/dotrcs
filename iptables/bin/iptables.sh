@@ -36,15 +36,18 @@ iptables -P FORWARD DROP
 iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 
-iptables -A INPUT            -m limit --limit 5/min -j LOG --log-prefix "[INPUT] iptables monitoring: "
-iptables -A OUTPUT           -m limit --limit 5/min -j LOG --log-prefix "[OUTPUT] iptables monitoring: "
-iptables -A FORWARD          -m limit --limit 5/min -j LOG --log-prefix "[FORWARD] iptables monitoring: "
-iptables -A DOCKER           -m limit --limit 5/min -j LOG --log-prefix "[DOCKER] iptables monitoring: "
-iptables -A DOCKER-ISOLATION -m limit --limit 5/min -j LOG --log-prefix "[DOCKER-ISOLATION] iptables monitoring: "
+#iptables -A INPUT            -m limit --limit 10/min -j LOG --log-prefix "[INPUT] iptables monitoring: "
+#iptables -A OUTPUT           -m limit --limit 10/min -j LOG --log-prefix "[OUTPUT] iptables monitoring: "
+#iptables -A FORWARD          -m limit --limit 10/min -j LOG --log-prefix "[FORWARD] iptables monitoring: "
+#iptables -A DOCKER           -m limit --limit 10/min -j LOG --log-prefix "[DOCKER] iptables monitoring: "
+#iptables -A DOCKER-ISOLATION -m limit --limit 10/min -j LOG --log-prefix "[DOCKER-ISOLATION] iptables monitoring: "
 
 # Allow outbound connections on the ports we previously decided.
 iptables -A OUTPUT -p tcp --dport 22 -j ACCEPT # SSH
 iptables -A OUTPUT -p tcp --dport 25 -j ACCEPT # SMTP
+iptables -A OUTPUT -p tcp --dport 465 -j ACCEPT # SMTP
+iptables -A OUTPUT -p tcp --dport 587 -j ACCEPT # SMTP
+iptables -A OUTPUT -p tcp --dport 43 -j ACCEPT # Whois
 iptables -A OUTPUT -p tcp --dport 53 -j ACCEPT # DNS
 iptables -A OUTPUT -p udp --dport 53 -j ACCEPT # DNS
 iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT # HTTP
@@ -53,6 +56,8 @@ iptables -A OUTPUT -p udp --dport 123 -j ACCEPT # NTP
 iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT # HTTPS
 iptables -A OUTPUT -p udp --dport 67:68 -j ACCEPT # DHCP
 iptables -A OUTPUT -p tcp --dport 6969 -j ACCEPT # BT tracker
+iptables -A OUTPUT -p tcp --dport 6881:6880 -j ACCEPT # BT tracker
+iptables -A OUTPUT -p udp --dport 6881:6880 -j ACCEPT # BT tracker
 iptables -A OUTPUT -p udp --dport 51413 -j ACCEPT # BT
 iptables -A OUTPUT -p tcp --dport 51413 -j ACCEPT # BT
 iptables -A OUTPUT -p tcp --dport 8983 -j ACCEPT # SOLR
@@ -71,13 +76,24 @@ iptables -A FORWARD -p tcp --sport 9418 -o docker0 -j ACCEPT
 iptables -A OUTPUT -p tcp --dport 6379 -o docker0 -j ACCEPT
 iptables -A OUTPUT -p tcp --dport 5432 -o docker0 -j ACCEPT
 iptables -A OUTPUT -p tcp --dport 11211 -o docker0 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 143 -o docker0 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 25 -o docker0 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 465 -o docker0 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 587 -o docker0 -j ACCEPT
+
+#iptables -A INPUT -p tcp -i docker0 --dport 25432 -j ACCEPT
+#iptables -A OUTPUT -p tcp -o docker0 --sport 25432 -j ACCEPT
+iptables -A FORWARD -p tcp --dport 5432 -j ACCEPT # Linked PG container
+iptables -A FORWARD -p tcp --sport 5432 -j ACCEPT # Linked PG container
+iptables -A FORWARD -p tcp --sport 143 -j ACCEPT # Linked imap container
+iptables -A FORWARD -p tcp --dport 143 -j ACCEPT # Linked imap container
+
 
 # stupid matrix server
 iptables -A OUTPUT -p tcp --dport 5582 -d 54.243.48.167 -j ACCEPT
 
 # Printing
 iptables -A OUTPUT -p tcp --dport 631 -j ACCEPT
-
 
 # Dropbox
 iptables -A INPUT -p tcp --dport 17500:17501 -j DROP
@@ -138,6 +154,9 @@ iptables -A INPUT -p udp -d 192.168.1.255 --dport 8612 -j DROP
 # LG TV
 iptables -A INPUT -p udp --dport 9956 -j DROP
 
+# rack apps
+iptables -A INPUT -p tcp --dport 9292 -j ACCEPT
+
 # Allow any traffic to the VPN
 iptables -A OUTPUT -o tun0 -j ACCEPT
 iptables -A OUTPUT -o tun1 -j ACCEPT
@@ -162,11 +181,11 @@ iptables -A OUTPUT -j LOGOUTPUT
 iptables -A DOCKER -j LOGDOCKER
 iptables -A DOCKER-ISOLATION -j LOGDOCKER-ISOLATION
 
-iptables -A LOGINPUT            -m limit --limit 5/min -j LOG --log-prefix "[INPUT] iptables denied: "
-iptables -A LOGOUTPUT           -m limit --limit 5/min -j LOG --log-prefix "[OUTPUT] iptables denied: "
-iptables -A LOGFORWARD          -m limit --limit 5/min -j LOG --log-prefix "[FORWARD] iptables denied: "
-iptables -A LOGDOCKER           -m limit --limit 5/min -j LOG --log-prefix "[DOCKER] iptables denied: "
-iptables -A LOGDOCKER-ISOLATION -m limit --limit 5/min -j LOG --log-prefix "[DOCKER-ISOLATION] iptables denied: "
+iptables -A LOGINPUT            -m limit --limit 10/min -j LOG --log-prefix "[INPUT] iptables denied: "
+iptables -A LOGOUTPUT           -m limit --limit 10/min -j LOG --log-prefix "[OUTPUT] iptables denied: "
+iptables -A LOGFORWARD          -m limit --limit 10/min -j LOG --log-prefix "[FORWARD] iptables denied: "
+iptables -A LOGDOCKER           -m limit --limit 10/min -j LOG --log-prefix "[DOCKER] iptables denied: "
+iptables -A LOGDOCKER-ISOLATION -m limit --limit 10/min -j LOG --log-prefix "[DOCKER-ISOLATION] iptables denied: "
 
 iptables -A LOGINPUT -j DROP
 iptables -A LOGOUTPUT -j DROP
