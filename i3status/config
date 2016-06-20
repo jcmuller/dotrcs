@@ -10,26 +10,46 @@ order += "simple_button sleep"
 order += "simple_button modmap"
 order += "dpms"
 order += "disk /"
+order += "disk /home"
+order += "disk /var/lib/data"
 order += "egress"
+order += "ethernet enp0s25"
+order += "wireless _first_"
 order += "ethernet tun0"
-order += "wireless wlan0"
-#order += "ethernet eth0"
+order += "ethernet tun1"
 order += "battery 0"
 order += "battery 1"
 #order += "battery_level"
 order += "load"
 order += "my_sysdata"
 order += "volume master"
-#order += "time"
+#order += "file /var/log/Xorg.0.log"
+order += "tztime new_york"
 
 egress {
-  format = "E: {egress}"
+  format = "Eg: {egress}"
   color = "ffff00"
 }
 
 disk "/" {
-  format = "/ %free"
+  low_threshold = 10
+  threshold_type: "percentage_free"
+  format = "%percentage_used /"
   on_click 1 = "exec thunar /"
+}
+
+disk "/home" {
+  low_threshold = 10
+  threshold_type: "percentage_free"
+  format = "%percentage_used home"
+  on_click 1 = "exec thunar /home/jcmuller"
+}
+
+disk "/var/lib/data" {
+  low_threshold = 10
+  threshold_type: "percentage_free"
+  format = "%percentage_used docker"
+  on_click 1 = "exec thunar /var/lib/data"
 }
 
 simple_button lock {
@@ -60,22 +80,29 @@ battery_level {
   on_click 1 = "exec gnome-power-statistics"
 }
 
-wireless wlan0 {
+wireless _first_ {
   #format_up = "W: (%quality at %essid, %bitrate) %ip"
   format_up = "W: %ip (%quality)"
   format_down = "W: down"
 }
 
-ethernet eth0 {
+ethernet enp0s25 {
   # if you use %speed, i3status requires the cap_net_admin capability
-  format_up = "E: %ip (%speed)"
+  format_up = "E: %ip"
   format_down = "E: down"
 }
 
 ethernet tun0 {
   # if you use %speed, i3status requires the cap_net_admin capability
-  format_up = "VPN"
-  format_down = "VPN"
+  format_up = "VS: %ip"
+  format_down = "VPN S"
+  on_click 1 = "exec --no-startup-id start_vpn"
+}
+
+ethernet tun1 {
+  # if you use %speed, i3status requires the cap_net_admin capability
+  format_up = "VP: %ip"
+  format_down = "VPN P"
   on_click 1 = "exec --no-startup-id start_vpn"
 }
 
@@ -123,4 +150,19 @@ volume master {
   on_click 3 = "exec pianobar-choose-station"
   on_click 4 = "exec --no-startup-id /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-5%' && killall -USR1 i3status"
   on_click 5 = "exec --no-startup-id /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+5%' && killall -USR1 i3status"
+}
+
+# file /var/log/Xorg.0.log {
+#   format = "[%mtime] %contents (%mtime_diff ago)"
+#   mtime_format = "%a %H:%M:%S"
+#   line = -2
+#   skip = 10
+#   limit = 20
+# }
+
+tztime new_york {
+  format = "%time|"
+  format_time = "%a %m/%d %I:%M:%S %p"
+  on_click 1 = "exec xclock -fg black -bg white -hd red -update 1 -geometry 300x300"
+  on_click 2 = "exec xclock -padding 15 -digital -face "Terminus-11" -strftime "%a %m/%d %H:%M:%S%P" -update 1"
 }
