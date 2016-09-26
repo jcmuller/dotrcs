@@ -4,17 +4,14 @@
 [core]
   excludesfile = /home/jcmuller/.gitignore
   quotepath = false
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
+[difftool]
+  prompt = false
+[diff]
+  tool = vimdiff2
 [merge]
-  tool = vimdiff
-  #tool = /usr/local/bin/mvimdiff
+  tool = vimdiff2
 [mergetool]
   prompt = false
-[mergetool "sourcetree"]
-  cmd = /Applications/Testing/Git Clients/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
 [help]
   autocorrect = 1
 [color]
