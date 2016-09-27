@@ -22,7 +22,7 @@
   token = TOKEN
   prq-token = TOKEN
 [url "git@github.com:"]
-  insteadOf = "gh:"
+	insteadOf = https://github.com/
 [push]
   default = current
 [init]
