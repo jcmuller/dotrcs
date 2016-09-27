@@ -4,7 +4,7 @@ general {
   interval = 5
 }
 
-order += "my_weather_yahoo nyc"
+#order += "my_weather_yahoo nyc"
 order += "simple_button lock"
 order += "simple_button sleep"
 order += "simple_button modmap"

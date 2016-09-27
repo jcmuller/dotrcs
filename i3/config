@@ -209,6 +209,7 @@ for_window [title="Chromium"] border pixel
 for_window [title="Firefox Developer Edition"]  border pixel
 for_window [title="Firefox Preferences"]  floating enable
 #for_window [title="Google+ Hangouts is sharing your screen"] floating enable
+for_window [title="Hangouts"] floating disable
 for_window [title="Hangouts"] border pixel
 for_window [title="Mozilla Firefox"]  border normal
 for_window [title="^pianobar$"] floating disable
@@ -217,8 +218,19 @@ for_window [title="Screen Layout Editor"] floating enable
 for_window [title="Slack"]    border pixel
 for_window [title="oclock"] border none, floating enable, sticky enable
 for_window [title="xclock"] border none, floating enable, sticky enable
+for_window [title="Oracle VM VirtualBox"] floating enable
 
 assign [title="^pianobar$"] 9
+
+assign [title="Greenhouse - Mozilla Firefox"] 7
+
+assign [title="juan@greenhouse.io - Greenhouse Mail"] workspace 4
+assign [title="jcmuller@gmail.com - Gmail"] workspace 4
+assign [title="Google Calendar - "] workspace 4
+assign [title="Greenhouse - Calendar - "] workspace 4
+
+assign [title="Greenhouse Slack"] workspace 2
+assign [title="Hangouts"] workspace 2
 
 # Scratchpad
 bindsym $mod+Shift+n move scratchpad
@@ -311,6 +323,8 @@ exec --no-startup-id clipit
 #exec --no-startup-id rofi -levenshtein-sort -switchers "app:app-switcher,run,ssh,window,workspace:i3_switch_workspace.sh,station:pianobar-rofi-station-switcher" -lines 20 -key-app Mod4+space -key-run Mod4+r -key-workspace Mod4+s -key-window Mod4+Tab -key-station Shift+Alt+c
 #exec --no-startup-id dunst.sh
 exec --no-startup-id gnome-terminal --name pianobar -e "tmuxinator start music"
+
+exec --no-startup-id ibus-daemon
 
 exec --no-startup-id dex -ae i3
 
