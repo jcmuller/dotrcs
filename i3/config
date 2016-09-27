@@ -184,6 +184,20 @@ mode "pianobar" {
 
 bindsym $mod+p mode "pianobar"
 
+mode "spotify" {
+  bindsym n exec --no-startup-id ~/bin/sp next
+  bindsym p exec --no-startup-id ~/bin/sp play
+  bindsym Shift+p exec --no-startup-id ~/bin/sp prev
+  bindsym a exec --no-startup-id ~/bin/vol.sh down
+  bindsym s exec --no-startup-id ~/bin/vol.sh up
+  bindsym d exec --no-startup-id ~/bin/vol.sh mute
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+p mode "spotify"
+
 # Floating windows and window decorations
 for_window [class="1Password.exe"] floating enable
 for_window [class="shutter"]       floating enable
