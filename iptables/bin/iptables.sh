@@ -44,6 +44,7 @@ iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 
 # Allow outbound connections on the ports we previously decided.
 iptables -A OUTPUT -p tcp --dport 22 -j ACCEPT # SSH
+iptables -A OUTPUT -p tcp --dport 2222 -j ACCEPT # SSH
 iptables -A OUTPUT -p tcp --dport 25 -j ACCEPT # SMTP
 iptables -A OUTPUT -p tcp --dport 465 -j ACCEPT # SMTP
 iptables -A OUTPUT -p tcp --dport 587 -j ACCEPT # SMTP
@@ -54,6 +55,7 @@ iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT # HTTP
 iptables -A OUTPUT -p tcp --dport 110 -j ACCEPT # POP
 iptables -A OUTPUT -p udp --dport 123 -j ACCEPT # NTP
 iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT # HTTPS
+iptables -A OUTPUT -p tcp --dport 8443 -j ACCEPT # HTTPS
 iptables -A OUTPUT -p udp --dport 67:68 -j ACCEPT # DHCP
 iptables -A OUTPUT -p tcp --dport 6969 -j ACCEPT # BT tracker
 iptables -A OUTPUT -p tcp --dport 6881:6880 -j ACCEPT # BT tracker
@@ -62,6 +64,9 @@ iptables -A OUTPUT -p udp --dport 51413 -j ACCEPT # BT
 iptables -A OUTPUT -p tcp --dport 51413 -j ACCEPT # BT
 iptables -A OUTPUT -p tcp --dport 8983 -j ACCEPT # SOLR
 iptables -A OUTPUT -p tcp --dport 8984 -j ACCEPT # SOLR
+iptables -A OUTPUT -p tcp --dport 1880 -j ACCEPT # Node Red
+iptables -A OUTPUT -p tcp --dport 8080 -j ACCEPT # Node Red
+iptables -A OUTPUT -p udp --dport 57621 -j ACCEPT # Spotify
 
 # DOCKER
 iptables -A FORWARD -p udp --dport 53 -i docker0 -j ACCEPT
