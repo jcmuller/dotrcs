@@ -138,6 +138,7 @@ if __name__ == "__main__":
     from time import sleep
     x = Py3status()
     while True:
-        print(x.cpuInfo([], {}))
-        print(x.ramInfo([], {}))
+        config = {'color_good':'faa'}
+        print(x.cpuInfo([], config))
+        print(x.ramInfo([], config))
         sleep(1)

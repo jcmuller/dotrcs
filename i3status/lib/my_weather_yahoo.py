@@ -18,7 +18,7 @@ class Py3status:
 
     # available configuration parameters
     cache_timeout = 1800
-    city_code = 'FRXX0076'
+    city_code = '10002'
     forecast_days = 3
     request_timeout = 10
 
