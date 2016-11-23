@@ -229,8 +229,8 @@ assign [title="jcmuller@gmail.com - Gmail"] workspace 4
 assign [title="Google Calendar - "] workspace 4
 assign [title="Greenhouse - Calendar - "] workspace 4
 
-assign [title="Greenhouse Slack"] workspace 2
-assign [title="Hangouts"] workspace 2
+#assign [title="Greenhouse Slack"] workspace 2
+#assign [title="Hangouts"] workspace 2
 
 # Scratchpad
 bindsym $mod+Shift+n move scratchpad
@@ -268,6 +268,7 @@ new_window normal 3
 # bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+Return exec xterm
 bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Shift+Return exec gnome-terminal --profile "Tomorrow - Ubuntu Mono"
 
 #bindsym $mod+r exec dmenu_run -p "run:" -levenshtein-sort -lines 20
 
@@ -280,6 +281,7 @@ bindsym $mod+r       exec --no-startup-id rofi.sh run
 bindsym $mod+Tab     exec --no-startup-id rofi.sh window
 bindsym $mod+s       exec --no-startup-id rofi.sh workspace
 bindsym Mod1+Shift+c exec --no-startup-id rofi.sh station
+bindsym $mod+g       exec --no-startup-id rofi-surfraw
 
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/bin/vol.sh down
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/vol.sh up
@@ -292,19 +294,19 @@ bindsym XF86AudioStop  exec --no-startup-id ~/bin/pianobar-pause
 bindsym XF86AudioNext  exec --no-startup-id ~/bin/pianobar-next
 bindsym XF86AudioPrev  exec --no-startup-id ~/bin/pianobar-choose-station
 
-bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+bindsym XF86MonBrightnessUp   exec --no-startup-id ~/bin/backlight.sh up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/backlight.sh down
 
 # F7
 #bindsym XF86Display    exec --no-startup-id
 # F11
-bindsym XF86LaunchA    exec --no-startup-id i3lock -d -e -b -I 10 -c 000000
+#bindsym XF86LaunchA    exec --no-startup-id i3lock -d -e -b -I 10 -c 000000
 # F12
-bindsym XF86MyComputer exec --no-startup-id rofi -levenshtein-sort -switchers "workspaces:i3_switch_workspace.sh" -show workspaces -lines 20
+#bindsym XF86MyComputer exec --no-startup-id rofi -levenshtein-sort -switchers "workspaces:i3_switch_workspace.sh" -show workspaces -lines 20
 
 # bindsym XF86PowerOff   exec --no-startup-id ~/bin/sleep.sh
 # F9
-bindsym XF86Tools      exec --no-startup-id thunar
+# bindsym XF86Tools      exec --no-startup-id thunar
 
 bindsym $mod+Shift+v exec --no-startup-id ~/bin/start_vpn
 
@@ -322,13 +324,12 @@ exec --no-startup-id clipit
 #exec --no-startup-id ghdropbox start
 #exec --no-startup-id rofi -levenshtein-sort -switchers "app:app-switcher,run,ssh,window,workspace:i3_switch_workspace.sh,station:pianobar-rofi-station-switcher" -lines 20 -key-app Mod4+space -key-run Mod4+r -key-workspace Mod4+s -key-window Mod4+Tab -key-station Shift+Alt+c
 #exec --no-startup-id dunst.sh
-exec --no-startup-id gnome-terminal --name pianobar -e "tmuxinator start music"
 
 exec --no-startup-id ibus-daemon
 
 exec --no-startup-id dex -ae i3
 
-#exec --no-startup-id ~/bin/fix_inputs
+exec --no-startup-id ~/bin/fix_inputs
 
 #bindsym Mod1+Shift+c exec --no-startup-id pianobar-choose-station
 
