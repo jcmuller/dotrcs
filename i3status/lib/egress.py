@@ -2,6 +2,7 @@
 
 from time import time
 import dns.resolver
+import dns.exception
 
 class Py3status:
     """
@@ -20,15 +21,22 @@ class Py3status:
         resolver = dns.resolver.Resolver()
         # resolver1.opendns.com
         resolver.nameservers = ['208.67.222.222']
-        answer = resolver.query('myip.opendns.com')[0]
+        answer = ""
 
-        response = {
+        try:
+            answer = resolver.query('myip.opendns.com')[0]
+        except dns.exception.Timeout:
+            return {
+                    'cached_until': time(),
+                    'full_text': self.format.format(egress="n/a"),
+                    'color': 'ff0000'
+            }
+
+        return {
                 'cached_until': time() + self.cached_timeout,
                 'full_text': self.format.format(egress=str(answer)),
                 'color': self.color
                 }
-        return response
-
 
 if __name__ == '__main__':
     '''
