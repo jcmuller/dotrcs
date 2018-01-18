@@ -2,54 +2,94 @@ general {
   output_format = "i3bar"
   colors = true
   interval = 5
+  separator = true
 }
 
-#order += "my_weather_yahoo nyc"
+order += "simple_button wp"
+order += "simple_button undock"
+order += "simple_button at_office"
+order += "simple_button at_home"
 order += "simple_button lock"
 order += "simple_button sleep"
 order += "simple_button modmap"
+order += "backlight"
+order += "battery_level 0"
+order += "battery_level 1"
+#order += "bluetooth"
+order += "weather_yahoo"
+order += "do_not_disturb"
 order += "dpms"
-order += "disk /"
-order += "disk /home"
-order += "disk /var/lib/data"
+order += "diskdata /"
 order += "egress"
-order += "ethernet enp0s25"
-order += "wireless _first_"
+order += "ethernet enp0s31f6"
+order += "wireless wlp4s0"
 order += "ethernet tun0"
 order += "ethernet tun1"
-order += "battery 0"
-order += "battery 1"
-#order += "battery_level"
+order += "ethernet tun2"
+#order += "openvpn 1"
+#order += "battery 0"
+#order += "battery 1"
 order += "load"
 order += "my_sysdata"
 order += "volume master"
 #order += "file /var/log/Xorg.0.log"
-order += "tztime new_york"
+#order += "xsel"
+#order += "xrandr"
+order += "tztime UTC"
+order += "tztime local"
+
+battery_level 0 {
+  battery_id = 0
+}
+
+battery_level 1 {
+  battery_id = 1
+}
+
+dpms {
+  icon_off = "DPMS OFF"
+  icon_on = "DPMS ON"
+}
+
+do_not_disturb {
+  state_on = "DND"
+  state_off = "DND OFF"
+}
 
 egress {
   format = "Eg: {egress}"
   color = "ffff00"
 }
 
-disk "/" {
+diskdata "/" {
+  disk = "/dev/mapper/ubuntu--vg-root"
   low_threshold = 10
-  threshold_type: "percentage_free"
-  format = "%percentage_used /"
+  threshold_type = "percentage_free"
+  format = "/: {used_percent}%"
   on_click 1 = "exec thunar /"
 }
 
-disk "/home" {
-  low_threshold = 10
-  threshold_type: "percentage_free"
-  format = "%percentage_used home"
-  on_click 1 = "exec thunar /home/jcmuller"
+simple_button wp {
+  text = "RND WP"
+  on_click 1 = "exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/"
 }
 
-disk "/var/lib/data" {
-  low_threshold = 10
-  threshold_type: "percentage_free"
-  format = "%percentage_used docker"
-  on_click 1 = "exec thunar /var/lib/data"
+simple_button undock {
+  text = "UNDOCK"
+  color = "ff0000"
+  on_click 1 = "exec --no-startup-id ~/bin/undock.sh"
+}
+
+simple_button at_office {
+  text = "AT OFFICE"
+  color = "ff00ff"
+  on_click 1 = "exec --no-startup-id ~/bin/at_office.sh"
+}
+
+simple_button at_home {
+  text = "AT HOME"
+  color = "cacafe"
+  on_click 1 = "exec --no-startup-id ~/bin/at_home.sh"
 }
 
 simple_button lock {
@@ -68,6 +108,14 @@ simple_button modmap {
   on_click 1 = "exec --no-startup-id ~/bin/fix_inputs"
 }
 
+weather_yahoo {
+  cache_timeout = 1800
+  woeid = 2422588
+  units = "f"
+  format_today = "{icon}{temp}°{units}"
+  forecast_days = 3
+}
+
 my_weather_yahoo nyc {
   cache_timeout = 1800
   city_code = "10002"
@@ -80,30 +128,45 @@ battery_level {
   on_click 1 = "exec gnome-power-statistics"
 }
 
-wireless _first_ {
+wireless wlp4s0 {
   #format_up = "W: (%quality at %essid, %bitrate) %ip"
-  format_up = "W: %ip (%quality)"
+  #format_up = "W: %ip (%quality)"
+  format_up = "W: up"
   format_down = "W: down"
 }
 
-ethernet enp0s25 {
+ethernet enp0s31f6 {
   # if you use %speed, i3status requires the cap_net_admin capability
-  format_up = "E: %ip"
+  #format_up = "E: %ip"
+  format_up = "E: up"
   format_down = "E: down"
 }
 
 ethernet tun0 {
   # if you use %speed, i3status requires the cap_net_admin capability
-  format_up = "VS: %ip"
+  #format_up = "VS: %ip"
+  format_up = "VS: up"
   format_down = "VPN S"
-  on_click 1 = "exec --no-startup-id start_vpn"
+  on_click 1 = "exec --no-startup-id start_vpn support"
+  on_click 3 = "exec --no-startup-id start_vpn"
 }
 
 ethernet tun1 {
   # if you use %speed, i3status requires the cap_net_admin capability
-  format_up = "VP: %ip"
-  format_down = "VPN P"
-  on_click 1 = "exec --no-startup-id start_vpn"
+  #format_up = "VPe: %ip"
+  format_up = "VPe: up"
+  format_down = "VPN Pe"
+  on_click 1 = "exec --no-startup-id start_vpn prod"
+  on_click 3 = "exec --no-startup-id start_vpn"
+}
+
+ethernet tun2 {
+  # if you use %speed, i3status requires the cap_net_admin capability
+  #format_up = "VPw: %ip"
+  format_up = "VPw: up"
+  format_down = "VPN Pw"
+  on_click 1 = "exec --no-startup-id start_vpn prod-usw2"
+  on_click 3 = "exec --no-startup-id start_vpn"
 }
 
 battery 0 {
@@ -160,9 +223,31 @@ volume master {
 #   limit = 20
 # }
 
-tztime new_york {
-  format = "%time|"
-  format_time = "%a %m/%d %I:%M:%S %p"
-  on_click 1 = "exec xclock -fg black -bg white -hd red -update 1 -geometry 300x300"
-  on_click 2 = "exec xclock -padding 15 -digital -face "Terminus-11" -strftime "%a %m/%d %H:%M:%S%P" -update 1"
+my_sysdata {
+  color = "000000"
+}
+
+tztime UTC {
+  format = "%H:%M UTC"
+  timezone = "Etc/UTC"
+  #on_click 1 = "exec xclock -fg black -bg white -hd red -update 1 -geometry 300x300"
+  #on_click 2 = "exec xclock -padding 15 -digital -face "Terminus-11" -strftime "%a %m/%d %H:%M:%S%P" -update 1"
+}
+
+tztime local {
+  format = "%a %m/%d %H:%M:%S"
+  #on_click 1 = "exec xclock -fg black -bg white -hd red -update 1 -geometry 300x300"
+  #on_click 2 = "exec xclock -padding 15 -digital -face "Terminus-11" -strftime "%a %m/%d %H:%M:%S%P" -update 1"
+}
+
+xrandr {
+  force_on_start = "DP-2-1+DP-2-2-8+eDP-1"
+  DP-2-1_pos = "2560x1440+0+0"
+  DP-2-2-8_pos = "2560x1440+0+0"
+  eDP-1_pos = "2560x1440+2560+88"
+
+}
+
+openvpn 1 {
+  color = "00FF00"
 }
