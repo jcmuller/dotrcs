@@ -1,3 +1,5 @@
+-R
+
 --langdef=coffee
 --langmap=coffee:.coffee
 --langmap=coffee:+.coffee.erb
