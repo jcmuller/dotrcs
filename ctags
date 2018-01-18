@@ -53,9 +53,16 @@
 --regex-ruby=/(^|;)[ \t]*value\(? *[:"]?([[:alnum:]_?!]+)/\2/m,method,alias/
 --regex-ruby=/(^|;)[ \t]*counter\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
 --regex-ruby=/(^|;)[ \t]*list\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
---regex-ruby=/(^|;)[ \t]*set\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
+--regex-ruby=/(^|;)[ \t]*set\(? +[:"]?([[:alnum:]_]+)/\2/m,method,alias/
 --regex-ruby=/(^|;)[ \t]*hash_key\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
 --regex-ruby=/(^|;)[ \t]*sorted_set\(? *[:"]?([[:alnum:]_]+)/\2/m,method,alias/
+
+--regex-ruby=/(^|;)[[:space:]]*attr_(reader|writer|accessor|accessible)[[:space:]]*[:"]([[:alnum:]_]+)["]?/\3/a,attribute,alias/
+--regex-ruby=/(^|;)[[:space:]]*attr_(reader|writer|accessor|accessible)[[:space:]]*[:"][[:alnum:]_]+["]?,[[:space:]]*[:"]([[:alnum:]_]+)["]?/\3/a,attribute,alias/
+--regex-ruby=/(^|;)[[:space:]]*attr_(reader|writer|accessor|accessible)[[:space:]]*[:"][[:alnum:]_]+["]?,[[:space:]]*[:"][[:alnum:]_]+["]?,[[:space:]]*[:"]([[:alnum:]_]+)["]?/\3/a,attribute,alias/
+--regex-ruby=/(^|;)[[:space:]]*attr_(reader|writer|accessor|accessible)[[:space:]]*[:"][[:alnum:]_]+["]?,[[:space:]]*[:"][[:alnum:]_]+["]?,[[:space:]]*[:"][[:alnum:]_]+["]?,[[:space:]]*[:"]([[:alnum:]_]+)["]?/\3/a,attribute,alias/
+--regex-ruby=/(^|;)[[:space:]]*attr_(reader|writer|accessor|accessible)[[:space:]]*[:"][[:alnum:]_]+["]?,[[:space:]]*[:"][[:alnum:]_]+["]?,[[:space:]]*[:"][[:alnum:]_]+["]?,[[:space:]]*[:"][[:alnum:]_]+["]?,[[:space:]]*[:"]([[:alnum:]_]+)["]?/\3/a,attribute,alias/
+--regex-ruby=/(^|;)[[:space:]]*attr_(reader|writer|accessor|accessible)[[:space:]]*[:"][[:alnum:]_]+["]?,[[:space:]]*[:"][[:alnum:]_]+["]?,[[:space:]]*[:"][[:alnum:]_]+["]?,[[:space:]]*[:"][[:alnum:]_]+["]?,[[:space:]]*[:"][[:alnum:]_]+["]?,[[:space:]]*[:"]([[:alnum:]_]+)["]?/\3/a,attribute,alias/
 
 --langdef=js
 --langmap=js:.js
