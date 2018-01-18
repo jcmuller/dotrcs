@@ -117,18 +117,23 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 workspace 1 output DP1
 workspace 1 output DP1-8
+workspace 1 output DP2-1-8
 workspace 1 output DP2-2
 workspace 3 output DP1
 workspace 3 output DP1-8
+workspace 3 output DP2-1-8
 workspace 3 output DP2-2
 workspace 5 output DP1
 workspace 5 output DP1-8
+workspace 5 output DP2-1-8
 workspace 5 output DP2-2
 workspace 7 output DP1
 workspace 7 output DP1-8
+workspace 7 output DP2-1-8
 workspace 7 output DP2-2
 workspace 9 output DP1
 workspace 9 output DP1-8
+workspace 9 output DP2-1-8
 workspace 9 output DP2-2
 
 workspace  2 output eDP1
@@ -136,7 +141,6 @@ workspace  4 output eDP1
 workspace  6 output eDP1
 workspace  8 output eDP1
 workspace 10 output eDP1
-
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -198,6 +202,19 @@ mode "spotify" {
 
 bindsym $mod+Shift+p mode "spotify"
 
+mode "gnome-profile" {
+  bindsym u exec --no-startup-id ~/bin/switch-profile ubuntu-mono
+  bindsym t exec --no-startup-id ~/bin/switch-profile terminus
+  bindsym f exec --no-startup-id ~/bin/switch-profile
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+semicolon mode "gnome-profile"
+
+bindsym $mod+Shift+u exec --no-startup-id ~/bin/switch-profile ubuntu-mono
+
 # Floating windows and window decorations
 for_window [class="1Password.exe"] floating enable
 for_window [class="shutter"]       floating enable
@@ -205,20 +222,23 @@ for_window [title="About Mozilla Firefox"]  floating enable
 for_window [title="^Authy$"] floating enable, border normal
 for_window [title="^BlueProximity Preferences$"] floating enable
 for_window [title="^Buddy List$"]  floating enable
-for_window [title="Chromium"] border pixel
-for_window [title="Firefox Developer Edition"]  border pixel
+for_window [title="Chromium"] border normal
+for_window [title="Firefox Developer Edition"]  border normal
 for_window [title="Firefox Preferences"]  floating enable
 #for_window [title="Google+ Hangouts is sharing your screen"] floating enable
 for_window [title="Hangouts"] floating disable
-for_window [title="Hangouts"] border pixel
+for_window [title="Hangouts"] border normal
 for_window [title="Mozilla Firefox"]  border normal
 for_window [title="^pianobar$"] floating disable
 for_window [title="recordMyDesktop"] floating enable
 for_window [title="Screen Layout Editor"] floating enable
-for_window [title="Slack"]    border pixel
+for_window [title="Slack"]  border normal
 for_window [title="oclock"] border none, floating enable, sticky enable
 for_window [title="xclock"] border none, floating enable, sticky enable
 for_window [title="Oracle VM VirtualBox"] floating enable
+for_window [class="zik-manager"] floating enable
+for_window [class="zoom"] floating enable
+for_window [title="Code42 CrashPlan"] floating enable
 
 assign [title="^pianobar$"] 9
 
@@ -266,17 +286,18 @@ new_window normal 3
 
 # Bindings
 # bindsym $mod+Return exec i3-sensible-terminal
-# bindsym $mod+Return exec xterm
-bindsym $mod+Return exec gnome-terminal
-bindsym $mod+Shift+Return exec gnome-terminal --profile "Tomorrow - Ubuntu Mono"
+# bindsym $mod+Return exec xterm -fa Terminus -fs 9
+# bindsym $mod+Shift+Return exec xterm -fa Ubuntu\ Mono -fs 12
+bindsym $mod+Return exec dbus-launch gnome-terminal
+bindsym $mod+Shift+Return exec dbus-launch gnome-terminal --profile "Tomorrow - Ubuntu Mono"
 
 #bindsym $mod+r exec dmenu_run -p "run:" -levenshtein-sort -lines 20
 
 # F10
-bindsym XF86Search exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "app:" -lines 20'
+bindsym XF86Search exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "app:" -lines 20 -matching fuzzy -levenshtein-sort'
 
 #bindsym $mod+space   exec --no-startup-id rofi.sh app
-bindsym $mod+space   exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "app:" -lines 20'
+bindsym $mod+space   exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "app:" -lines 20 -matching fuzzy -levenshtein-sort'
 bindsym $mod+r       exec --no-startup-id rofi.sh run
 bindsym $mod+Tab     exec --no-startup-id rofi.sh window
 bindsym $mod+s       exec --no-startup-id rofi.sh workspace
@@ -313,8 +334,8 @@ bindsym $mod+Shift+v exec --no-startup-id ~/bin/start_vpn
 exec --no-startup-id xsetroot -solid "#282a2e"
 
 #exec --no-startup-id xrdb -load ~/.Xresources
-#exec_always --no-startup-id gnome-settings-daemon
-exec --no-startup-id /home/jcmuller/.rbenv/shims/clock_indicator
+exec_always --no-startup-id unity-settings-daemon
+#exec --no-startup-id /home/jcmuller/.rbenv/shims/clock_indicator
 
 #exec disable-touchpad
 #exec --no-startup-id trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype percent --width 5 --transparent false --tint 0x1d1f21 --height 18 --monitor primary
@@ -331,10 +352,18 @@ exec --no-startup-id dex -ae i3
 
 exec --no-startup-id ~/bin/fix_inputs
 
+exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/
+
+exec --no-startup-id xdotool behave_screen_edge --delay 500 --quiesce 2500 top-right exec ~/bin/lock.sh
+
 #bindsym Mod1+Shift+c exec --no-startup-id pianobar-choose-station
 
 # vim:set nospell:
-client.focused #81a2be #81a2be #1d1f21 #282a2e
+#client.focused          #81a2be #81a2be #1d1f21 #282a2e
+#client.focused          #81a2be #00ff99 #1d1f21 #282a2e
+#                               border  title
+client.focused          #81a2be #ffffff #1d1f21 #282a2e
+#client.focused          #81a2be #81a2be #ff0000 #ff0000
 client.focused_inactive #373b41 #373b41 #969896 #282a2e
-client.unfocused #282a2e #282a2e #969896 #282a2e
-client.urgent #373b41 #cc6666 #ffffff #cc6666
+client.unfocused        #282a2e #282a2e #969896 #282a2e
+client.urgent           #373b41 #cc6666 #ffffff #cc6666
