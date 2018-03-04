@@ -32,11 +32,12 @@
 #[remote "origin"]
   #fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 [alias]
-  co = checkout
   ci = commit
+  co = checkout
   local-ignore = update-index --assume-unchanged
-  local-unignore = update-index --no-assume-unchanged
   local-ignored = !git ls-files -v | grep "^[[:lower:]]"
+  local-unignore = update-index --no-assume-unchanged
+  show-ignored = ls-files --exclude-standard --others --ignored
 [rerere]
   enabled = true
 [credential]
