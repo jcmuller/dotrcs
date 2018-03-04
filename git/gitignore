@@ -22,6 +22,8 @@ Gemfile.local
 Gemfile.local.lock
 Procfile.*
 Procfile.mine
+!Procfile.local
+!Procfile.docker
 Session.vim
 apps/*Examples/**/*.xcconfig
 apps/*Examples/**/*.xcodeproj
@@ -37,3 +39,5 @@ platform-rails3.2
 xcuserdata
 zeus.json
 .env.local
+/.ruby-version
+.vagrant
