@@ -170,23 +170,23 @@ bindsym $mod+z mode "resize"
 
 bindsym $mod+u [urgent=latest] focus
 
-mode "pianobar" {
-  bindsym b exec --no-startup-id ~/bin/pianobar-ban
-  bindsym c exec --no-startup-id ~/bin/pianobar-choose-station
-  bindsym e exec --no-startup-id ~/bin/pianobar-status
-  bindsym l exec --no-startup-id ~/bin/pianobar-love
-  bindsym n exec --no-startup-id ~/bin/pianobar-next
-  bindsym p exec --no-startup-id ~/bin/pianobar-pause
-  bindsym y exec --no-startup-id ~/bin/pianobar-lyrics
-  bindsym a exec --no-startup-id ~/bin/vol.sh down
-  bindsym s exec --no-startup-id ~/bin/vol.sh up
-  bindsym d exec --no-startup-id ~/bin/vol.sh mute
+#mode "pianobar" {
+  #bindsym b exec --no-startup-id ~/bin/pianobar-ban
+  #bindsym c exec --no-startup-id ~/bin/pianobar-choose-station
+  #bindsym e exec --no-startup-id ~/bin/pianobar-status
+  #bindsym l exec --no-startup-id ~/bin/pianobar-love
+  #bindsym n exec --no-startup-id ~/bin/pianobar-next
+  #bindsym p exec --no-startup-id ~/bin/pianobar-pause
+  #bindsym y exec --no-startup-id ~/bin/pianobar-lyrics
+  #bindsym a exec --no-startup-id ~/bin/vol.sh down
+  #bindsym s exec --no-startup-id ~/bin/vol.sh up
+  #bindsym d exec --no-startup-id ~/bin/vol.sh mute
 
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
+  #bindsym Return mode "default"
+  #bindsym Escape mode "default"
+#}
 
-bindsym $mod+p mode "pianobar"
+#bindsym $mod+p mode "pianobar"
 
 mode "spotify" {
   bindsym n exec --no-startup-id ~/bin/sp next
@@ -216,7 +216,7 @@ bindsym $mod+semicolon mode "gnome-profile"
 bindsym $mod+Shift+u exec --no-startup-id ~/bin/switch-profile ubuntu-mono
 
 # Floating windows and window decorations
-for_window [class="1Password.exe"] floating enable
+for_window [title="1Password"] floating enable
 for_window [class="shutter"]       floating enable
 for_window [title="About Mozilla Firefox"]  floating enable
 for_window [title="^Authy$"] floating enable, border normal
@@ -238,7 +238,11 @@ for_window [title="xclock"] border none, floating enable, sticky enable
 for_window [title="Oracle VM VirtualBox"] floating enable
 for_window [class="zik-manager"] floating enable
 for_window [class="zoom"] floating enable
+for_window [class="Thunar"] floating enable
 for_window [title="Code42 CrashPlan"] floating enable
+for_window [class="nm-connection-editor"] floating enable
+for_window [class="Xmessage"] floating enable
+for_window [class="Vncviewer"] floating enable
 
 assign [title="^pianobar$"] 9
 
@@ -278,8 +282,14 @@ bar {
   }
 }
 
-#workspace_auto_back_and_forth yes
+workspace_auto_back_and_forth yes
 force_display_urgency_hint 500 ms
+popup_during_fullscreen smart
+show_marks yes
+focus_follows_mouse yes
+mouse_warping none
+# focus_wrapping no
+#force_focus_wrapping yes
 
 new_window pixel 3
 new_window normal 3
@@ -288,35 +298,41 @@ new_window normal 3
 # bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+Return exec xterm -fa Terminus -fs 9
 # bindsym $mod+Shift+Return exec xterm -fa Ubuntu\ Mono -fs 12
-bindsym $mod+Return exec dbus-launch gnome-terminal
-bindsym $mod+Shift+Return exec dbus-launch gnome-terminal --profile "Tomorrow - Ubuntu Mono"
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 #bindsym $mod+r exec dmenu_run -p "run:" -levenshtein-sort -lines 20
 
 # F10
-bindsym XF86Search exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "app:" -lines 20 -matching fuzzy -levenshtein-sort'
+bindsym XF86Search exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "app" -lines 20 -matching fuzzy -levenshtein-sort'
 
 #bindsym $mod+space   exec --no-startup-id rofi.sh app
-bindsym $mod+space   exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "app:" -lines 20 -matching fuzzy -levenshtein-sort'
+bindsym $mod+space   exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "app" -lines 20 -matching fuzzy -levenshtein-sort'
 bindsym $mod+r       exec --no-startup-id rofi.sh run
 bindsym $mod+Tab     exec --no-startup-id rofi.sh window
-bindsym $mod+s       exec --no-startup-id rofi.sh workspace
+#bindsym $mod+s       exec --no-startup-id rofi.sh workspace
 bindsym Mod1+Shift+c exec --no-startup-id rofi.sh station
 bindsym $mod+g       exec --no-startup-id rofi-surfraw
+
+#bindsym $mod+Tab       focus parent; focus right; focus child
+#bindsym $mod+Shift+Tab focus parent; focus left; focus child
 
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/bin/vol.sh down
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/vol.sh up
 bindsym XF86AudioMute        exec --no-startup-id ~/bin/vol.sh mute
 #bindsym XF86AudioMicMute     exec --no-startup-id /usr/bin/pactl
 
-#bindsym XF86AudioEject exec --no-startup-id ~/bin/pianobar-toggle
-bindsym XF86AudioPause exec --no-startup-id ~/bin/pianobar-toggle
-bindsym XF86AudioStop  exec --no-startup-id ~/bin/pianobar-pause
-bindsym XF86AudioNext  exec --no-startup-id ~/bin/pianobar-next
-bindsym XF86AudioPrev  exec --no-startup-id ~/bin/pianobar-choose-station
+# #bindsym XF86AudioEject exec --no-startup-id ~/bin/pianobar-toggle
+# bindsym XF86AudioPause exec --no-startup-id ~/bin/pianobar-toggle
+# bindsym XF86AudioStop  exec --no-startup-id ~/bin/pianobar-pause
+# bindsym XF86AudioNext  exec --no-startup-id ~/bin/pianobar-next
+# bindsym XF86AudioPrev  exec --no-startup-id ~/bin/pianobar-choose-station
 
 bindsym XF86MonBrightnessUp   exec --no-startup-id ~/bin/backlight.sh up
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/backlight.sh down
+
+bindsym --release $mod+s exec xfce4-screenshooter -cr
+bindsym --release Shift+$mod+s exec xfce4-screenshooter
 
 # F7
 #bindsym XF86Display    exec --no-startup-id
@@ -331,6 +347,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/backlight.sh down
 
 bindsym $mod+Shift+v exec --no-startup-id ~/bin/start_vpn
 
+bindsym $mod+p exec --no-startup-id ~/bin/passmenu --type -i
+bindsym $mod+t exec --no-startup-id ~/bin/otpmenu --type -i
+
 exec --no-startup-id xsetroot -solid "#282a2e"
 
 #exec --no-startup-id xrdb -load ~/.Xresources
@@ -340,13 +359,13 @@ exec_always --no-startup-id unity-settings-daemon
 #exec disable-touchpad
 #exec --no-startup-id trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype percent --width 5 --transparent false --tint 0x1d1f21 --height 18 --monitor primary
 #exec --no-startup-id nm-applet
-exec --no-startup-id clipit
+#exec --no-startup-id clipit
 #exec --no-startup-id dropbox start
 #exec --no-startup-id ghdropbox start
 #exec --no-startup-id rofi -levenshtein-sort -switchers "app:app-switcher,run,ssh,window,workspace:i3_switch_workspace.sh,station:pianobar-rofi-station-switcher" -lines 20 -key-app Mod4+space -key-run Mod4+r -key-workspace Mod4+s -key-window Mod4+Tab -key-station Shift+Alt+c
 #exec --no-startup-id dunst.sh
 
-exec --no-startup-id ibus-daemon
+#exec --no-startup-id eval `dbus-launch`
 
 exec --no-startup-id dex -ae i3
 
@@ -356,13 +375,16 @@ exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/
 
 exec --no-startup-id xdotool behave_screen_edge --delay 500 --quiesce 2500 top-right exec ~/bin/lock.sh
 
+exec --no-startup-id unclutter -grab
+
 #bindsym Mod1+Shift+c exec --no-startup-id pianobar-choose-station
 
 # vim:set nospell:
 #client.focused          #81a2be #81a2be #1d1f21 #282a2e
 #client.focused          #81a2be #00ff99 #1d1f21 #282a2e
 #                               border  title
-client.focused          #81a2be #ffffff #1d1f21 #282a2e
+#client.focused          #81a2be #ffffff #1d1f21 #282a2e
+client.focused          #81a2be #ffffcc #1d1f21 #282a2e
 #client.focused          #81a2be #81a2be #ff0000 #ff0000
 client.focused_inactive #373b41 #373b41 #969896 #282a2e
 client.unfocused        #282a2e #282a2e #969896 #282a2e
