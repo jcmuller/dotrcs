@@ -70,6 +70,24 @@ class GetData:
         # Results are in kilobyte.
         return total_mem, used_mem, used_mem_percent
 
+    def swap(self):
+        """Execute 'swapon' command, grab the swap capacity and used size
+        then return; swap size 'total_swap', used_swap, and percentage
+        of used memory.
+
+        """
+        # Run 'free -m' command and make a list from output.
+        mem_data = self.execCMD('free', '-m').split()
+        total_swap = int(mem_data[14]) / 1024.
+        used_swap = int(mem_data[15]) / 1024.
+
+        # Caculate percentage
+        used_swap_percent = int(used_swap / (total_swap / 100))
+
+        # Results are in kilobyte.
+        return total_swap, used_swap, used_swap_percent
+
+
 
 class Py3status:
 
@@ -132,6 +150,16 @@ class Py3status:
 
         return response
 
+    def swapInfo(self, i3s_output_list, i3s_config):
+        """Calculate the swap status and return it.
+        """
+        response = {'full_text': ''}
+        total_swap, used_swap, used_swap_percent = self.data.swap()
+        response['color'] = self._color(used_swap_percent, i3s_config)
+        response['full_text'] = "SW: %d%%" % (used_swap_percent)
+        response['cached_until'] = time() + self.cache_timeout
+        return response
+
 if __name__ == "__main__":
     """
     Test this module by calling it directly.
@@ -145,4 +173,5 @@ if __name__ == "__main__":
                 }
         print(x.cpuInfo([], config))
         print(x.ramInfo([], config))
+        print(x.swapInfo([], config))
         sleep(1)

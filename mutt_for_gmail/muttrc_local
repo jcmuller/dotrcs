@@ -3,35 +3,64 @@
 # Replace account.name and password
 #
 
-alternates "account.name@gmail.com"
+alternates "jcmuller@gmail.com|juan@greenhouse.io"
 set use_from
 
-# Base hook to reset account variables to known state before activating new ones
-account-hook . 'unset preconnect imap_user imap_pass imap_authenticators; set ssl_starttls=ask-yes'
+set spoolfile = "+Personal/INBOX"
+source ~/.mutt/muttrc_personal
 
-account-hook imaps://imap.gmail.com/ 'set imap_user=account.name@gmail.com imap_pass=password smtp_pass=password'
-folder-hook imaps://imap.gmail.com/ 'set realname="Your Real Name"
-		set from="Your Real Name <account.name@gmail.com>"
-		set folder=imaps://imap.gmail.com
-		set spoolfile=imaps://imap.gmail.com/INBOX
-		set record=imaps://imap.gmail.com/Sent
-		set postponed=imaps://imap.gmail.com/Drafts
-		mailboxes  =INBOX \
-				   =Deleted Messages \
-				   =Junk \
-				   =Sent \
-				   =[Gmail].All\ Mail \
-				   =[Gmail].Drafts \
-				   =[Gmail].Sent\ Mail \
-				   =[Gmail].Spam \
-				   =[Gmail].Starred \
-				   =[Gmail].Trash
-		set signature=/path/to/signature_gmail
-		set smtp_url="smtps://account.name\@gmail.com@smtp.gmail.com/"
-		set header_cache=~/.mutt/cache_gmail
-		set message_cachedir=~/.mutt/cache_gmail_body/'
+folder-hook Personal/* source ~/.mutt/muttrc_personal
+folder-hook Work/* source ~/.mutt/muttrc_work
 
 # Reding mail
-set timeout=15
-set mail_check=60
+set timeout=60
+set mail_check=15
+set sleep_time=0
 
+set realname = "Juan C. Müller"
+set mail_check_recent = yes
+set envelope_from
+
+mailboxes \
+  +'Personal' \
+  +'Personal/INBOX' \
+  +'Work' \
+  +'Work/INBOX' \
+  +'Work/[Gmail].All Mail' \
+  '/var/mail/jcmuller'
+
+
+  #+'Personal/[Gmail].All Mail' \
+  #+'Personal/[Gmail].Drafts' \
+  #+'Personal/[Gmail].Important' \
+  #+'Personal/[Gmail].Sent Mail' \
+  #+'Personal/[Gmail].Spam' \
+  #+'Personal/[Gmail].Starred' \
+  #+'Personal/[Gmail].Trash' \
+  #
+  # +'Personal/Clients' \
+  # +'Personal/Consulting' \
+  # +'Personal/Cycling' \
+  # +'Personal/Drafts' \
+  # +'Personal/Employment' \
+  # +'Personal/Family' \
+  # +'Personal/Friends' \
+  # +'Personal/Notes' \
+  # +'Personal/Sent' \
+  # +'Personal/Sent Messages' \
+  # +'Personal/Travel' \
+  # +'Personal/Work' \
+  #
+  #+'Work/[Gmail].All Mail' \
+  #+'Work/[Gmail].Drafts' \
+  #+'Work/[Gmail].Important' \
+  #+'Work/[Gmail].Sent Mail' \
+  #+'Work/[Gmail].Spam' \
+  #+'Work/[Gmail].Starred' \
+  #
+  #+'Work/[Gmail].Trash' \
+  #
+  #+'Work/Monitors' \
+  #+'Work/Licenses' \
+  #+'Work/Notes' \
+  #+'Work/Sent' \

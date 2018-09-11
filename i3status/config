@@ -6,6 +6,8 @@ general {
 }
 
 order += "simple_button wp"
+order += "simple_button small"
+order += "simple_button large"
 order += "simple_button undock"
 order += "simple_button at_office"
 order += "simple_button at_home"
@@ -62,7 +64,7 @@ egress {
 }
 
 diskdata "/" {
-  disk = "/dev/mapper/ubuntu--vg-root"
+  disk = "/dev/mapper/xubuntu--vg-root"
   low_threshold = 10
   threshold_type = "percentage_free"
   format = "/: {used_percent}%"
@@ -71,7 +73,20 @@ diskdata "/" {
 
 simple_button wp {
   text = "RND WP"
+  color = "ff00ff"
   on_click 1 = "exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/"
+}
+
+simple_button large {
+  text = "BIG"
+  color = "ff0000"
+  on_click 1 = "exec --no-startup-id xfce4-terminal-themes tomorrow-large"
+}
+
+simple_button small {
+  text = "SMALL"
+  color = "ff0000"
+  on_click 1 = "exec --no-startup-id xfce4-terminal-themes tomorrow-night-small"
 }
 
 simple_button undock {
@@ -147,8 +162,8 @@ ethernet tun0 {
   #format_up = "VS: %ip"
   format_up = "VS: up"
   format_down = "VPN S"
-  on_click 1 = "exec --no-startup-id start_vpn support"
-  on_click 3 = "exec --no-startup-id start_vpn"
+  on_click 1 = "exec --no-startup-id nmcli con up support"
+  on_click 3 = "exec --no-startup-id nmcli con down support"
 }
 
 ethernet tun1 {
@@ -156,8 +171,8 @@ ethernet tun1 {
   #format_up = "VPe: %ip"
   format_up = "VPe: up"
   format_down = "VPN Pe"
-  on_click 1 = "exec --no-startup-id start_vpn prod"
-  on_click 3 = "exec --no-startup-id start_vpn"
+  on_click 1 = "exec --no-startup-id nmcli con up prod"
+  on_click 3 = "exec --no-startup-id nmcli con down prod"
 }
 
 ethernet tun2 {
@@ -165,8 +180,8 @@ ethernet tun2 {
   #format_up = "VPw: %ip"
   format_up = "VPw: up"
   format_down = "VPN Pw"
-  on_click 1 = "exec --no-startup-id start_vpn prod-usw2"
-  on_click 3 = "exec --no-startup-id start_vpn"
+  on_click 1 = "exec --no-startup-id nmcli con up prod-usw2"
+  on_click 3 = "exec --no-startup-id nmcli con down prod-usw2"
 }
 
 battery 0 {

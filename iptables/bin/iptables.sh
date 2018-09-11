@@ -24,10 +24,10 @@ iptables --flush
 
 
 # Set up logging for incoming traffic.
-iptables -N LOGNDROP
-iptables -A LOGNDROP -j LOG --log-prefix "DD-AGENT THING: "
-iptables -A LOGNDROP -j DROP
-#iptables -A INPUT -i lo -p tcp --dport 8126 -m statistic --mode random --probability 1.0 -j LOGNDROP
+# iptables -N LOGNDROP
+# iptables -A LOGNDROP -j LOG --log-prefix "DD-AGENT THING: "
+# iptables -A LOGNDROP -j DROP
+#iptables -A INPUT -i lo -p tcp --dport 8126 -m statistic --mode random --probability 0.5 -j LOGNDROP
 #iptables -A INPUT -i lo -p tcp --dport 8126 -j LOGNDROP
 
 # Allow traffic on loopback
@@ -125,7 +125,16 @@ iptables -A OUTPUT -p udp --sport 17500:17501 -j DROP
 iptables -A INPUT -p udp --dport 5353 -j DROP
 iptables -A OUTPUT -p udp --dport 5353 -j DROP
 iptables -A INPUT -d 224.0.0.251 -j DROP
+iptables -A INPUT -d 224.0.0.252 -j DROP
 iptables -A OUTPUT -d 224.0.0.251 -j DROP
+iptables -A OUTPUT -d 224.0.0.252 -j DROP
+
+# multicast IGMP
+iptables -A INPUT -d 224.0.0.22 -j DROP
+iptables -A OUTPUT -d 224.0.0.22 -j DROP
+
+# "Netware HTTP Server, JServ"
+iptables -A OUTPUT -p tcp --dport 8009 -j DROP
 
 # NETBIOS
 iptables -A INPUT -p udp --dport 137 -j DROP
@@ -166,6 +175,7 @@ iptables -A OUTPUT -p tcp -d prod-usw2-green.vpn.greenhouse.io --dport 1194 -j A
 iptables -A OUTPUT -p tcp --dport 9418 -j ACCEPT
 
 # Canon IJP
+iptables -A INPUT -p udp -d 172.18.203.255 --dport 8612 -j DROP
 iptables -A INPUT -p udp -d 172.18.3.255 --dport 8612 -j DROP
 iptables -A INPUT -p udp -d 192.168.1.255 --dport 8612 -j DROP
 iptables -A INPUT -p udp -d 224.0.0.1 --dport 8612 -j DROP
@@ -191,6 +201,13 @@ iptables -A OUTPUT -o tun2 -j ACCEPT
 
 # Allow connections to heroku
 iptables -A OUTPUT -p tcp --dport 5000 -j ACCEPT
+
+# Logitech Arrx
+iptables -A INPUT -p udp --dport 54915 -j DROP
+iptables -A OUTPUT -p udp --dport 54915 -j DROP
+
+# HASS
+iptables -A OUTPUT -p tcp -d 192.168.86.136 -j ACCEPT
 
 # Set up logging for incoming traffic.
 # iptables -N LOGNDROP

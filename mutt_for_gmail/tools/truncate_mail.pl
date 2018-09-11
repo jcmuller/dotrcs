@@ -115,4 +115,3 @@ truncate(MAIL, 0);
 seek(MAIL, 0, 0);
 print MAIL @purged_mail;
 close(MAIL);
-

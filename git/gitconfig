@@ -7,9 +7,9 @@
 [difftool]
   prompt = false
 [diff]
-  tool = vimdiff2
+  tool = vimdiff3
 [merge]
-  tool = vimdiff2
+  tool = vimdiff3
 [mergetool]
   prompt = false
 [help]
@@ -22,7 +22,8 @@
   token = TOKEN
   prq-token = TOKEN
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
+  insteadOf = gh:
 [push]
   default = current
 [init]
@@ -34,6 +35,7 @@
 [alias]
   ci = commit
   co = checkout
+  cor = !git-jump-to
   local-ignore = update-index --assume-unchanged
   local-ignored = !git ls-files -v | grep "^[[:lower:]]"
   local-unignore = update-index --no-assume-unchanged
@@ -41,4 +43,13 @@
 [rerere]
   enabled = true
 [credential]
-	helper = cache --timeout=360000
+  helper = cache --timeout=360000
+[fetch]
+  prune = true
+[pull]
+  rebase = true
+[rebase]
+  autosquash = true
+# diff.gpg.binary=true
+# diff.gpg.textconv=gpg2 -d --quiet --yes --compress-algo=none --no-encrypt-to --batch --use-agent
+

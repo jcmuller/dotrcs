@@ -5,22 +5,18 @@ use FileHandle;
 
 my $file;
 {
-	my $n = `mktemp -p /tmp/ mutt_XXXXXXXXXX`;
-	$n =~ s/\n//g;
-	system(qq|mv "$n" "$n.html"|);
-	$file = "$n.html";
+    my $n = `mktemp -p /tmp/ mutt_XXXXXXXXXX`;
+    $n =~ s/\n//g;
+    system(qq|mv "$n" "$n.html"|);
+    $file = "$n.html";
 }
 
 {
-	my $fh = new FileHandle("> $file");
-
-	if (defined $fh)
-	{
-		print $fh join('', <>);
-	}
-	$fh->close();
+    my $fh = new FileHandle("> $file");
+    print $fh join('', <>) if (defined $fh);
+    $fh->close();
 }
 
-#system('google-chrome', $file);
-system('firefox', $file);
-
+#system('chromium', '-app', $file);
+#system('firefox', $file);
+system('surf', $file);
