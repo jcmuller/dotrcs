@@ -7,6 +7,9 @@ Pry.commands.alias_command 's', 'step'
 Pry.commands.alias_command 'q', 'quit'
 
 Pry.commands.alias_command 'w', 'whereami'
+Pry.commands.alias_command 'W', 'watch'
+
+Pry.config.correct_indent = false
 
 Pry.commands.alias_command 'W', 'watch'
 
@@ -26,7 +29,7 @@ Pry::Commands.create_command "define-it", "Commands for code generation reported
       File.open(file, 'w') { |f| f.write(code) }
 
       silence_warnings do
-        TOPLEVEL_BINDING.eval(File.read(file), file)
+	TOPLEVEL_BINDING.eval(File.read(file), file)
       end
 
       throw :try_again

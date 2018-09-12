@@ -34,7 +34,7 @@ order += "ethernet tun2"
 order += "load"
 order += "my_sysdata"
 order += "volume master"
-#order += "file /var/log/Xorg.0.log"
+#order += "file /tmp/gcalcli_agenda.txt"
 #order += "xsel"
 #order += "xrandr"
 order += "tztime UTC"
@@ -230,12 +230,10 @@ volume master {
   on_click 5 = "exec --no-startup-id /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+5%' && killall -USR1 i3status"
 }
 
-# file /var/log/Xorg.0.log {
-#   format = "[%mtime] %contents (%mtime_diff ago)"
-#   mtime_format = "%a %H:%M:%S"
-#   line = -2
-#   skip = 10
-#   limit = 20
+# file /tmp/gcalcli_agenda.txt {
+#   format = "%contents"
+#   line = 2
+#   #limit = -1
 # }
 
 my_sysdata {
