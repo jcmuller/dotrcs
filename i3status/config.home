@@ -1,0 +1,124 @@
+general {
+  output_format = "i3bar"
+  colors = true
+  interval = 5
+  separator = true
+}
+
+order += "simple_button wp"
+order += "simple_button lock"
+order += "simple_button sleep"
+order += "simple_button modmap"
+order += "backlight"
+order += "battery_level 0"
+order += "weather_yahoo"
+order += "diskdata /"
+order += "egress"
+order += "ethernet enp0s29u1u1c4i2"
+order += "wireless wlp3s0"
+order += "load"
+order += "my_sysdata"
+order += "volume master"
+order += "tztime UTC"
+order += "tztime local"
+
+battery_level 0 {
+  battery_id = 0
+}
+
+egress {
+  format = "Eg: {egress}"
+  color = "ffff00"
+}
+
+diskdata "/" {
+  disk = "/dev/mapper/xubuntu--vg-root"
+  low_threshold = 10
+  threshold_type = "percentage_free"
+  format = "/: {used_percent}%"
+  on_click 1 = "exec thunar /"
+}
+
+simple_button wp {
+  text = "RND WP"
+  color = "ff00ff"
+  on_click 1 = "exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/"
+}
+
+simple_button lock {
+  text = "LOCK"
+  on_click 1 = "exec --no-startup-id ~/bin/lock.sh"
+}
+
+simple_button sleep {
+  text = "SLEEP"
+  on_click 1 = "exec --no-startup-id ~/bin/sleep.sh"
+}
+
+simple_button modmap {
+  text = "FIX INPUTS"
+  color = "00DD11"
+  on_click 1 = "exec --no-startup-id ~/bin/fix_inputs"
+}
+
+weather_yahoo {
+  cache_timeout = 1800
+  woeid = 2422588
+  units = "f"
+  format_today = "{icon}{temp}°{units}"
+  forecast_days = 3
+}
+
+my_weather_yahoo nyc {
+  cache_timeout = 1800
+  city_code = "10002"
+  forecast_days = 2
+}
+
+wireless wlp4s0 {
+  #format_up = "W: (%quality at %essid, %bitrate) %ip"
+  #format_up = "W: %ip (%quality)"
+  format_up = "W: up"
+  format_down = "W: down"
+}
+
+ethernet enp0s31f6 {
+  # if you use %speed, i3status requires the cap_net_admin capability
+  #format_up = "E: %ip"
+  format_up = "E: up"
+  format_down = "E: down"
+}
+
+load {
+  format = "%1min %5min %15min"
+}
+
+volume master {
+  format = "♪: %volume"
+  format_muted = "V: mute"
+  device = "default"
+  mixer = "Master"
+  mixer_idx = 0
+  on_click 1 = "exec pianobar-pause"
+  on_click 2 = "exec --no-startup-id /usr/bin/pactl set-sink-mute   @DEFAULT_SINK@ toggle && killall -USR1 py3status"
+  on_click 3 = "exec pianobar-choose-station"
+  on_click 4 = "exec --no-startup-id /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-5%' && killall -USR1 i3status"
+  on_click 5 = "exec --no-startup-id /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+5%' && killall -USR1 i3status"
+}
+
+my_sysdata {
+  color = "000000"
+}
+
+tztime UTC {
+  format = "%H:%M UTC"
+  timezone = "Etc/UTC"
+  #on_click 1 = "exec xclock -fg black -bg white -hd red -update 1 -geometry 300x300"
+  #on_click 2 = "exec xclock -padding 15 -digital -face "Terminus-11" -strftime "%a %m/%d %H:%M:%S%P" -update 1"
+}
+
+tztime local {
+  format = "%a %m/%d %H:%M:%S"
+  #on_click 1 = "exec xclock -fg black -bg white -hd red -update 1 -geometry 300x300"
+  #on_click 2 = "exec xclock -padding 15 -digital -face "Terminus-11" -strftime "%a %m/%d %H:%M:%S%P" -update 1"
+}
