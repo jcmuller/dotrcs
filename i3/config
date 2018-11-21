@@ -243,6 +243,7 @@ for_window [title="Code42 CrashPlan"] floating enable
 for_window [class="nm-connection-editor"] floating enable
 for_window [class="Xmessage"] floating enable
 for_window [class="Vncviewer"] floating enable
+for_window [class="Spotify"] move to workspace 9
 
 assign [title="^pianobar$"] 9
 
@@ -393,6 +394,9 @@ bindsym $mod+Shift+v exec --no-startup-id ~/bin/start_vpn
 
 bindsym $mod+p exec --no-startup-id ~/bin/passmenu --type -i
 bindsym $mod+t exec --no-startup-id ~/bin/otpmenu --type -i
+
+bindsym $mod+w       mark --add quickswap
+bindsym $mod+Shift+w swap container with mark quickswap; [con_mark="quickswap"] focus; unmark
 
 exec --no-startup-id xsetroot -solid "#282a2e"
 
