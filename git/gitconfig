@@ -18,9 +18,6 @@
   ui = true
 [github]
   user = jcmuller
-  password = !security find-internet-password -a jcmuller -s github.com -w | tr -d '\n'
-  token = TOKEN
-  prq-token = TOKEN
 [url "git@github.com:"]
   insteadOf = https://github.com/
   insteadOf = gh:
