@@ -19,7 +19,7 @@
 [github]
   user = jcmuller
 [url "git@github.com:"]
-  insteadOf = https://github.com/
+#   insteadOf = https://github.com/
   insteadOf = gh:
 [push]
   default = current
