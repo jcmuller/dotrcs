@@ -288,7 +288,7 @@ bar {
 
 bar {
   font pango:Terminus 9
-  tray_output none
+  tray_output primary
   position bottom
   workspace_buttons yes
   status_command py3status -i ~/.config/i3status/lib -c ~/.config/i3status/config.home
