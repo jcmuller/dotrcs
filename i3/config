@@ -335,9 +335,11 @@ focus_follows_mouse yes
 mouse_warping none
 # focus_wrapping no
 #force_focus_wrapping yes
+hide_edge_borders smart
+default_border pixel
 
 new_window pixel 3
-new_window normal 3
+#new_window normal 3
 
 # Bindings
 # bindsym $mod+Return exec i3-sensible-terminal
