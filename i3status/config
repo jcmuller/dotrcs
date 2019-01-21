@@ -14,6 +14,7 @@ order += "simple_button at_home"
 order += "simple_button lock"
 order += "simple_button sleep"
 order += "simple_button modmap"
+order += "simple_button monitors_off"
 order += "backlight"
 order += "battery_level 0"
 order += "battery_level 1"
@@ -121,6 +122,12 @@ simple_button modmap {
   text = "FIX INPUTS"
   color = "00DD11"
   on_click 1 = "exec --no-startup-id ~/bin/fix_inputs"
+}
+
+simple_button monitors_off {
+  text = "MONITORS OFF"
+  color = "00DD11"
+  on_click 1 = "exec --no-startup-id xset dpms force off"
 }
 
 weather_yahoo {
