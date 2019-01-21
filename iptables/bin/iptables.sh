@@ -209,6 +209,9 @@ iptables -A OUTPUT -p udp --dport 54915 -j DROP
 # HASS
 iptables -A OUTPUT -p tcp -d 192.168.86.136 -j ACCEPT
 iptables -A INPUT -p tcp -d 192.168.86.136 -j DROP
+iptables -A OUTPUT -p tcp -d 192.168.86.166 --dport 3000 -j ACCEPT
+iptables -A OUTPUT -p tcp -d 192.168.86.167 --dport 8123 -j ACCEPT
+iptables -A OUTPUT -p tcp -d 192.168.86.167 --dport 5050 -j ACCEPT
 
 # Set up logging for incoming traffic.
 # iptables -N LOGNDROP
