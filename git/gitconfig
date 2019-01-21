@@ -2,7 +2,7 @@
   name = Juan C. Müller
   email = jcmuller@gmail.com
 [core]
-  excludesfile = /home/jcmuller/.gitignore
+  excludesfile = ~/.gitignore
   quotepath = false
 [difftool]
   prompt = false
@@ -24,7 +24,7 @@
 [push]
   default = current
 [init]
-  templatedir = /home/jcmuller/.git_template
+  templatedir = ~/.git_template
 [branch]
   autosetuprebase = always
 #[remote "origin"]
