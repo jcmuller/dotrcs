@@ -99,9 +99,9 @@ volume master {
   device = "default"
   mixer = "Master"
   mixer_idx = 0
-  on_click 1 = "exec pianobar-pause"
+  on_click 1 = "exec sp play"
   on_click 2 = "exec --no-startup-id /usr/bin/pactl set-sink-mute   @DEFAULT_SINK@ toggle && killall -USR1 py3status"
-  on_click 3 = "exec pianobar-choose-station"
+  on_click 3 = "exec sp next"
   on_click 4 = "exec --no-startup-id /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-5%' && killall -USR1 i3status"
   on_click 5 = "exec --no-startup-id /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+5%' && killall -USR1 i3status"
 }
