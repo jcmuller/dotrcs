@@ -131,15 +131,16 @@ workspace 7 output DP-1
 workspace 7 output DP-2-8
 workspace 7 output DP-2-2-8
 workspace 7 output DP-2-2
-workspace 9 output DP-1
-workspace 9 output DP-2-8
-workspace 9 output DP-2-2-8
-workspace 9 output DP-2-2
+#workspace 9 output DP-1
+#workspace 9 output DP-2-8
+#workspace 9 output DP-2-2-8
+#workspace 9 output DP-2-2
 
 workspace  2 output eDP-1
 workspace  4 output eDP-1
 workspace  6 output eDP-1
 workspace  8 output eDP-1
+workspace  9 output eDP-1
 workspace 10 output eDP-1
 
 # resize window (you can also use the mouse for that)
@@ -216,7 +217,7 @@ bindsym $mod+semicolon mode "gnome-profile"
 bindsym $mod+Shift+u exec --no-startup-id ~/bin/switch-profile ubuntu-mono
 
 # Floating windows and window decorations
-for_window [title="1Password"] floating enable
+#for_window [title="1Password"] floating enable
 for_window [class="shutter"]       floating enable
 for_window [title="About Mozilla Firefox"]  floating enable
 for_window [title="^Authy$"] floating enable, border normal
@@ -244,6 +245,8 @@ for_window [class="nm-connection-editor"] floating enable
 for_window [class="Xmessage"] floating enable
 for_window [class="Vncviewer"] floating enable
 for_window [class="Spotify"] move to workspace 9
+for_window [class="zoom" title="Zoom - Pro Account"] move to workspace 4, floating disable
+assign [class="zoom"] 3
 
 assign [title="^pianobar$"] 9
 
@@ -264,7 +267,7 @@ bindsym $mod+n       scratchpad show
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  font pango:Terminus 9
+  font pango:Terminus 12
   tray_output none
   status_command py3status -i ~/.config/i3status/lib
   position bottom
@@ -272,7 +275,9 @@ bar {
 
   output eDP-1
   output DP-1
+  output DP-2
   output DP-2-1
+  output DP-2-2
   output DP-2-2-8
 
   colors {
@@ -397,8 +402,10 @@ bindsym $mod+Shift+v exec --no-startup-id ~/bin/start_vpn
 bindsym $mod+p exec --no-startup-id ~/bin/passmenu --type -i
 bindsym $mod+t exec --no-startup-id ~/bin/otpmenu --type -i
 
+bindsym $mod+Mod1+l exec --no-startup-id ~/bin/lock.sh
+
 bindsym $mod+w       mark --add quickswap
-bindsym $mod+Shift+w swap container with mark quickswap; [con_mark="quickswap"] focus; unmark
+bindsym $mod+Shift+w swap container with mark quickswap; [con_mark="quickswap"] focus; unmark quickswap
 
 exec --no-startup-id xsetroot -solid "#282a2e"
 
