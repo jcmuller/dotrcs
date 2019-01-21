@@ -1,5 +1,5 @@
 [user]
-  name = Juan C. Müller
+  name = Juan C. Müller
   email = jcmuller@gmail.com
 [core]
   excludesfile = /home/jcmuller/.gitignore
