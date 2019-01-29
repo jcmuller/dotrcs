@@ -190,9 +190,9 @@ bindsym $mod+u [urgent=latest] focus
 #bindsym $mod+p mode "pianobar"
 
 mode "spotify" {
-  bindsym n exec --no-startup-id ~/bin/sp next
-  bindsym p exec --no-startup-id ~/bin/sp play
-  bindsym Shift+p exec --no-startup-id ~/bin/sp prev
+  bindsym n exec --no-startup-id playerctl next
+  bindsym p exec --no-startup-id playerctl play-pause
+  bindsym Shift+p exec --no-startup-id playerctl previous
   bindsym a exec --no-startup-id ~/bin/vol.sh down
   bindsym s exec --no-startup-id ~/bin/vol.sh up
   bindsym d exec --no-startup-id ~/bin/vol.sh mute
