@@ -233,12 +233,11 @@ for_window [title="Hangouts"] border normal
 for_window [title="^pianobar$"] floating disable
 for_window [title="recordMyDesktop"] floating enable
 for_window [title="Screen Layout Editor"] floating enable
-for_window [title="Slack"]  border normal
 for_window [title="oclock"] border none, floating enable, sticky enable
 for_window [title="xclock"] border none, floating enable, sticky enable
 for_window [title="Oracle VM VirtualBox"] floating enable
 for_window [class="zik-manager"] floating enable
-for_window [class="zoom"] floating enable
+for_window [class="zoom"] floating enable, border normal
 for_window [class="Thunar"] floating enable
 for_window [title="Code42 CrashPlan"] floating enable
 for_window [class="nm-connection-editor"] floating enable
@@ -246,19 +245,10 @@ for_window [class="Xmessage"] floating enable
 for_window [class="Vncviewer"] floating enable
 for_window [class="Spotify"] move to workspace 9
 for_window [class="zoom" title="Zoom - Pro Account"] move to workspace 4, floating disable
-assign [class="zoom"] 3
-
-assign [title="^pianobar$"] 9
-
-assign [title="Greenhouse - Mozilla Firefox"] 7
-
-assign [title="juan@greenhouse.io - Greenhouse Mail"] workspace 4
-assign [title="jcmuller@gmail.com - Gmail"] workspace 4
-assign [title="Google Calendar - "] workspace 4
-assign [title="Greenhouse - Calendar - "] workspace 4
-
-#assign [title="Greenhouse Slack"] workspace 2
-#assign [title="Hangouts"] workspace 2
+#for_window [class="jetbrains-rubymine"] border normal
+for_window [class="Slack"] move to workspace 2
+for_window [title="YakYak"] move to workspace 2
+for_window [title="Sonata"] floating enable, border normal
 
 # Scratchpad
 bindsym $mod+Shift+n move scratchpad
@@ -342,6 +332,7 @@ mouse_warping none
 #force_focus_wrapping yes
 hide_edge_borders smart
 default_border pixel
+default_floating_border normal
 
 new_window pixel 3
 #new_window normal 3
@@ -401,6 +392,8 @@ bindsym $mod+Shift+v exec --no-startup-id ~/bin/start_vpn
 
 bindsym $mod+p exec --no-startup-id ~/bin/passmenu --type -i
 bindsym $mod+t exec --no-startup-id ~/bin/otpmenu --type -i
+
+bindsym $mod+Shift+t border toggle
 
 bindsym $mod+Mod1+l exec --no-startup-id ~/bin/lock.sh
 
