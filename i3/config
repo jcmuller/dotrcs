@@ -115,33 +115,52 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Workspaces
 
-workspace 1 output DP-1
-workspace 1 output DP-2-8
-workspace 1 output DP-2-2-8
-workspace 1 output DP-2-2
-workspace 3 output DP-1
-workspace 3 output DP-2-8
-workspace 3 output DP-2-2-8
-workspace 3 output DP-2-2
-workspace 5 output DP-1
-workspace 5 output DP-2-8
-workspace 5 output DP-2-2-8
+workspace 1 output DP-2-1
+workspace 2 output DP-2-2
+workspace 3 output eDP-1
+workspace 4 output DP-2-1
 workspace 5 output DP-2-2
-workspace 7 output DP-1
-workspace 7 output DP-2-8
-workspace 7 output DP-2-2-8
-workspace 7 output DP-2-2
-#workspace 9 output DP-1
-#workspace 9 output DP-2-8
-#workspace 9 output DP-2-2-8
-#workspace 9 output DP-2-2
+workspace 6 output eDP-1
+workspace 7 output DP-2-1
+workspace 8 output DP-2-2
+workspace 9 output eDP-1
+workspace 10 output DP-2-1
 
-workspace  2 output eDP-1
-workspace  4 output eDP-1
-workspace  6 output eDP-1
-workspace  8 output eDP-1
-workspace  9 output eDP-1
-workspace 10 output eDP-1
+# workspace 1 output DP-1
+# workspace 1 output DP-2-8
+# workspace 1 output DP-2-2-8
+# workspace 1 output DP-2-2
+# workspace 3 output DP-1
+# workspace 3 output DP-2-8
+# workspace 3 output DP-2-2-8
+# workspace 3 output DP-2-2
+# workspace 5 output DP-1
+# workspace 5 output DP-2-8
+# workspace 5 output DP-2-2-8
+# workspace 5 output DP-2-2
+# workspace 7 output DP-1
+# workspace 7 output DP-2-8
+# workspace 7 output DP-2-2-8
+# workspace 7 output DP-2-2
+# #workspace 9 output DP-1
+# #workspace 9 output DP-2-8
+# #workspace 9 output DP-2-2-8
+# #workspace 9 output DP-2-2
+# 
+# workspace  2 output eDP-1
+# workspace  4 output eDP-1
+# workspace  6 output eDP-1
+# workspace  8 output eDP-1
+# workspace  9 output eDP-1
+# workspace 10 output eDP-1
+
+# FIX OUTPUTS HERE
+#output 
+output eDP-1 pos 4992 0 res 2048x1152
+output DP-1 pos 1152 0
+output HDMI-A-2 res 2048x1152 transform 90 pos 0 0
+output HDMI-A-2 transform 90
+output HDMI-A-2 pos 0 0
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -244,11 +263,12 @@ for_window [class="nm-connection-editor"] floating enable
 for_window [class="Xmessage"] floating enable
 for_window [class="Vncviewer"] floating enable
 for_window [class="Spotify"] move to workspace 9
-for_window [class="zoom" title="Zoom - Pro Account"] move to workspace 4, floating disable
+for_window [class="zoom" title="Zoom - Pro Account"] move to workspace 6, floating disable
 #for_window [class="jetbrains-rubymine"] border normal
-for_window [class="Slack"] move to workspace 2
-for_window [title="YakYak"] move to workspace 2
+for_window [class="Slack"] move to workspace 3
+for_window [title="YakYak"] move to workspace 3
 for_window [title="Sonata"] floating enable, border normal
+for_window [title="Picky Config"] floating enable, border normal
 
 # Scratchpad
 bindsym $mod+Shift+n move scratchpad
@@ -257,7 +277,7 @@ bindsym $mod+n       scratchpad show
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  font pango:Terminus 12
+  font pango:Terminus 9
   tray_output none
   status_command py3status -i ~/.config/i3status/lib
   position bottom
