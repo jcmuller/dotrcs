@@ -1,0 +1,4 @@
+\timing
+\x
+\pset null 'Ø'
+\set PROMPT1 '%M:%> %n@%/%R%#%x '
