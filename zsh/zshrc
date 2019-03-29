@@ -58,6 +58,8 @@
 PASSWORD_STORE_GPG_OPTS="--armor"; export PASSWORD_STORE_GPG_OPTS
 PASSWORD_STORE_GENERATED_LENGTH=36; export PASSWORD_STORE_GENERATED_LENGTH
 
+AWS_VAULT_BACKEND=secret-service; export AWS_VAULT_BACKEND
+DAJOKU_USER=juan@greenhouse.io; export DAJOKU_USER
 BROWSER=/home/jcmuller/go/bin/picky; export BROWSER
 GOENV_ROOT="$HOME/.goenv"; export GOENV_ROOT
 GOPATH=~/go; export GOPATH
@@ -72,6 +74,8 @@ PERL_MM_OPT="INSTALL_BASE=/home/jcmuller/perl5"; export PERL_MM_OPT;
 QT_QPA_PLATFORMTHEME=qt5ct; export QT_QPA_PLATFORMTHEME
 REPORTTIME=5; export REPORTTIME
 TIMEFMT="'$fg[green]%J$reset_color' time: $fg[yellow]%*Es$reset_color, cpu: $fg[yellow]%P$reset_color, mem: $fg[yellow]%M$reset_color"; export TIMEFMT
+
+unset SSH_AGENT_PID SSH_AUTH_SOCK
 
 PATH_COMPONENTS=(
 "$GOENV_ROOT/bin"
@@ -195,6 +199,9 @@ antigen apply
 alias docker_tree='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images --tree'
 alias codeclimate="docker run --interactive --tty --rm --env CODE_PATH="$PWD" --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate"
 alias fly="docker run --net=host -it --rm -v /etc/ssl/certs:/etc/ssl/certs:ro -v $HOME/.config/fly:/home -v $(pwd):/workspace -e HOME=/home registry.int.greenhouse.io/concourse:fly "
+alias aws-vault-pass='aws-vault --backend=pass --pass-cmd=pass --pass-prefix=aws-vault'
+alias aws-vault-secret-service='aws-vault --backend=secret-service'
+alias docker-dajoku='docker run -v $PWD:/app -v $HOME/.ssh/id_rsa:/root/.ssh/id_rsa -v /home/jcmuller/.config/docker-dajoku:/root/.config/dajoku --network=host -it --rm dajoku_cli'
 
 ze () { ARGS=$@; zeus "$@"; ZE_EC=$?; stty sane; if [ $ZE_EC = 2 ]; then ze "$ARGS"; fi }
 
