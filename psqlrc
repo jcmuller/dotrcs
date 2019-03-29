@@ -1,4 +1,5 @@
 \timing
-\x
+\x auto
 \pset null 'Ø'
-\set PROMPT1 '%M:%> %n@%/%R%#%x '
+\set PROMPT1 '%[%033[1;32m%]%M%[%033[0m%]:%[%033[1;31m%]%>%[%033[0m%] %n@%[%033[1;36m%]%/%[%033[0m%]%R%#%x '
+\set COMP_KEYWORD_CASE upper
