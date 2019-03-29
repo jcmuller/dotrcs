@@ -61,8 +61,6 @@ PASSWORD_STORE_GENERATED_LENGTH=36; export PASSWORD_STORE_GENERATED_LENGTH
 AWS_VAULT_BACKEND=secret-service; export AWS_VAULT_BACKEND
 DAJOKU_USER=juan@greenhouse.io; export DAJOKU_USER
 BROWSER=/home/jcmuller/go/bin/picky; export BROWSER
-GOENV_ROOT="$HOME/.goenv"; export GOENV_ROOT
-GOPATH=~/go; export GOPATH
 NVIM_LISTEN_ADDRESS="/tmp/neovim.sock"; export NVIM_LISTEN_ADDRESS
 NVM_AUTO_USE=true; export NVM_AUTO_USE
 NVM_DIR="$HOME/.nvm"; export NVM_DIR
@@ -78,16 +76,10 @@ TIMEFMT="'$fg[green]%J$reset_color' time: $fg[yellow]%*Es$reset_color, cpu: $fg[
 unset SSH_AGENT_PID SSH_AUTH_SOCK
 
 PATH_COMPONENTS=(
-"$GOENV_ROOT/bin"
-"$GOENV_ROOT/shims"
-"$GOPATH/bin"
-"$GOROOT/bin"
 "$HOME/bin"
 "$HOME/.cargo/bin"
 "$HOME/.local/bin"
 "$HOME/perl5/bin"
-"$HOME/.rbenv/bin"
-"$HOME/.rbenv/shims"
 "$HOME/.yarn/bin"
 "/usr/local/sbin"
 "/usr/local/bin"
@@ -163,11 +155,14 @@ antigen bundles <<EOBUNDLE
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh extra.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh gh-aliases.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh git_funcs.zsh
+  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh go-setup.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh jenkins.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh local.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh nvim.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh plugins
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh rbenv.zsh
+  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh vi-mode.zsh
+  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh zeus.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh zsh_completions.zsh
 
   github/hub etc/hub.zsh_completion
@@ -192,58 +187,9 @@ EOBUNDLE
 # antigen bundle jcmuller/custom-oh-my-zsh zsh_completions.zsh
 
 antigen apply
-# antigen init ~/.antigenrc
 
-#source /home/jcmuller/Development/MyStuff/custom-oh-my-zsh/dajoku-completions.zsh
-
-alias docker_tree='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images --tree'
-alias codeclimate="docker run --interactive --tty --rm --env CODE_PATH="$PWD" --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate"
-alias fly="docker run --net=host -it --rm -v /etc/ssl/certs:/etc/ssl/certs:ro -v $HOME/.config/fly:/home -v $(pwd):/workspace -e HOME=/home registry.int.greenhouse.io/concourse:fly "
-alias aws-vault-pass='aws-vault --backend=pass --pass-cmd=pass --pass-prefix=aws-vault'
-alias aws-vault-secret-service='aws-vault --backend=secret-service'
-alias docker-dajoku='docker run -v $PWD:/app -v $HOME/.ssh/id_rsa:/root/.ssh/id_rsa -v /home/jcmuller/.config/docker-dajoku:/root/.config/dajoku --network=host -it --rm dajoku_cli'
-
-ze () { ARGS=$@; zeus "$@"; ZE_EC=$?; stty sane; if [ $ZE_EC = 2 ]; then ze "$ARGS"; fi }
-
-#set -o vi
 set noclobber
 
-[ -s "$GOENV_ROOT/completions/goenv.zsh" ] && . "$GOENV_ROOT/completions/goenv.zsh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 xmodmap ~/.Xmodmap
-
-eval "$(goenv init -)"
-eval "$(rbenv init -)"
-
-GOROOT="$(goenv prefix)"; export GOROOT
-
-source ~/Development/MyStuff/custom-oh-my-zsh/themes/juancmuller.zsh-theme
-unset RPROMPT
-
-set -o vi
-
-bindkey -M viins '\e.' insert-last-word
-bindkey "^?" backward-delete-char
-
-#################################
-bindkey -v
-
-bindkey '^P' up-history
-bindkey '^N' down-history
-bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
-bindkey '^w' backward-kill-word
-bindkey '^r' history-incremental-search-backward
-
-precmd() { RPROMPT="" }
-function zle-line-init zle-keymap-select {
-   VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-   RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
-   zle reset-prompt
-}
-
-zle -N zle-line-init
-zle -N zle-keymap-select
-
-export KEYTIMEOUT=1
