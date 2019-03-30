@@ -12,5 +12,5 @@
 - command: nodenv
   args:
     - version-name
-  identifier: N
+  identifier: "N"
   file: .node-version
