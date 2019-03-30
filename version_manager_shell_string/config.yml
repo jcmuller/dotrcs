@@ -1,0 +1,16 @@
+---
+- command: goenv
+  args:
+    - version-name
+  identifier: G
+  file: .go-version
+- command: rbenv
+  args:
+    - version-name
+  identifier: R
+  file: .ruby-version
+- command: nodenv
+  args:
+    - version-name
+  identifier: N
+  file: .node-version
