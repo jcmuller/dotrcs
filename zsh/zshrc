@@ -60,7 +60,7 @@ antigen bundles <<EOBUNDLE
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh extra.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh gh-aliases.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh git_funcs.zsh
-  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh go-setup.zsh
+  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh goenv.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh jenkins.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh local.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh nodenv.zsh
