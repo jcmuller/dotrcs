@@ -1,3 +1,0 @@
-Here you can find settings for some of my favorite programs.
-
-More might follow.....
