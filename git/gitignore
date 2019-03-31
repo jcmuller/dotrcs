@@ -52,3 +52,5 @@ yarn-error.log
 zeus.json
 .zeus.rb
 stack
+docker-compose.juan.yml
+.solargraph.yml
