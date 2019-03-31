@@ -1,0 +1,20 @@
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
+
+XTerm*allowSendEvents: true
+XTerm*faceName: Terminus
+XTerm*faceSize: 9
+XTerm*loginshell: true
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+xterm*scrollTtyOutput: false
+XTerm*metaSendsEscape: true
+
+URxvt*font: xft:Terminus:pixelsize=9
+URxvt*loginshell: true
+URxvt*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+URxvt*scrollTtyOutput: false
+URxvt*scrollBar: false
+URxvt*scrollTtyKeypress: tuie
