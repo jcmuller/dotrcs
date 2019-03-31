@@ -29,7 +29,6 @@ mailboxes \
   +'Work/[Gmail].All Mail' \
   '/var/mail/jcmuller'
 
-
   #+'Personal/[Gmail].All Mail' \
   #+'Personal/[Gmail].Drafts' \
   #+'Personal/[Gmail].Important' \

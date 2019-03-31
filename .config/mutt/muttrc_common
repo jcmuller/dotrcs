@@ -49,7 +49,6 @@ set strict_threads    = yes                                  # dont try to creat
 set suspend           = no                                   # Don't suspend on ^z
 set tilde                                          # pad bottom of screen with ~
 
-
 set sidebar_width     = 18
 set mail_check_stats=yes
 set sidebar_visible=yes
