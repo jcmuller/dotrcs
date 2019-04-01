@@ -1,0 +1,25 @@
+#!/bin/bash
+
+APP="$1"
+SRC=$(basename "$PWD")
+
+docker run \
+  -it \
+  --network host \
+  -e DISPLAY="unix$DISPLAY" \
+  -v "$HOME/.ssh:/home/developer/.ssh" \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  -v "$HOME/Documents/Notes:/home/developer/Documents/Notes" \
+  -v "$HOME/.gitconfig:/home/developer/.gitconfig" \
+  -v "$HOME/.gitignore:/home/developer/.gitignore" \
+  -v "$HOME/.git_template:/home/developer/.git_template" \
+  -v "$HOME/.jira.d:/home/developer/.jira.d" \
+  -v "$HOME/.git-authors:/home/developer/.git-authors" \
+  -v "$HOME/.pryrc:/home/developer/.pryrc" \
+  -v "$HOME/.config/hub:/home/developer/.config/hub" \
+  -v "$HOME/.password-store:/home/developer/.password-store" \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v "$PWD:/src/$SRC" \
+  -w "/src/$SRC" \
+  --rm \
+  "$APP"

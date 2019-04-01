@@ -1,0 +1,24 @@
+#!/bin/bash
+
+VERSION=2018.3.3
+
+docker run \
+  --name rubymine-${VERSION} \
+  --detach \
+  --rm \
+  --cpuset-cpus 0 \
+  --device /dev/dri \
+  -e "DISPLAY=:0" \
+  -e GDK_DPI_SCALE \
+  -e GDK_SCALE \
+  -e _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd' \
+  --memory 3000mb \
+  --network=host \
+  -v /etc/localtime:/etc/localtime:ro \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  -v "$HOME/Dropbox/Code/rubymine-settings.git:/settings.git" \
+  -v "$HOME/Development/Greenhouse:/home/developer/workspace" \
+  -v "$HOME/.RubyMine2018.3:/home/developer/.RubyMine2018.3" \
+  -v "$HOME/.java:/home/developer/.java" \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  jcmuller/rubymine:${VERSION}
