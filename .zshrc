@@ -40,6 +40,7 @@ antigen bundles <<EOBUNDLE
   aws
   docker
   docker-compose
+  docker-machine
   git
   git-extras
   go
