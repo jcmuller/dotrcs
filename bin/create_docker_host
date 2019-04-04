@@ -1,0 +1,15 @@
+summon \
+  -p gopass \
+  --yaml 'VSPHERE_PASSWORD: !var 192.168.86.47' -- \
+  \
+  docker-machine create \
+  --driver vmwarevsphere \
+  --vmwarevsphere-username="jcmuller" \
+  --vmwarevsphere-vcenter=192.168.86.47 \
+  --vmwarevsphere-network="VM Network" \
+  --vmwarevsphere-cpu-count=2 \
+  --vmwarevsphere-memory-size=4096 \
+  --vmwarevsphere-disk-size=20000 \
+  --vmwarevsphere-boot2docker-url=https://releases.rancher.com/os/latest/vmware/rancheros-autoformat.iso \
+  --vmwarevsphere-datastore=datastore1 \
+  default
