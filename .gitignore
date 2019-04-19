@@ -54,3 +54,4 @@ zeus.json
 stack
 docker-compose.juan.yml
 .solargraph.yml
+secrets.yml
