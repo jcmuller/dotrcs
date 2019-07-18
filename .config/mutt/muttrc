@@ -4,19 +4,19 @@
 #
 
 # Common behaviour
-source ~/.mutt/muttrc_common
+source ./muttrc_common
 
 # Accounts
-source ~/.mutt/muttrc_local
+source ./muttrc_local
 
 # Colors
-source ~/.mutt/colors
+source ./colors
 
 # Macros
-source ~/.mutt/macros
+source ./macros
 
 # Scores
-source ~/.mutt/scores
+source ./scores
 
 # Cryptographic Encryption
-source ~/.mutt/crypto
+source ./crypto
