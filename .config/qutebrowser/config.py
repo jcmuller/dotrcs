@@ -45,6 +45,22 @@ c.bindings.commands = {
         '<Ctrl-v>': 'fake-key <PgDown>',
         '<Ctrl-y>': 'insert-text {primary}',
     },
+    "passthrough": {
+        '<Alt-Backspace>': 'fake-key <Ctrl-Backspace>',
+        '<Alt-b>': 'fake-key <Ctrl-Left>',
+        '<Alt-d>': 'fake-key <Ctrl-Delete>',
+        '<Alt-f>': 'fake-key <Ctrl-Right>',
+        '<Ctrl-/>': 'fake-key <Ctrl-z>',
+        '<Ctrl-a>': 'fake-key <Home>',
+        '<Ctrl-b>': 'fake-key <Left>',
+        '<Ctrl-d>': 'fake-key <Delete>',
+        '<Ctrl-e>': 'fake-key <End>',
+        '<Ctrl-f>': 'fake-key <Right>',
+        '<Ctrl-k>': 'fake-key <shift+end> ;; fake-key <delete>',
+        '<Ctrl-n>': 'fake-key <Down>',
+        '<Ctrl-p>': 'fake-key <Up>',
+        '<Ctrl-u>': 'fake-key <shift+home> ;; fake-key <delete>',
+    },
 }
 
 c.editor.command = [
@@ -61,9 +77,10 @@ c.tabs.position = "top"
 
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
+    "gh": "https://github.com/{}",
     "gp": "https://github.com/grnhse/greenhouse/pull/{}",
     "j": "https://greenhouseio.atlassian.net/browse/{}",
-    "r": "https://www.reddit.com/r/{}"
+    "r": "https://www.reddit.com/r/{}",
 }
 
 c.aliases['b'] = 'buffer'
