@@ -105,3 +105,7 @@ c.fonts.web.size.default = 14
 c.fonts.web.size.default_fixed = 13
 
 c.zoom.default = "85%"
+
+c.content.host_blocking.whitelist = [
+    'rollbar.com',
+]
