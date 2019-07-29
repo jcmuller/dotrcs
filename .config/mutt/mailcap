@@ -2,9 +2,9 @@
 
 application/msexcel; /usr/bin/wvWare %s | /usr/bin/elinks -dump; copiousoutput
 application/msword; /usr/bin/wvWare %s | /usr/bin/elinks -dump; copiousoutput
-#application/pdf; /usr/bin/evince %s
-application/pdf; /usr/bin/evince %s
-application/postscript ; evince %s
+#application/pdf; /usr/bin/xdg-open %s
+application/pdf; /usr/bin/zathura %s
+application/postscript ; zathura %s
 application/psd; gimp %s
 application/rar; /usr/bin/unrar l %s; copiousoutput
 application/vnd.ms-excel; /usr/bin/wvWare %s | /usr/bin/elinks -dump; copiousoutput
