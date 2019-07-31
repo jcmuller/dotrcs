@@ -155,12 +155,12 @@ workspace 10 output DP-2-1
 # workspace 10 output eDP-1
 
 # FIX OUTPUTS HERE
-#output 
-output eDP-1 pos 4992 0 res 2048x1152
-output DP-1 pos 1152 0
-output HDMI-A-2 res 2048x1152 transform 90 pos 0 0
-output HDMI-A-2 transform 90
-output HDMI-A-2 pos 0 0
+#output
+#  output eDP-1 pos 4992 0 res 2048x1152
+#  output DP-1 pos 1152 0
+#  output HDMI-A-2 res 2048x1152 transform 90 pos 0 0
+#  output HDMI-A-2 transform 90
+#  output HDMI-A-2 pos 0 0
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
