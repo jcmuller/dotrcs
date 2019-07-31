@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-From https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu
+# From https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu
 
 shopt -s nullglob globstar
 
