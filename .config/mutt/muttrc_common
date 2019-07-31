@@ -59,7 +59,7 @@ set sidebar_folder_indent=yes
 set sidebar_short_path=yes
 
 #In which order to show the body parts
-alternative_order text/enriched text/plain text text/html application/postscript image/*
+alternative_order text/enriched text/plain text text/html application/pdf application/postscript image/*
 
 # Headers
 ignore    *
@@ -78,8 +78,10 @@ set forward_quote
 set copy = yes
 
 # View special formats
-set mailcap_path = ./mailcap
-auto_view text/html
+set mailcap_path = ~/.config/mutt/mailcap
+auto_view text/html application/x-gunzip \
+  application/postscript image/gif application/x-tar-gz
+
 
 # External address book
 set query_command = "abook --mutt-query '%s'"
