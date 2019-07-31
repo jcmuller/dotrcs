@@ -5,20 +5,21 @@
 c = c  # noqa: F821 pylint: disable=E0602,C0103
 config = config  # noqa: F821 pylint: disable=E0602,C0103
 
-PASS_COMMAND = 'spawn --userscript qute-pass --dmenu-invocation dmenu'
+pass_command = 'spawn --userscript qute-pass --dmenu-invocation dmenu'
 
 config.load_autoconfig()
+
 c.bindings.commands = {
     "normal": {
-        # ",o": "spawn --userscript dmenu-open",
-        # ",O": "spawn --userscript dmenu-open --tab",
+        # ",o": "spawn --userscript dmenu-open", o
+        # ",O": "spawn --userscript dmenu-open --tab", O
         # ",o": "set-cmd-text :open {url}", -- go
         # ",O": "set-cmd-text :open -t {url}", -- gO
         ',d': 'hint all delete',
-        ',p': PASS_COMMAND,
-        ',Pu': PASS_COMMAND + ' --username-only',
-        ',Pp': PASS_COMMAND + ' --password-only',
-        ',Po': PASS_COMMAND + ' --otp-only',
+        ',p': pass_command,
+        ',Pu': pass_command + ' --username-only',
+        ',Pp': pass_command + ' --password-only',
+        ',Po': pass_command + ' --otp-only',
         ",r": "hint links spawn /home/jcmuller/go/bin/picky {hint-url}",
         ",s": "spawn --userscript searchbar-command",
         ",z": "hint links spawn /home/jcmuller/go/bin/zoom-handler {hint-url}",
@@ -109,3 +110,14 @@ c.zoom.default = "85%"
 c.content.host_blocking.whitelist = [
     'rollbar.com',
 ]
+
+background = '#ffffcc'
+foreground = 'black'
+c.colors.tabs.pinned.selected.even.bg = background
+c.colors.tabs.pinned.selected.odd.bg = background
+c.colors.tabs.selected.even.bg = background
+c.colors.tabs.selected.odd.bg = background
+c.colors.tabs.pinned.selected.even.fg = foreground
+c.colors.tabs.pinned.selected.odd.fg = foreground
+c.colors.tabs.selected.even.fg = foreground
+c.colors.tabs.selected.odd.fg = foreground
