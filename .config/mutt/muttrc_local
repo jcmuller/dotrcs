@@ -24,14 +24,10 @@ set envelope_from
 mailboxes \
   +Personal \
   +Personal/INBOX \
-  +'Personal/[Gmail].All Mail' \
   +'Personal/[Gmail].Sent Mail' \
-  +'Personal/[Gmail].Drafts' \
   +Work \
   +Work/INBOX \
-  +'Work/[Gmail].All Mail' \
   +'Work/[Gmail].Sent Mail' \
-  +'Work/[Gmail].Drafts' \
   +Notes \
   /var/mail/jcmuller
 
