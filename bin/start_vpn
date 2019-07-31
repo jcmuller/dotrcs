@@ -1,15 +1,41 @@
 #!/bin/bash -ex
 
-OPENVPN="/usr/local/sbin/openvpn"
+OPENVPN="/usr/sbin/openvpn"
 CLOSE_ALL="close_all"
+BASE_PATH=~/Dropbox/vpns
+OPTIONS="--auth-user-pass ~/.openvpnrc --auth-nocache --script-security 2"
 
-vpns=$(for i in ~/Dropbox/vpns/*ovpn; do basename $i .ovpn; done)
-vpns="$vpns $CLOSE_ALL"
-vpn=$(echo $vpns | dmenu -p "VPN:" -lines 20 -sep ' ')
+close_all() {
+  notify-send "Killing all openvpn connections"
+  sudo /usr/bin/killall $OPENVPN
+  exit
+}
+
+connect() {
+  vpn=$1
+  if [[ "$vpn" = "support" ]]
+  then
+    OPTIONS="$OPTIONS --up ~/bin/openvpn/up --down ~/bin/openvpn/down"
+  fi
+
+  notify-send "$vpn" "Connecting...."
+  sudo $OPENVPN --config $BASE_PATH/${vpn}.ovpn $OPTIONS &
+}
+
+if [[ -n "$1" ]];
+then
+  vpn=$1
+  shift
+else
+  vpns=$(for i in $BASE_PATH/*ovpn; do basename $i .ovpn; done)
+  vpns="$vpns $CLOSE_ALL"
+  vpn=$(echo $vpns | dmenu -p "VPN:" -lines 20 -sep ' ')
+fi
+
 
 if [[ "$vpn" = "$CLOSE_ALL" ]]
 then
-  sudo /usr/bin/killall $OPENVPN
+  close_all
 else
-  sudo $OPENVPN --config ~/Dropbox/vpns/${vpn}.ovpn --auth-user-pass ~/.openvpnrc --auth-nocache
+  connect $vpn
 fi
