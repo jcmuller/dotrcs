@@ -415,6 +415,7 @@ bindsym --release Shift+$mod+s exec xfce4-screenshooter
 bindsym $mod+Shift+v exec --no-startup-id ~/bin/start_vpn
 
 bindsym $mod+p exec --no-startup-id ~/bin/passmenu --type -i
+bindsym $mod+shift+u exec --no-startup-id ~/bin/usermenu --type -i
 bindsym $mod+t exec --no-startup-id ~/bin/otpmenu --type -i
 
 bindsym $mod+Shift+t border toggle
