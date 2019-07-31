@@ -18,7 +18,7 @@ set delete            = yes                                  # Don't ask for con
 set fast_reply        = yes                                  # Start editing message on reply, group reply and forward
 set folder_format     = "%N %f"                       # date ...
 #set folder_format     = "%d %8s %N %f"                       # date ...
-set header_cache      = "./cache"
+set header_cache      = "~/.config/mutt/cache"
 set indent_string     = "> "
 #set index_format      = "%-30.30L%3M %-33.33s %[%m/%d %k:%M] [%Z]%5c"
 set index_format      = "%[%m/%d %k:%M] [%Z]%5c %-20.20L%3M %s"
@@ -49,6 +49,7 @@ set strict_threads    = yes                                  # dont try to creat
 set suspend           = no                                   # Don't suspend on ^z
 set tilde                                          # pad bottom of screen with ~
 
+
 set sidebar_width     = 18
 set mail_check_stats=yes
 set sidebar_visible=yes
@@ -66,7 +67,7 @@ unignore  Date: From: To: CC: Bcc: Subject: X-Mailer X-OS User-Agent Organizatio
 hdr_order Subject: Date: From: To: CC: Bcc:
 
 # Composing Mail
-set editor         = "./tools/truncate_mail.pl %s; vim -c 'set tw=70 ft=mail noautoindent nocindent nosmartindent expandtab nonumber' %s"
+set editor         = "~/.config/mutt/tools/truncate_mail.pl %s; vim -c 'set tw=70 ft=mail noautoindent nocindent nosmartindent expandtab nonumber' %s"
 set markers        = no
 set include        = yes
 set forward_format = "Fwd: %s"
@@ -89,7 +90,7 @@ macro index,pager A "<pipe-message>abook --add-email<return>" "add the sender ad
 folder-hook . 'unmy_hdr Subject: Bcc: To:'
 folder-hook . 'exec collapse-all'
 
-set alias_file = ./alias
+set alias_file = ~/.config/mutt/alias
 set sort_alias = alias
 set reverse_alias = yes
 source $alias_file

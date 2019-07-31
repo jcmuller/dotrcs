@@ -7,10 +7,10 @@ alternates "jcmuller@gmail.com|juan@greenhouse.io"
 set use_from
 
 set spoolfile = "+Personal/INBOX"
-source ./muttrc_personal
+source ~/.config/mutt/muttrc_personal
 
-folder-hook Personal/* source ./muttrc_personal
-folder-hook Work/* source ./muttrc_work
+folder-hook Personal/* source ~/.config/mutt/muttrc_personal
+folder-hook Work/* source ~/.config/mutt/muttrc_work
 
 # Reding mail
 set timeout=60
