@@ -75,7 +75,7 @@ set folder_format  = "%F %-8.8u %-8.8g %d %8s %N %f"
 set forward_quote
 
 # Sending Mail
-set copy = yes
+set copy = no
 
 # View special formats
 set mailcap_path = ~/.config/mutt/mailcap
