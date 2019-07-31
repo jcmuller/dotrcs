@@ -44,6 +44,7 @@ antigen bundles <<EOBUNDLE
   git
   git-extras
   go
+  gopass
   pass
   rbenv
   ruby
@@ -82,3 +83,7 @@ antigen apply
 set noclobber
 
 xmodmap ~/.Xmodmap
+
+fpath=( ~/go/share/zsh "${fpath[@]}" )
+
+source ~/bin/base16-tomorrow-night.sh
