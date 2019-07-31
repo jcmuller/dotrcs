@@ -365,8 +365,8 @@ new_window pixel 3
 # bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+Return exec xterm -fa Terminus -fs 9
 # bindsym $mod+Shift+Return exec xterm -fa Ubuntu\ Mono -fs 12
-bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Shift+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty #i3-sensible-terminal
+bindsym $mod+Shift+Return exec alacritty #i3-sensible-terminal
 
 #bindsym $mod+r exec dmenu_run -p "run:" -levenshtein-sort -lines 20
 
