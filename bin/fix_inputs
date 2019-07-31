@@ -2,8 +2,15 @@
 
 xmodmap ~/.Xmodmap
 
-xinput set-prop "Logitech M570" --type=int "libinput Natural Scrolling Enabled" 1
+# Disable touchpad
 xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
-xinput set-prop "TPPS/2 IBM TrackPoint" "libinput Natural Scrolling Enabled" 1
+
+# Enable natural scrolling
+xinput set-prop "pointer:Logitech M570"                 "libinput Natural Scrolling Enabled" 1
+xinput set-prop "pointer:TPPS/2 IBM TrackPoint"         "libinput Natural Scrolling Enabled" 1
+xinput set-prop "pointer:Kensington Expert Wireless TB" "libinput Natural Scrolling Enabled" 1
+
+# Adjust acceleartion
+xinput set-prop "pointer:Kensington Expert Wireless TB" "libinput Accel Speed" 0.5
 
 ~/bin/turn_off_caps
