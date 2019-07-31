@@ -22,12 +22,19 @@ set mail_check_recent = yes
 set envelope_from
 
 mailboxes \
-  +'Personal' \
-  +'Personal/INBOX' \
-  +'Work' \
-  +'Work/INBOX' \
+  +Personal \
+  +Personal/INBOX \
+  +'Personal/[Gmail].All Mail' \
+  +'Personal/[Gmail].Sent Mail' \
+  +'Personal/[Gmail].Drafts' \
+  +Work \
+  +Work/INBOX \
   +'Work/[Gmail].All Mail' \
-  '/var/mail/jcmuller'
+  +'Work/[Gmail].Sent Mail' \
+  +'Work/[Gmail].Drafts' \
+  +Notes \
+  /var/mail/jcmuller
+
 
   #+'Personal/[Gmail].All Mail' \
   #+'Personal/[Gmail].Drafts' \
