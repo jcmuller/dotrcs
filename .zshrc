@@ -60,6 +60,7 @@ antigen bundles <<EOBUNDLE
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh enable-edit-command-line.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh environment.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh extra.zsh
+  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh fzf.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh gh-aliases.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh git_funcs.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh goenv.zsh
