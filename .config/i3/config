@@ -146,7 +146,7 @@ workspace 10 output DP-2-1
 # #workspace 9 output DP-2-8
 # #workspace 9 output DP-2-2-8
 # #workspace 9 output DP-2-2
-# 
+#
 # workspace  2 output eDP-1
 # workspace  4 output eDP-1
 # workspace  6 output eDP-1
@@ -221,19 +221,6 @@ mode "spotify" {
 }
 
 bindsym $mod+Shift+p mode "spotify"
-
-mode "gnome-profile" {
-  bindsym u exec --no-startup-id ~/bin/switch-profile ubuntu-mono
-  bindsym t exec --no-startup-id ~/bin/switch-profile terminus
-  bindsym f exec --no-startup-id ~/bin/switch-profile
-
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-
-bindsym $mod+semicolon mode "gnome-profile"
-
-#bindsym $mod+Shift+u exec --no-startup-id ~/bin/switch-profile ubuntu-mono
 
 # Floating windows and window decorations
 #for_window [class="jetbrains-rubymine"] border normal
