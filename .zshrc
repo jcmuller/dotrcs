@@ -66,6 +66,7 @@ antigen bundles <<EOBUNDLE
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh nodenv.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh pass.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh perl.zsh
+  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh pyenv.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh rbenv.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh vi-mode.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh zeus.zsh
@@ -82,5 +83,3 @@ set noclobber
 xmodmap ~/.Xmodmap
 
 fpath=( ~/go/share/zsh "${fpath[@]}" )
-
-source ~/bin/base16-tomorrow-night.sh
