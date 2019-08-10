@@ -63,17 +63,14 @@ antigen bundles <<EOBUNDLE
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh gh-aliases.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh git_funcs.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh goenv.zsh
-  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh jenkins.zsh
-  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh local.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh nodenv.zsh
-  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh nvim.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh pass.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh perl.zsh
-  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh plugins
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh rbenv.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh vi-mode.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh zeus.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh zsh_completions.zsh
+  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh z.zsh
 
   github/hub etc/hub.zsh_completion
 EOBUNDLE
