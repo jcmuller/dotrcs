@@ -2,7 +2,7 @@
 
 set -euxo pipefail
 
-REMOTE_HOST=jcmuller@192.168.11.3
+REMOTE_HOST=jcmuller@192.168.20.3
 NAME="$(hostname)"
 REMOTE_PATH="/mnt/pool0/backups/$NAME"
 BASE="${REMOTE_HOST}:${REMOTE_PATH}"
@@ -10,11 +10,11 @@ RESTORE_TEMPFILE_PATH=$(mktemp)
 
 RESTORE_PATH="$BASE/restore.sh"
 
-cat <<'EOF' >$RESTORE_TEMPFILE_PATH
+cat <<'EOF' >"$RESTORE_TEMPFILE_PATH"
 #!/bin/bash -ex
 
 VERSION=$(date +"%Y%m%d%H%M")
-BASE=192.168.11.3:/mnt/pool0/backups/$(hostname)
+BASE=192.168.20.3:/mnt/pool0/backups/$(hostname)
 ETC=$BASE/etc/$(ls -1 $BASE/etc/ | tail -1)/etc
 HOME=$BASE/home/$(ls -1 $BASE/home/ | tail -1)/jcmuller
 
@@ -56,8 +56,10 @@ sudo dpkg-query -f '${binary:Package}\n' -W | sudo tee ~/Desktop/packages.list
 VERSION="$(hostname)-$(date +"%Y%m%d%H%M")"
 
 for i in etc opt usr/local/bin; do
-  ssh $REMOTE_HOST mkdir -p "$REMOTE_PATH/$i"
-  LAST=$(ssh $REMOTE_HOST ls -1 $REMOTE_PATH/$i/ | tail -1)
+  # shellcheck disable=SC2029
+  ssh "$REMOTE_HOST" mkdir -p "$REMOTE_PATH/$i"
+  # shellcheck disable=SC2029
+  LAST=$(ssh "$REMOTE_HOST" ls -1 "$REMOTE_PATH/$i/" | tail -1)
   sudo rsync -avzpl \
     --stats \
     --progress \
@@ -66,8 +68,10 @@ for i in etc opt usr/local/bin; do
     "${BASE}/${i}/${VERSION}/"
 done
 
-ssh $REMOTE_HOST mkdir -p "$REMOTE_PATH/home"
-LAST=$(ssh $REMOTE_HOST ls -1 $REMOTE_PATH/home/ | tail -1)
+# shellcheck disable=SC2029
+ssh "$REMOTE_HOST" mkdir -p "$REMOTE_PATH/home"
+# shellcheck disable=SC2029
+LAST=$(ssh "$REMOTE_HOST" ls -1 "$REMOTE_PATH/home/" | tail -1)
 sudo rsync \
   -avzpl \
   --stats \
@@ -82,10 +86,10 @@ sudo rsync \
   --link-dest="${REMOTE_PATH}/home/${LAST}" \
   "${BASE}/home/${VERSION}"
 
-rsync $RESTORE_TEMPFILE_PATH $RESTORE_PATH
-rsync ~/Desktop/packages.list $BASE/
-rsync ~/Desktop/gsettings.conf $BASE/
+rsync "$RESTORE_TEMPFILE_PATH" "$RESTORE_PATH"
+rsync ~/Desktop/packages.list "$BASE"/
+rsync ~/Desktop/gsettings.conf "$BASE"/
 
 cron=$(mktemp)
-crontab -l >$cron
-rsync $cron $BASE/crontab
+crontab -l >"$cron"
+rsync "$cron" "$BASE"/crontab
