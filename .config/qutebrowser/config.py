@@ -47,12 +47,7 @@ c.bindings.commands = {
     },
 
     # Emacs-like keybindings for insert mode
-    'insert': {
-        **settings['base_keybindings'],
-        '<Alt-v>': 'fake-key <PgUp>',
-        '<Ctrl-v>': 'fake-key <PgDown>',
-        # ',e': 'insert-text juan@greenhouse.io',
-    },
+    'insert': settings['base_keybindings'],
     "passthrough": settings['base_keybindings'],
 }
 
