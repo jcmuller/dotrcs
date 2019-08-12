@@ -4,26 +4,103 @@
 
 shopt -s nullglob globstar
 
-typeit=0
-if [[ $1 == "--type" ]]; then
-  typeit=1
-  shift
-fi
+program=$(basename $0)
+
+TEMP=$(getopt --options toup --long type,otp,username,password -- "$@")
+eval set -- "$TEMP"
+
+case "$program" in
+  otpmenu)
+    mode="otp"
+    ;;
+  passmenu)
+    mode="password"
+    ;;
+  usermenu)
+    mode="username"
+    ;;
+esac
+
+while true; do
+  case "$1" in
+    -t | --type)
+      typeit=1
+      shift
+      ;;
+    -u | --username)
+      mode="username"
+      shift
+      ;;
+    -o | --otp)
+      mode="otp"
+      shift
+      ;;
+    -p | --password)
+      mode="password"
+      shift
+      ;;
+    --)
+      shift
+      break
+      ;;
+    *)
+      echo "Invalid options!"
+      exit 1
+      ;;
+  esac
+done
+
+clip() {
+  local sleep_argv0 before secret
+
+  secret=$1
+  sleep_argv0="passmenu sleep on display $DISPLAY"
+  pkill -f "^$sleep_argv0" 2>/dev/null && sleep 0.5
+
+  before="$(xclip -o -selection clipboard 2>/dev/null | base64)"
+  echo -n "$secret" | xclip -selection clipboard || die "Error: Could not copy data to the clipboard"
+  ( 
+    (exec -a "$sleep_argv0" bash <<<"trap 'kill %1' TERM; sleep '45' & wait")
+    local now
+    now="$(xclip -o -selection clipboard | base64)"
+    [[ $now != $(echo -n "$secret" | base64) ]] && before="$now"
+
+    qdbus org.kde.klipper /klipper org.kde.klipper.klipper.clearClipboardHistory &>/dev/null
+
+    echo "$before" | base64 -d | xclip -selection clipboard
+  ) 2>/dev/null &
+  disown
+  echo "Copied $2 to clipboard. Will clear in 45 seconds."
+}
 
 prefix=${PASSWORD_STORE_DIR-~/.password-store}
-password_files=( "$prefix"/**/*.gpg )
-password_files=( "${password_files[@]#"$prefix"/}" )
-password_files=( "${password_files[@]%.gpg}" )
+password_files=("$prefix"/**/*.gpg)
+password_files=("${password_files[@]#"$prefix"/}")
+password_files=("${password_files[@]%.gpg}")
 
-password=$(printf '%s\n' "${password_files[@]}" | dmenu -p Password "$@")
+password=$(printf '%s\n' "${password_files[@]}" | dmenu -p Secret "$@")
 
 [[ -n $password ]] || exit
 
-if [[ $typeit -eq 0 ]]; then
-  pass show -c "$password" 2>/dev/null
+case "$mode" in
+  "username")
+    secret=$(pass show "$password" | grep -e user -e login | cut -d ' ' -f 2)
+    ;;
+  "password")
+    secret=$(pass show "$password" | head -1)
+    ;;
+  "otp")
+    secret=$(pass otp "$password")
+    ;;
+esac
+
+if [[ "$typeit" == "1" ]]; then
+  echo "$secret" | {
+    IFS= read -r pass
+    printf %s "$pass"
+  } | xdotool type --clearmodifiers --file -
 else
-  pass show "$password" | { IFS= read -r pass; printf %s "$pass"; } |
-    xdotool type --clearmodifiers --file -
+  clip "$secret" "$password"
 fi
 
 #~/go/bin/gopass ls --flat | dmenu -p Password | xargs --no-run-if-empty gopass show -f | head -n 1 | xdotool type --clearmodifiers --file -
