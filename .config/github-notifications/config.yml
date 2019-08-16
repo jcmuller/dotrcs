@@ -1,0 +1,3 @@
+---
+GITHUB_NOTIFICATIONS_USER_NAME: !var tools/github_notifications/username
+GITHUB_NOTIFICATIONS_PASSWORD: !var tools/github_notifications/password
