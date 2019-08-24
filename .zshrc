@@ -45,6 +45,7 @@ antigen bundles <<EOBUNDLE
   git-extras
   go
   gopass
+  hub
   pass
   rbenv
   ruby
