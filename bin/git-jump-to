@@ -1,0 +1,4 @@
+#!/bin/bash
+
+branch=$(git recent-branch)
+[[ $branch = "" ]] || git checkout $branch

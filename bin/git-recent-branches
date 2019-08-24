@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo 'master'
+for i in {1..30}; do
+  echo $(git rev-parse --abbrev-ref=loose @{-$i})
+done 2>/dev/null |
+  egrep -ve '@{' -e '^$' -e '^master$' |
+  sort -u

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+branch=$(git recent-branch)
+[[ $branch = "" ]] && exit
+
+git push origin :refs/heads/$branch
+git branch -D $branch
