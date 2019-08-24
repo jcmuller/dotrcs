@@ -1,5 +1,5 @@
 #!/bin/bash
 
 branches=$(git recent-branches)
-branch=$(tr ' ' '\n' <<<$branches | fzf --multi --preview 'git show {+1}')
-echo $branch
+branch=$(tr ' ' '\n' <<<"$branches" | fzf --multi --preview 'git show {+1}')
+echo "$branch"
