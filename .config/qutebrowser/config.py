@@ -7,7 +7,7 @@ config = config  # noqa: F821 pylint: disable=E0602,C0103
 settings = {
     'background': '#ffffcc',
     'foreground': 'black',
-    'pass_command': 'spawn --userscript qute-pass --dmenu-invocation dmenu',
+    'pass_command': 'spawn --userscript qute-pass --dmenu-invocation dmenu --username-target secret --username-pattern="(?:login|username): +(.*)"',
     'base_keybindings': {
         '<Alt-Backspace>': 'fake-key <Ctrl-Backspace>',
         '<Alt-b>': 'fake-key <Ctrl-Left>',
@@ -35,15 +35,16 @@ c.bindings.commands = {
         # ",O": "spawn --userscript dmenu-open --tab", O
         # ",o": "set-cmd-text :open {url}", -- go
         # ",O": "set-cmd-text :open -t {url}", -- gO
+        ',Po': settings['pass_command'] + ' --otp-only',
+        ',Pp': settings['pass_command'] + ' --password-only',
+        ',Pu': settings['pass_command'] + ' --username-only',
         ',d': 'hint all delete',
         ',p': settings['pass_command'],
-        ',Pu': settings['pass_command'] + ' --username-only',
-        ',Pp': settings['pass_command'] + ' --password-only',
-        ',Po': settings['pass_command'] + ' --otp-only',
-        ",r": "hint links spawn /home/jcmuller/go/bin/picky {hint-url}",
-        ",s": "spawn --userscript searchbar-command",
-        ",z": "hint links spawn /home/jcmuller/go/bin/zoom-handler {hint-url}",
-        ",ym": "yank inline [{title}]({url})",  # Copy URL for markdown links
+        ',r': 'hint links spawn /home/jcmuller/go/bin/picky {hint-url}',
+        ',s': 'spawn --userscript searchbar-command',
+        ',,': 'config-cycle tabs.show always never',
+        ',ym': 'yank inline [{title}]({url})',  # Copy URL for markdown links
+        ',z': 'hint links spawn /home/jcmuller/go/bin/zoom-handler {hint-url}',
     },
 
     # Emacs-like keybindings for insert mode
@@ -90,11 +91,11 @@ c.fonts.tabs = "9pt monospace"
 c.fonts.web.size.default = 14
 c.fonts.web.size.default_fixed = 13
 c.hints.mode = "letter"
-c.session.lazy_restore = False
+c.session.lazy_restore = True
 c.tabs.last_close = "close"
 c.tabs.mousewheel_switching = False
 c.tabs.position = "left"
-c.tabs.select_on_remove = "prev"
+c.tabs.select_on_remove = "next"
 c.tabs.show = "never"
 c.tabs.switch_to_open_url = True
 c.tabs.width = 250
@@ -108,5 +109,6 @@ c.url.searchengines = {
     "gp": "https://github.com/grnhse/greenhouse/pull/{}",
     "j": "https://greenhouseio.atlassian.net/browse/{}",
     "r": "https://www.reddit.com/r/{}",
+    "rg": "https://rubygems.org/gems/{}",
 }
 c.zoom.default = "85%"
