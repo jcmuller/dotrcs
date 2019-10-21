@@ -67,7 +67,7 @@ unignore  Date: From: To: CC: Bcc: Subject: X-Mailer X-OS User-Agent Organizatio
 hdr_order Subject: Date: From: To: CC: Bcc:
 
 # Composing Mail
-set editor         = "~/.config/mutt/tools/truncate_mail.pl %s; vim -c 'set tw=70 ft=mail noautoindent nocindent nosmartindent expandtab nonumber' %s"
+set editor         = "~/.config/mutt/tools/truncate_mail.pl %s; vim -c 'set noautoindent nocindent nosmartindent expandtab nonumber' %s"
 set markers        = no
 set include        = yes
 set forward_format = "Fwd: %s"
