@@ -98,3 +98,6 @@ set reverse_alias = yes
 source $alias_file
 
 folder-hook . my_hdr X-OS: `uname -mnrs`
+
+# Wrap text better
+set text_flowed
