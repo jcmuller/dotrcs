@@ -1,9 +1,9 @@
 [Unit]
-Description=Offline imap - Personal
+Description=Offline imap - %i
 After=network.service syslog.service
 
 [Service]
-ExecStart=/usr/bin/offlineimap -1a Personal
+ExecStart=/usr/bin/offlineimap -1a %i
 Restart=always
 RestartSec=3
 
