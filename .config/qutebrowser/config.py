@@ -45,6 +45,7 @@ c.bindings.commands = {
         ',,': 'config-cycle tabs.show always never',
         ',ym': 'yank inline [{title}]({url})',  # Copy URL for markdown links
         ',z': 'hint links spawn /home/jcmuller/go/bin/zoom-handler {hint-url}',
+        ',f': 'hint links spawn firefox {hint-url}',
     },
 
     # Emacs-like keybindings for insert mode
