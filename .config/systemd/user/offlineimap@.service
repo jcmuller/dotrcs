@@ -6,6 +6,7 @@ After=network.service syslog.service
 ExecStart=/usr/bin/offlineimap -1a %i
 Restart=always
 RestartSec=3
+Nice=5
 
 [Install]
 WantedBy=multi-user.target
