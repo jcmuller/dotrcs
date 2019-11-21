@@ -84,8 +84,6 @@ auto_view text/html application/x-gunzip \
 
 
 # External address book
-set query_command = "goobook query %s"
-macro index,pager A "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
 bind editor <Tab> complete-query
 
 # Profiles
