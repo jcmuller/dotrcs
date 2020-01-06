@@ -77,11 +77,15 @@ sudo rsync \
   --stats \
   --progress \
   --exclude .cache \
+  --exclude .config/Slack/Cache \
+  --exclude Development/Greenhouse/greenhouse/log \
+  --exclude Development/Greenhouse/jben/log \
   --exclude Downloads \
   --exclude Dropbox \
-  --exclude Development/Greenhouse/jben/log \
-  --exclude Development/Greenhouse/greenhouse/log \
-  --exclude .config/Slack/Cache \
+  --exclude Nextcloud \
+  --exclude robocode \
+  --exclude .xsession-errors* \
+  --exclude tmp \
   /home/jcmuller \
   --link-dest="${REMOTE_PATH}/home/${LAST}" \
   "${BASE}/home/${VERSION}"
