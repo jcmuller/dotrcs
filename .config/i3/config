@@ -386,8 +386,8 @@ bindsym XF86AudioMute        exec --no-startup-id ~/bin/vol.sh mute
 bindsym XF86MonBrightnessUp   exec --no-startup-id ~/bin/backlight.sh up
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/backlight.sh down
 
-bindsym --release $mod+s exec xfce4-screenshooter -cr
-bindsym --release Shift+$mod+s exec xfce4-screenshooter
+bindsym --release $mod+s exec shutter -s
+bindsym --release Shift+$mod+s exec shutter
 
 # F7
 #bindsym XF86Display    exec --no-startup-id
