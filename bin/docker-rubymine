@@ -16,7 +16,7 @@ docker run \
   --network=host \
   -v /etc/localtime:/etc/localtime:ro \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
-  -v "$HOME/Dropbox/Code/rubymine-settings.git:/settings.git" \
+  -v "$HOME/Nextcloud/Code/rubymine-settings.git:/settings.git" \
   -v "$HOME/Development/Greenhouse:/home/developer/workspace" \
   -v "$HOME/.RubyMine2018.3:/home/developer/.RubyMine2018.3" \
   -v "$HOME/.java:/home/developer/.java" \
