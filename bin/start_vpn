@@ -2,7 +2,7 @@
 
 OPENVPN="/usr/sbin/openvpn"
 CLOSE_ALL="close_all"
-BASE_PATH=~/Dropbox/vpns
+BASE_PATH=~/Nextcloud/vpns
 OPTIONS="--auth-user-pass ~/.openvpnrc --auth-nocache --script-security 2"
 
 close_all() {
@@ -13,8 +13,7 @@ close_all() {
 
 connect() {
   vpn=$1
-  if [[ "$vpn" = "support" ]]
-  then
+  if [[ "$vpn" = "support" ]]; then
     OPTIONS="$OPTIONS --up ~/bin/openvpn/up --down ~/bin/openvpn/down"
   fi
 
@@ -22,8 +21,7 @@ connect() {
   sudo $OPENVPN --config $BASE_PATH/${vpn}.ovpn $OPTIONS &
 }
 
-if [[ -n "$1" ]];
-then
+if [[ -n "$1" ]]; then
   vpn=$1
   shift
 else
@@ -32,9 +30,7 @@ else
   vpn=$(echo $vpns | dmenu -p "VPN:" -lines 20 -sep ' ')
 fi
 
-
-if [[ "$vpn" = "$CLOSE_ALL" ]]
-then
+if [[ "$vpn" = "$CLOSE_ALL" ]]; then
   close_all
 else
   connect $vpn
