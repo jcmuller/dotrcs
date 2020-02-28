@@ -208,7 +208,9 @@ bindsym $mod+u [urgent=latest] focus
 
 #bindsym $mod+p mode "pianobar"
 
-mode "spotify" {
+set $spotify_mode Spotify (n) next, (p) pause, (Shift+p) previ, (a) vol-, (s) vol+, (d) mute
+
+mode "$spotify_mode" {
   bindsym n exec --no-startup-id playerctl next
   bindsym p exec --no-startup-id playerctl play-pause
   bindsym Shift+p exec --no-startup-id playerctl previous
@@ -220,7 +222,7 @@ mode "spotify" {
   bindsym Escape mode "default"
 }
 
-bindsym $mod+Shift+p mode "spotify"
+bindsym $mod+Shift+p mode "$spotify_mode"
 
 # Floating windows and window decorations
 #for_window [class="jetbrains-rubymine"] border normal
