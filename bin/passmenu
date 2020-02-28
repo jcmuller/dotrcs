@@ -5,6 +5,7 @@
 shopt -s nullglob globstar
 
 program=$(basename $0)
+pass=gopass
 
 TEMP=$(getopt --options toup --long type,otp,username,password -- "$@")
 eval set -- "$TEMP"
@@ -59,7 +60,7 @@ clip() {
 
   before="$(xclip -o -selection clipboard 2>/dev/null | base64)"
   echo -n "$secret" | xclip -selection clipboard || die "Error: Could not copy data to the clipboard"
-  ( 
+  (
     (exec -a "$sleep_argv0" bash <<<"trap 'kill %1' TERM; sleep '45' & wait")
     local now
     now="$(xclip -o -selection clipboard | base64)"
@@ -84,20 +85,20 @@ password=$(printf '%s\n' "${password_files[@]}" | dmenu -p Secret "$@")
 
 case "$mode" in
   "username")
-    secret=$(pass show "$password" | grep -e user -e login | cut -d ' ' -f 2)
+    secret=$("$pass" show "$password" | grep -e user -e login | cut -d ' ' -f 2)
     ;;
   "password")
-    secret=$(pass show "$password" | head -1)
+    secret=$("$pass" show "$password" | head -1)
     ;;
   "otp")
-    secret=$(pass otp "$password")
+    secret=$("$pass" otp "$password")
     ;;
 esac
 
 if [[ "$typeit" == "1" ]]; then
   echo "$secret" | {
-    IFS= read -r pass
-    printf %s "$pass"
+    IFS= read -r password
+    printf %s "$password"
   } | xdotool type --clearmodifiers --file -
 else
   clip "$secret" "$password"
