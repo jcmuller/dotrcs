@@ -1,4 +1,4 @@
 #!/usr/bin/zsh
 
 format="%D %I:00:00%P"
-/usr/bin/gcalcli $@ agenda --nostarted --nodeclined "$(date +$format)" "$(date +$format --date=tomorrow)"
+gcalcli $@ agenda --nostarted --nodeclined "$(date +$format)" "$(date +$format --date=tomorrow)"
