@@ -11,11 +11,12 @@ order += "simple_button sleep"
 order += "simple_button modmap"
 order += "backlight"
 order += "battery_level 0"
-order += "weather_yahoo"
+order += "battery_level 1"
+order += "weather_owm"
 order += "diskdata /"
 order += "egress"
-order += "ethernet enp0s29u1u1c4i2"
-order += "wireless wlp3s0"
+#order += "ethernet enp0s29u1u1c4i2"
+#order += "wireless wlp3s0"
 order += "load"
 order += "my_sysdata"
 order += "volume master"
@@ -32,7 +33,7 @@ egress {
 }
 
 diskdata "/" {
-  disk = "/dev/mapper/xubuntu--vg-root"
+  disk = "/"
   low_threshold = 10
   threshold_type = "percentage_free"
   format = "/: {used_percent}%"
@@ -61,18 +62,14 @@ simple_button modmap {
   on_click 1 = "exec --no-startup-id ~/bin/fix_inputs"
 }
 
-weather_yahoo {
+weather_owm {
   cache_timeout = 1800
-  woeid = 2422588
+  api_key = "d4708c12c3df0aed0b5190578f356278"
+  location = (41.00091552734375, -74.10086822509766)
+  city = "HHK"
   units = "f"
   format_today = "{icon}{temp}°{units}"
   forecast_days = 3
-}
-
-my_weather_yahoo nyc {
-  cache_timeout = 1800
-  city_code = "10002"
-  forecast_days = 2
 }
 
 wireless wlp4s0 {
