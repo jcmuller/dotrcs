@@ -4,27 +4,27 @@ QT_QPA_PLATFORMTHEME=qt5ct; export QT_QPA_PLATFORMTHEME
 # Report any command running longer than 5 seconds
 REPORTTIME=5; export REPORTTIME
 TIMEFMT="'$fg[green]%J$reset_color' time: $fg[yellow]%*Es$reset_color, cpu: $fg[yellow]%P$reset_color, mem: $fg[yellow]%M$reset_color"; export TIMEFMT
+_Z_CMD=j; export _Z_CMD
 
 unset SSH_AGENT_PID SSH_AUTH_SOCK
 
-PATH_COMPONENTS=(
-"$HOME/bin"
-"$HOME/.cargo/bin"
-"$HOME/.local/bin"
-"$HOME/.yarn/bin"
-"/usr/local/sbin"
-"/usr/local/bin"
-"/usr/sbin"
-"/usr/bin"
-"/sbin"
-"/bin"
-"/usr/games"
-"/usr/local/games"
-"/usr/local/openresty/bin"
-"/usr/local/openresty/nginx/sbin"
+path=(
+  "$HOME/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/.local/bin"
+  "$HOME/.yarn/bin"
+  "/usr/local/sbin"
+  "/usr/local/bin"
+  "/usr/sbin"
+  "/usr/bin"
+  "/sbin"
+  "/bin"
+  "/usr/games"
+  "/usr/local/games"
+  "/usr/local/openresty/bin"
+  "/usr/local/openresty/nginx/sbin"
+  "${path[@]}"
 )
-PATH=${(j/:/)PATH_COMPONENTS}
-export PATH
 
 source ~/.antigen-src/antigen.zsh
 
