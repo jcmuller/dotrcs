@@ -103,6 +103,7 @@ for_window [title="mail:1:pim"] floating enable, border normal, resize shrink le
 for_window [title="oclock"] border none, floating enable, sticky enable
 for_window [title="recordMyDesktop"] floating enable
 for_window [title="xclock"] border none, floating enable, sticky enable
+for_window [title="CopyQ"] floating enable
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -219,7 +220,7 @@ bindsym $mod+space             exec --no-startup-id i3-dmenu-desktop --dmenu='dm
 bindsym $mod+t                 exec --no-startup-id ~/bin/otpmenu --type -i
 bindsym --release $mod+s       exec xfce4-screenshooter -r
 bindsym --release Shift+$mod+s exec shutter
-bindsym Mod1+Ctrl+v            exec xfce4-popup-clipman
+bindsym Mod1+Ctrl+v            exec copyq show
 bindsym Mod1+Shift+c           exec --no-startup-id rofi.sh station
 bindsym XF86Search             exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "app" -lines 20 -matching fuzzy -levenshtein-sort'
 
@@ -299,7 +300,7 @@ exec --no-startup-id unclutter -grab
 exec --no-startup-id volumeicon
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id xdotool behave_screen_edge --delay 500 --quiesce 2500 top-right exec blurlock
-exec --no-startup-id xfce4-clipman
+exec --no-startup-id copyq
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xsetroot -solid "#282a2e"
 exec --no-startup-id ~/bin/fix_inputs
