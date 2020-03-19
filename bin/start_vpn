@@ -13,7 +13,7 @@ close_all() {
 
 connect() {
   vpn=$1
-  if [[ "$vpn" = "support" ]]; then
+  if [[ "$vpn" = "bastion-prod" ]]; then
     OPTIONS="$OPTIONS --up ~/bin/openvpn/up --down ~/bin/openvpn/down"
   fi
 
