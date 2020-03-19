@@ -76,15 +76,21 @@ sudo rsync \
   -avzpl \
   --stats \
   --progress \
+  --exclude .asdf/installs \
+  --exclude .bundle/cache \
   --exclude .cache \
   --exclude .config/Slack/Cache \
+  --exclude .dropbox \
+  --exclude .dropbox-dist \
+  --exclude .minikube \
+  --exclude .xsession-errors* \
   --exclude Development/Greenhouse/greenhouse/log \
   --exclude Development/Greenhouse/jben/log \
   --exclude Downloads \
   --exclude Dropbox \
   --exclude Nextcloud \
   --exclude robocode \
-  --exclude .xsession-errors* \
+  --exclude snap \
   --exclude tmp \
   /home/jcmuller \
   --link-dest="${REMOTE_PATH}/home/${LAST}" \
