@@ -34,6 +34,8 @@ antigen use oh-my-zsh
 
 antigen theme /home/jcmuller/Development/MyStuff/custom-oh-my-zsh themes/juancmuller.zsh-theme
 
+source ~/.zsh/rcs/local-bundles.zsh
+
 antigen bundles <<EOBUNDLE
   zsh-users/zsh-autosuggestions
   zsh-users/zsh-completions src
