@@ -1,4 +1,5 @@
 BROWSER=/home/jcmuller/go/bin/picky; export BROWSER
+GOPRIVATE=github.com/grnhse; export GOPRIVATE
 NVIM_LISTEN_ADDRESS="/tmp/neovim.sock"; export NVIM_LISTEN_ADDRESS
 QT_QPA_PLATFORMTHEME=qt5ct; export QT_QPA_PLATFORMTHEME
 # Report any command running longer than 5 seconds
