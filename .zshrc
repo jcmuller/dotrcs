@@ -56,6 +56,8 @@ antigen bundles <<EOBUNDLE
   tmux
   z
 
+  github/hub etc/hub.zsh_completion
+
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh git_funcs.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh aliases.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh asdf.zsh
