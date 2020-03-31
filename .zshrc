@@ -23,7 +23,7 @@ path=(
   "/usr/local/games"
   "/usr/local/openresty/bin"
   "/usr/local/openresty/nginx/sbin"
-  "${path[@]}"
+  "$HOME/Development/Greenhouse/infrastructure/bin"
 )
 
 autoload -Uz compinit && compinit
