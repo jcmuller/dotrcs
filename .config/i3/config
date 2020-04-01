@@ -109,8 +109,8 @@ for_window [title="YakYak"] move to workspace 3
 # finds out, if available)
 bar {
   font pango:Terminus 9
-  tray_output none
-  status_command py3status -i ~/.config/i3status/lib
+  tray_output primary
+  status_command /home/jcmuller/.local/bin/py3status -i ~/.config/i3status/lib
   position bottom
   workspace_buttons yes
 
