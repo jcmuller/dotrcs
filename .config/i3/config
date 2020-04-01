@@ -71,39 +71,39 @@ bindsym $mod+Shift+p mode "$spotify_mode"
 #for_window [title="Firefox Developer Edition"]  border normal
 #for_window [title="Google+ Hangouts is sharing your screen"] floating enable
 #for_window [title="Mozilla Firefox"]  border normal
+for_window [class="nm-connection-editor"] floating enable
+for_window [class="qutebrowser"] border pixel 3
+for_window [class="shutter"]       floating enable
 for_window [class="Slack"] move to workspace 3
-for_window [class="Spotify"] move to workspace 9
 for_window [class="Surf"] border normal, floating enable
 for_window [class="Thunar"] floating enable, border normal
 for_window [class="Vncviewer"] floating enable
 for_window [class="Xmessage"] floating enable
-for_window [class="nm-connection-editor"] floating enable
-for_window [class="qutebrowser"] border pixel 3
-for_window [class="shutter"]       floating enable
 for_window [class="zik-manager"] floating enable
-for_window [class="zoom" title="Zoom - Licensed Account"] move to workspace 6, floating disable
 for_window [class="zoom"] floating enable, border normal
+for_window [class="zoom" title="Zoom - Licensed Account"] move to workspace 6, floating disable
 for_window [title="About Mozilla Firefox"]  floating enable
-for_window [title="Chromium"] border normal
-for_window [title="Code42 CrashPlan"] floating enable
-for_window [title="Firefox Preferences"]  floating enable
-for_window [title="Hangouts"] border normal
-for_window [title="Hangouts"] floating disable
-for_window [title="Oracle VM VirtualBox"] floating enable
-for_window [title="Picky Config"] floating enable, border normal
-for_window [title="Screen Layout Editor"] floating enable
-for_window [title="Sonata"] floating enable, border normal
-for_window [title="Today's Reminders"] floating enable, resize shrink left 100000px, resize shrink right 100000px, resize shrink down 100000px, resize shrink up 100000px, resize grow right 1024px, resize grow down 768px, move position 2500 40
-for_window [title="YakYak"] move to workspace 3
 for_window [title="^Authy$"] floating enable, border normal
 for_window [title="^BlueProximity Preferences$"] floating enable
 for_window [title="^Buddy List$"]  floating enable
-for_window [title="^pianobar$"] floating disable
+for_window [title="Chromium"] border normal
+for_window [title="Code42 CrashPlan"] floating enable
+for_window [title="CopyQ"] floating enable
+for_window [title="Firefox Preferences"]  floating enable
+for_window [title="Hangouts"] border normal
+for_window [title="Hangouts"] floating disable
 for_window [title="mail:1:pim"] floating enable, border normal, resize shrink left 100000px, resize shrink right 100000px, resize shrink down 100000px, resize shrink up 100000px, resize grow right 1024px, resize grow down 768px, move position 2800 340, move to scratchpad
 for_window [title="oclock"] border none, floating enable, sticky enable
+for_window [title="Oracle VM VirtualBox"] floating enable
+for_window [title="^pianobar$"] floating disable
+for_window [title="Picky Config"] floating enable, border normal
 for_window [title="recordMyDesktop"] floating enable
+for_window [title="Screen Layout Editor"] floating enable
+for_window [title="Sonata"] floating enable, border normal
+for_window [title="Spotify"] move to workspace 9
+for_window [title="Today's Reminders"] floating enable, resize shrink left 100000px, resize shrink right 100000px, resize shrink down 100000px, resize shrink up 100000px, resize grow right 1024px, resize grow down 768px, move position 2500 40
 for_window [title="xclock"] border none, floating enable, sticky enable
-for_window [title="CopyQ"] floating enable
+for_window [title="YakYak"] move to workspace 3
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
