@@ -1,16 +1,16 @@
 ---
-- command: goenv
+- command: asdf-current-version
   args:
-    - version-name
+    - golang
   identifier: G
   file: .go-version
-- command: rbenv
+- command: asdf-current-version
   args:
-    - version-name
+    - ruby
   identifier: R
   file: .ruby-version
-- command: nodenv
+- command: asdf-current-version
   args:
-    - version-name
+    - nodejs
   identifier: "N"
   file: .node-version
