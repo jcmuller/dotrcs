@@ -77,23 +77,23 @@ c.editor.command = [
     "-c",
     "normal {line}G{column0}l",
 ]
-c.fonts.completion.category = "bold 9pt monospace"
-c.fonts.completion.entry = "9pt monospace"
-c.fonts.debug_console = "9pt monospace"
-c.fonts.downloads = "9pt monospace"
-c.fonts.hints = "bold 9pt monospace"
-c.fonts.keyhint = "9pt monospace"
-c.fonts.messages.error = "9pt monospace"
-c.fonts.messages.info = "9pt monospace"
-c.fonts.messages.warning = "9pt monospace"
-c.fonts.monospace = '"xos4 Terminus", Terminus'
+c.fonts.completion.category = "bold 9pt terminus"
+c.fonts.completion.entry = "9pt terminus"
+c.fonts.contextmenu = "9pt terminus"
+c.fonts.debug_console = "9pt terminus"
+c.fonts.default_size = "10pt"
+c.fonts.downloads = "9pt terminus"
+c.fonts.hints = "bold 9pt terminus"
+c.fonts.keyhint = "9pt terminus"
+c.fonts.messages.error = "9pt terminus"
+c.fonts.messages.info = "9pt terminus"
+c.fonts.messages.warning = "9pt terminus"
 c.fonts.prompts = "10pt sans-serif"
-c.fonts.statusbar = "9pt monospace"
-c.fonts.tabs = "9pt monospace"
-c.fonts.web.size.default = 14
-c.fonts.web.size.default_fixed = 13
+c.fonts.statusbar = "9pt terminus"
+c.fonts.tabs = "9pt terminus"
 c.hints.mode = "letter"
 c.session.lazy_restore = True
+c.spellcheck.languages = ["en-US", "es-ES"]
 c.tabs.last_close = "close"
 c.tabs.mousewheel_switching = False
 c.tabs.position = "left"
