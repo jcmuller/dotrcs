@@ -48,8 +48,6 @@ antigen bundles <<EOBUNDLE
   git
   git-extras
   go
-  gopass
-  hub
   pass
   ruby
   thor
