@@ -3,7 +3,7 @@
 # Replace account.name and password
 #
 
-alternates "jcmuller@gmail.com|juan@greenhouse.io"
+alternates "me@juancmuller.com|jcmuller@gmail.com|juan@greenhouse.io"
 set use_from
 
 set spoolfile = "+Personal/INBOX"
