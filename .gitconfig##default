@@ -1,6 +1,7 @@
 [user]
   name = Juan C. Müller
   email = jcmuller@gmail.com
+  signingkey = A76E55A7FBA1E283
 [core]
   excludesfile = ~/.gitignore
   quotepath = false
@@ -18,9 +19,6 @@
   ui = true
 [github]
   user = jcmuller
-[url "git@github.com:"]
-#   insteadOf = https://github.com/
-  insteadOf = gh:
 [push]
   default = current
 [init]
@@ -51,3 +49,9 @@
 [diff "gpg"]
   textconv = gpg2 -d --quiet --yes --compress-algo=none --no-encrypt-to --batch --use-agent
   binary = true
+[commit]
+  gpgsign = true
+[url "git@github.com:"]
+  insteadOf = gh:
+[url "git@github.com:"]
+	insteadof = https://github.com/
