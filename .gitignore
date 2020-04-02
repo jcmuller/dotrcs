@@ -47,6 +47,7 @@ Session.vim
 .tern-port
 .vagrant
 vendor/cache/greenhouse-logging-*/Gemfile.lock
+vendor/rails_5_cache/*/.gitignore
 xcuserdata
 yarn-error.log
 zeus.json
@@ -55,3 +56,5 @@ stack
 docker-compose.juan.yml
 .solargraph.yml
 secrets.yml
+.asdf-vars
+tags
