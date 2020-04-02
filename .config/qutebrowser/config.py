@@ -39,6 +39,7 @@ c.bindings.commands = {
         ',Pp': settings['pass_command'] + ' --password-only',
         ',Pu': settings['pass_command'] + ' --username-only',
         ',d': 'hint all delete',
+        ',a': 'hint --rapid all tab-bg',
         ',p': settings['pass_command'],
         ',r': 'hint links spawn /home/jcmuller/go/bin/picky {hint-url}',
         ',s': 'spawn --userscript searchbar-command',
