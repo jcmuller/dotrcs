@@ -92,7 +92,7 @@ fpath=(
   "${fpath[@]}"
 )
 
-aws-vault-use support
+. ~/.zsh/rcs/post
 
 autoload -U +X bashcompinit && bashcompinit
 
