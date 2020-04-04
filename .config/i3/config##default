@@ -1,3 +1,4 @@
+# vim: set ft=i3:
 set $mod Mod4
 
 font pango:Terminus 9
@@ -297,7 +298,7 @@ exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/
 exec --no-startup-id nextcloud
 exec --no-startup-id nm-applet
 exec --no-startup-id unclutter -grab
-exec --no-startup-id volumeicon
+exec --no-startup-id pasystray
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id xdotool behave_screen_edge --delay 500 --quiesce 2500 top-right exec blurlock
 exec --no-startup-id copyq
