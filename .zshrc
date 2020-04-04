@@ -41,7 +41,6 @@ antigen bundles <<EOBUNDLE
   zsh-users/zsh-completions src
   zsh-users/zsh-syntax-highlighting
 
-  aws
   docker
   docker-compose
   docker-machine
@@ -59,7 +58,6 @@ antigen bundles <<EOBUNDLE
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh git_funcs.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh aliases.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh asdf.zsh
-  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh aws.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh colors.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh cargo.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh completions.zsh
