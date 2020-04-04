@@ -52,6 +52,5 @@
 [commit]
   gpgsign = true
 [url "git@github.com:"]
-  insteadOf = gh:
-[url "git@github.com:"]
-	insteadof = https://github.com/
+	insteadOf = gh:
+	insteadOf = https://github.com/
