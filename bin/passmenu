@@ -88,10 +88,10 @@ case "$mode" in
     secret=$("$pass" show "$password" | grep -e user -e login | cut -d ' ' -f 2)
     ;;
   "password")
-    secret=$("$pass" show "$password" | head -1)
+    secret=$("$pass" show -o "$password" | head -1)
     ;;
   "otp")
-    secret=$("$pass" otp "$password")
+    secret=$("$pass" otp -o "$password")
     ;;
 esac
 
