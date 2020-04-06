@@ -5,16 +5,16 @@ font pango:Terminus 9
 
 floating_modifier $mod
 
-workspace 1 output DP-2-1
-workspace 2 output DP-2-2
-workspace 3 output eDP-1
-workspace 4 output DP-2-1
-workspace 5 output DP-2-2
-workspace 6 output eDP-1
-workspace 7 output DP-2-1
-workspace 8 output DP-2-2
-workspace 9 output eDP-1
-workspace 10 output DP-2-1
+workspace 1 output HDMI-0
+workspace 2 output DP-0.2
+workspace 3 output eDP-1-1
+workspace 4 output HDMI-0
+workspace 5 output DP-0.2
+workspace 6 output eDP-1-1
+workspace 7 output HDMI-0
+workspace 8 output DP-0.2
+workspace 9 output eDP-1-1
+workspace 10 output HDMI-0
 
 # FIX OUTPUTS HERE
 #output
@@ -111,7 +111,7 @@ for_window [title="YakYak"] move to workspace 3
 bar {
   font pango:Terminus 9
   tray_output primary
-  status_command /home/jcmuller/.local/bin/py3status -i ~/.config/i3status/lib
+  status_command py3status -i ~/.config/i3status/lib
   position bottom
   workspace_buttons yes
 
@@ -119,7 +119,8 @@ bar {
   #output DP-1
   #output DP-2
   #output DP-2-1
-  output DP-2-2
+  output DP-0.2
+  output DP-1-1
   #output DP-2-2-8
 
   colors {
@@ -140,10 +141,12 @@ bar {
   workspace_buttons yes
   tray_output no
 
-  status_command  /home/jcmuller/.local/bin/py3status -i ~/.config/i3status/lib -c ~/.config/i3status/clock
+  status_command py3status -i ~/.config/i3status/lib -c ~/.config/i3status/clock
 
+  output HDMI-0
   output DP-2-1
   output eDP-1
+  output eDP-1-1
 
   colors {
     separator #969896
@@ -178,10 +181,10 @@ new_window pixel 3
 # bindsym XF86AudioPause exec --no-startup-id ~/bin/pianobar-toggle
 # bindsym XF86AudioPrev  exec --no-startup-id ~/bin/pianobar-choose-station
 # bindsym XF86AudioStop  exec --no-startup-id ~/bin/pianobar-pause
-# bindsym XF86AudioLowerVolume exec --no-startup-id ~/bin/vol.sh down
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/bin/vol.sh down
 # bindsym XF86AudioMicMute     exec --no-startup-id /usr/bin/pactl
-# bindsym XF86AudioMute        exec --no-startup-id ~/bin/vol.sh mute
-# bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/vol.sh up
+bindsym XF86AudioMute        exec --no-startup-id ~/bin/vol.sh mute
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/vol.sh up
 # bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/backlight.sh down
 # bindsym XF86MonBrightnessUp   exec --no-startup-id ~/bin/backlight.sh up
 
