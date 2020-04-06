@@ -5,6 +5,7 @@ Simple button
 
 from time import time
 
+
 class Py3status:
     """
     Configuration parameters:
@@ -14,15 +15,17 @@ class Py3status:
     """
     # available configuration parameters
     text = "CHANGE_ME"
-    color = "00FF00"
+    color = "#00FF00"
 
     def output(self, i3s_output_list, i3s_config):
         response = {
-                'cached_until': time() + 7200,
-                'full_text': self.text,
-                'color': self.color
-                }
+            'cached_until': time() + 7200,
+            'full_text': self.text,
+            'color': self.color
+        }
+
         return response
+
 
 if __name__ == "__main__":
     """
@@ -32,8 +35,9 @@ if __name__ == "__main__":
 
     x = Py3status()
     config = {
-            'text': "BLAH"
-            }
+        'text': "BLAH"
+    }
+
     while True:
         print(x.output([], config))
         sleep(1)
