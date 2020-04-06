@@ -88,9 +88,13 @@ sudo rsync \
   --exclude Development/Greenhouse/jben/log \
   --exclude Downloads \
   --exclude Dropbox \
+  --exclude .dropbox \
+  --exclude .dropbox-dist \
   --exclude Nextcloud \
   --exclude robocode \
   --exclude snap \
+  --exclude .minikube \
+  --exclude .xsession-errors* \
   --exclude tmp \
   /home/jcmuller \
   --link-dest="${REMOTE_PATH}/home/${LAST}" \
