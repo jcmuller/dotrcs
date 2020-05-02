@@ -75,7 +75,6 @@ antigen bundles <<EOBUNDLE
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh tk.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh vi-mode.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh yarn.zsh
-  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh zeus.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh zsh_completions.zsh
 EOBUNDLE
 
