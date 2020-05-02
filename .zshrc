@@ -64,7 +64,6 @@ antigen bundles <<EOBUNDLE
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh dajoku.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh dbus.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh directories.zsh
-  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh docker-pg.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh enable-edit-command-line.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh environment.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh extra.zsh
