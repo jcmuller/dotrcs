@@ -1,7 +1,7 @@
 #!/bin/bash
 
 click() {
-  paplay click.wav &
+  paplay ~/.local/sounds/click.wav &
 }
 
 COMMAND=$1
