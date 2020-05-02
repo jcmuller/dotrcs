@@ -212,12 +212,12 @@ bindsym $mod+Mod1+l            exec --no-startup-id blurlock
 bindsym $mod+Return            exec alacritty #i3-sensible-terminal
 bindsym $mod+Shift+Return      exec alacritty #i3-sensible-terminal
 bindsym $mod+Shift+v           exec --no-startup-id ~/bin/start_vpn
-bindsym $mod+Tab               exec --no-startup-id rofi.sh window
+bindsym $mod+Tab               exec --no-startup-id rofi -show window
 bindsym $mod+g                 exec --no-startup-id rofi-surfraw
 bindsym $mod+p                 exec --no-startup-id ~/bin/passmenu --type -i
-bindsym $mod+r                 exec dmenu_run -p "run:" -levenshtein-sort -lines 20
+bindsym $mod+r                 exec --no-startup-id rofi -show run
 bindsym $mod+shift+u           exec --no-startup-id ~/bin/usermenu --type -i
-bindsym $mod+space             exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "app" -lines 20 -matching fuzzy -levenshtein-sort'
+bindsym $mod+space             exec --no-startup-id rofi -show drun
 bindsym $mod+t                 exec --no-startup-id ~/bin/otpmenu --type -i
 bindsym --release $mod+s       exec xfce4-screenshooter -r
 bindsym --release Shift+$mod+s exec shutter

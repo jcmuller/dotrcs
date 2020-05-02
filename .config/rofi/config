@@ -78,7 +78,7 @@ rofi.location:                       0
 rofi.m:                              -1
 rofi.markup-rows:                    false
 rofi.matching:                       fuzzy
-rofi.modi:                           run,drun,ssh,window,workspace:i3_switch_workspace.sh,station:pianobar-rofi-station-switcher,calc:qalc\ +u8\ -nocurrencies
+rofi.modi:                           combi,drun,keys,run,ssh,window,windowcd,workspace:i3_switch_workspace.sh,calc:qalc\ +u8\ -nocurrencies
 rofi.opacity:                        100
 rofi.padding:     3
 rofi.parse-hosts:                    false
