@@ -1,7 +1,4 @@
-# CPU usage
-#
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
+# Load
 [load]
 interval=5
 command=/home/jcmuller/.config/regolith/i3xrocks/bin/load
