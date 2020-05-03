@@ -1,0 +1,80 @@
+!i3-wm.font: pango:xos4 Terminus 9, Material Design Icons 9
+i3-wm.font: -xos4-terminus-medium-r-normal-*-12-120-*-*-*-*-iso8859-1
+
+i3-wm.bar.font: pango:xos4 Terminus 9, Material Design Icons 10
+!i3-wm.bar.font: -xos4-terminus-medium-r-normal-*-12-120-*-*-*-*-iso8859-1, pango:Material Design Icons 9
+!i3xrocks.value.font: -xos4-terminus-medium-r-normal-*-12-120-*-*-*-*-iso8859-1
+i3xrocks.value.font: pango:xos4 Terminus 9
+
+!rofi.font: pango:xos4 Terminus 10
+
+i3-wm.bar.stripworkspacenumbers: yes
+i3-wm.bar.trayoutput: primary
+
+i3-wm.gaps.focus_follows_mouse: yes
+i3-wm.workspace.01.name: "1"
+i3-wm.workspace.02.name: "2"
+i3-wm.workspace.03.name: "3"
+i3-wm.workspace.04.name: "4"
+i3-wm.workspace.05.name: "5"
+i3-wm.workspace.06.name: "6"
+i3-wm.workspace.07.name: "7"
+i3-wm.workspace.08.name: "8"
+i3-wm.workspace.09.name: "9"
+i3-wm.workspace.10.name: "10"
+i3-wm.workspace.11.name: "11"
+i3-wm.workspace.12.name: "12"
+i3-wm.workspace.13.name: "13"
+i3-wm.workspace.14.name: "14"
+i3-wm.workspace.15.name: "15"
+i3-wm.workspace.16.name: "16"
+i3-wm.workspace.17.name: "17"
+i3-wm.workspace.18.name: "18"
+i3-wm.workspace.19.name: "19"
+
+i3xrocks.label.color: #fdf6e3
+i3xrocks.value.color: #c5c8c6
+
+i3-wm.bar.separator.color:   #969896
+i3-wm.bar.background.color:  #1d1f21
+i3-wm.bar.statusline.color:  #c5c8c6
+
+i3-wm.bar.workspace.focused.border.color:      #81a2be
+i3-wm.bar.workspace.focused.background.color:  #81a2be
+i3-wm.bar.workspace.focused.text.color:        #1d1f21
+
+i3-wm.bar.workspace.active.border.color:       #373b41
+i3-wm.bar.workspace.active.background.color:   #373b41
+i3-wm.bar.workspace.active.text.color:         #ffffff
+
+i3-wm.bar.workspace.inactive.border.color:     #282a2e
+i3-wm.bar.workspace.inactive.background.color: #282a2e
+i3-wm.bar.workspace.inactive.text.color:       #969896
+
+i3-wm.bar.workspace.urgent.border.color:       #cc6666
+i3-wm.bar.workspace.urgent.background.color:   #cc6666
+i3-wm.bar.workspace.urgent.text.color:         #ffffff
+
+i3-wm.client.focused.color.border:                #81a2be
+i3-wm.client.focused.color.background:            #ffffcc
+i3-wm.client.focused.color.text:                  #1d1f21
+i3-wm.client.focused.color.indicator:             #282a2e
+!i3-wm.client.focused.color.child_border:          #xxxxxx
+
+i3-wm.client.focused_inactive.color.border:       #373b41
+i3-wm.client.focused_inactive.color.background:   #373b41
+i3-wm.client.focused_inactive.color.text:         #969896
+i3-wm.client.focused_inactive.color.indicator:    #282a2e
+!i3-wm.client.focused_inactive.color.child_border: #xxxxxx
+
+i3-wm.client.unfocused.color.border:              #282a2e
+i3-wm.client.unfocused.color.background:          #282a2e
+i3-wm.client.unfocused.color.text:                #969896
+i3-wm.client.unfocused.color.indicator:           #282a2e
+!i3-wm.client.unfocused.color.child_border:        #xxxxxx
+
+i3-wm.client.urgent.color.border:                 #373b41
+i3-wm.client.urgent.color.background:             #cc6666
+i3-wm.client.urgent.color.text:                   #ffffff
+i3-wm.client.urgent.color.indicator:              #cc6666
+!i3-wm.client.urgent.color.child_border:           #xxxxxx
