@@ -47,6 +47,7 @@ antigen bundles <<EOBUNDLE
   git
   git-extras
   go
+  kubectl
   pass
   ruby
   thor
