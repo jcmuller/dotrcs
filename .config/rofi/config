@@ -10,7 +10,7 @@ rofi.eh:                             1
 rofi.fake-transparency:              false
 rofi.filter:
 rofi.fixed-num-lines:                false
-rofi.font:                           Terminus 12
+rofi.font:                           xos4 Terminus 12
 rofi.fullscreen:                     false
 rofi.fuzzy:                          true
 rofi.glob:                           false
@@ -78,7 +78,7 @@ rofi.location:                       0
 rofi.m:                              -1
 rofi.markup-rows:                    false
 rofi.matching:                       fuzzy
-rofi.modi:                           combi,drun,keys,run,ssh,window,windowcd,workspace:i3_switch_workspace.sh,calc:qalc\ +u8\ -nocurrencies
+rofi.modi:                           combi,drun,keys,run,ssh,window,windowcd,workspace:~/bin/i3_switch_workspace.sh,calc:qalc\ +u8\ -nocurrencies
 rofi.opacity:                        100
 rofi.padding:     3
 rofi.parse-hosts:                    false
