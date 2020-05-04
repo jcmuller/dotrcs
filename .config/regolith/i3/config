@@ -187,11 +187,14 @@ bindsym $mod+Shift+f floating toggle
 ## Modify // Move to Scratchpad // <><Ctrl> m ##
 bindsym $mod+Ctrl+m move to scratchpad
 
-## Modify // Tile/Float Focus Toggle // <><Shift> t ##
-bindsym $mod+Shift+t focus mode_toggle
+## Modify // Tile/Float Focus Toggle // <Alt> Space ##
+bindsym Mod1+space focus mode_toggle
 
 ## Modify // Window Layout Mode // <> t ##
 bindsym $mod+t layout toggle tabbed splith splitv
+
+## Modify // Border Mode Toggle // <><Shift> t ##
+bindsym $mod+Shift+t border toggle
 
 ## Modify // Move Window to Workspace 1 - 10 // <><Shift> 0..9 ##
 bindsym $mod+Shift+1 move container to workspace number $ws1
