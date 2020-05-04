@@ -2,4 +2,4 @@
 #
 # Displays VPN
 [nm-vpn]
-interval=30
+interval=60

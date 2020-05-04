@@ -1,4 +1,4 @@
 # egress
 [egress]
-interval=5
+interval=300
 command=/home/jcmuller/.config/regolith/i3xrocks/bin/egress
