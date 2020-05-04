@@ -1,0 +1,15 @@
+#!/bin/bash
+# This time blocklet will use Xresources date format if defined
+# or try to determine most appropriate format based on locale and GNOME settings.
+
+DATE_VALUE=$(date --utc +"%H:%M")
+
+LABEL_ICON="🌐"
+LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
+VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color "#D8DEE9")}
+VALUE_FONT=${font:-$(xrescat i3xrocks.value.font "Source Code Pro Medium 13")}
+echo "<span color=\"${LABEL_COLOR}\">$LABEL_ICON</span><span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\"> $DATE_VALUE</span>"
+
+if [ ! -z "$button" ]; then
+  /usr/bin/i3-msg -q exec /usr/bin/gnome-control-center datetime
+fi

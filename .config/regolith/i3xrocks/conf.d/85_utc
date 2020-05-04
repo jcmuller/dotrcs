@@ -1,0 +1,4 @@
+# Date Time UTC
+[utc]
+interval=30
+command=/home/jcmuller/.config/regolith/i3xrocks/bin/utc
