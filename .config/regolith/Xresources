@@ -1,12 +1,13 @@
 !i3-wm.font: pango:xos4 Terminus 9, Material Design Icons 9
 i3-wm.font: -xos4-terminus-medium-r-normal-*-12-120-*-*-*-*-iso8859-1
 
-i3-wm.bar.font: pango:xos4 Terminus 9, Material Design Icons 10
+i3-wm.bar.font: pango:Terminus (TTF) 10px, Material Design Icons 10
 !i3-wm.bar.font: -xos4-terminus-medium-r-normal-*-12-120-*-*-*-*-iso8859-1, pango:Material Design Icons 9
 !i3xrocks.value.font: -xos4-terminus-medium-r-normal-*-12-120-*-*-*-*-iso8859-1
-i3xrocks.value.font: pango:xos4 Terminus 9
+!i3xrocks.value.font: pango:Terminus (TTF) 11px
+i3xrocks.value.font: pango:xos4 terminus 8
 
-!rofi.font: pango:xos4 Terminus 10
+i3xrocks.label.font: pango:Material Design Icons 10px
 
 i3-wm.bar.stripworkspacenumbers: yes
 i3-wm.bar.trayoutput: primary
@@ -78,3 +79,15 @@ i3-wm.client.urgent.color.background:             #cc6666
 i3-wm.client.urgent.color.text:                   #ffffff
 i3-wm.client.urgent.color.indicator:              #cc6666
 !i3-wm.client.urgent.color.child_border:           #xxxxxx
+
+rofi.theme:             ~/.config/rofi/theme
+rofi.font:              pango:xos4 Terminus 12px
+rofi.show-icons:        true
+rofi.drun-icon-theme:   icon_theme
+rofi.drun-display-format: {name}
+rofi.window-format: 	\ {n} {t}
+
+i3xrocks.egress.name-server: 208.67.222.222
+
+i3xrocks.date.format2: +%m/%d %T
+i3xrocks.weather.format: 1
