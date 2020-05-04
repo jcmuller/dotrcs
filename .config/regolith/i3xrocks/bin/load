@@ -2,7 +2,7 @@
 
 LOAD=$(awk '{print $1" "$2" "$3}' </proc/loadavg)
 
-LABEL_ICON=${icon:-$(xrescat i3xrocks.label.load ☢)}
+LABEL_ICON=${icon:-$(xrescat i3xrocks.label.load "☢")}
 LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
 VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color "#D8DEE9")}
 VALUE_FONT=${font:-$(xrescat i3xrocks.value.font "Source Code Pro Medium 13")}
