@@ -3,3 +3,4 @@
 # Display Volume
 [volume]
 interval=5
+command=/home/jcmuller/.config/regolith/i3xrocks/bin/volume
