@@ -2,7 +2,7 @@
 # This time blocklet will use Xresources date format if defined
 # or try to determine most appropriate format based on locale and GNOME settings.
 
-DATE_VALUE=$(date --utc +"%H:%M")
+DATE_VALUE=$(date --utc +"%H:%M UTC")
 
 LABEL_ICON="🌐"
 LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
