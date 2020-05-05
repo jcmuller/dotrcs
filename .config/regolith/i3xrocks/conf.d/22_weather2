@@ -1,0 +1,6 @@
+# weather2
+#
+# Display local weather
+[weather2]
+interval=1200
+command=/home/jcmuller/.config/regolith/i3xrocks/bin/weather2
