@@ -3,4 +3,3 @@
 # Display local weather
 [weather]
 interval=600
-command=/home/jcmuller/.config/regolith/i3xrocks/bin/weather
