@@ -50,7 +50,7 @@ set suspend           = no                                   # Don't suspend on 
 set tilde                                          # pad bottom of screen with ~
 
 
-set sidebar_width     = 18
+set sidebar_width     = 27
 set mail_check_stats=yes
 set sidebar_visible=yes
 set sidebar_format="%B%*  %S%?N?(%N)?%?F?[%F]?"
