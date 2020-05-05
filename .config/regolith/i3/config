@@ -544,11 +544,12 @@ exec --no-startup-id xsetroot -solid "#282a2e"
 
 bindsym Mod1+Ctrl+v            exec copyq show
 bindsym --release $mod+s       exec flameshot gui
-bindsym $mod+Tab exec $i3-wm.program.launcher.window
-bindsym $mod+u [urgent=latest] focus
+bindsym $mod+Tab               exec $i3-wm.program.launcher.window
+bindsym $mod+u                 [urgent=latest] focus
 
 for_window [class="nm-connection-editor"] floating enable
-for_window [class="flameshot"]       floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="flameshot"] floating enable
 for_window [class="Slack"] move to workspace 3
 for_window [class="Surf"] border normal, floating enable
 for_window [class="Vncviewer"] floating enable
