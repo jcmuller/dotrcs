@@ -72,7 +72,7 @@ set_from_resource $ws19 i3-wm.workspace.19.name "19"
 ###############################################################################
 
 ## Launch // Terminal // <> Enter ##
-bindsym $mod+Return exec /usr/bin/x-terminal-emulator
+bindsym $mod+Return exec x-terminal-emulator
 
 ## Launch // Browser // <><Shift> Enter ##
 bindsym $mod+Shift+Return exec gtk-launch $(xdg-settings get default-web-browser)
@@ -83,18 +83,13 @@ set_from_resource $rofiTheme rofi.theme /etc/regolith/styles/cahuella/rofi.rasi
 set_from_resource $i3-wm.program.launcher.app i3-wm.program.launcher.app rofi -show drun -theme $rofiTheme
 bindsym $mod+space exec $i3-wm.program.launcher.app
 
-## Launch // Command // <><Shift> Space ##
+## Launch // Command // <>> r ##
 set_from_resource $i3-wm.program.launcher.cmd i3-wm.program.launcher.cmd rofi -show run -theme $rofiTheme
 bindsym $mod+r exec $i3-wm.program.launcher.cmd
-bindsym $mod+Shift+space exec $i3-wm.program.launcher.cmd
 
 ## Navigate // Window by Name // <><Ctrl> Space ##
 set_from_resource $i3-wm.program.launcher.window i3-wm.program.launcher.window rofi -show window -theme $rofiTheme
-bindsym $mod+Ctrl+space exec $i3-wm.program.launcher.window
-
-## Launch // This Dialog // <><Shift> ? ##
-set_from_resource $i3-wm.program.help i3-wm.program.help /usr/bin/remontoire-toggle
-bindsym $mod+Shift+question exec --no-startup-id $i3-wm.program.help
+bindsym $mod+tab exec $i3-wm.program.launcher.window
 
 ## Launch // File Search // <><Alt> Space ##
 set_from_resource $i3-wm.program.file_search i3-wm.program.file_search rofi -show find -modi find:/usr/share/rofi/modi/finder.sh
@@ -138,9 +133,6 @@ bindsym $mod+Ctrl+7 workspace number $ws17
 bindsym $mod+Ctrl+8 workspace number $ws18
 bindsym $mod+Ctrl+9 workspace number $ws19
 
-## Navigate // Next Workspace // <> Tab ##
-#bindsym $mod+Tab workspace next
-
 ## Navigate // Next Workspace // <><Alt> → ##
 #bindsym $mod+$alt+Right workspace next
 
@@ -150,8 +142,8 @@ bindsym $mod+Ctrl+9 workspace number $ws19
 ## Navigate // Previous Workspace // <><Alt> ← ##
 #bindsym $mod+$alt+Left workspace prev
 
-## Navigate // Scratchpad // <><Ctrl> a ##
-bindsym $mod+Ctrl+a scratchpad show
+## Navigate // Scratchpad // <> n ##
+bindsym $mod+n scratchpad show
 
 ###############################################################################
 # Window and Workspace Configuration
@@ -177,21 +169,24 @@ bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
 ## Modify // Next Window Orientation // <> Backspace ##
 bindsym $mod+BackSpace split toggle
+bindsym $mod+o split h
+bindsym $mod+v split v
 
 ## Modify // Window Fullscreen Toggle // <> f ##
 bindsym $mod+f fullscreen toggle
 
-## Modify // Window Floating Toggle // <><Shift> f ##
-bindsym $mod+Shift+f floating toggle
+## Modify // Window Floating Toggle // <><Shift> space ##
+bindsym $mod+Shift+space floating toggle
 
-## Modify // Move to Scratchpad // <><Ctrl> m ##
-bindsym $mod+Ctrl+m move to scratchpad
+## Modify // Move to Scratchpad // <><Shift> n ##
+bindsym $mod+Shift+n     move scratchpad
 
 ## Modify // Tile/Float Focus Toggle // <Alt> Space ##
 bindsym Mod1+space focus mode_toggle
 
-## Modify // Window Layout Mode // <> t ##
-bindsym $mod+t layout toggle tabbed splith splitv
+## Modify // Window Layout Mode // <> x ##
+bindsym $mod+x layout toggle tabbed splith splitv
+bindsym $mod+e layout toggle split
 
 ## Modify // Border Mode Toggle // <><Shift> t ##
 bindsym $mod+Shift+t border toggle
@@ -274,13 +269,10 @@ bindsym $mod+Shift+e exec $i3-wm.program.logout
 set_from_resource $i3-wm.program.reboot i3-wm.program.reboot /usr/bin/gnome-session-quit --reboot
 bindsym $mod+Shift+b exec $i3-wm.program.reboot
 
-## Session // Power Down // <><Shift> p ##
-set_from_resource $i3-wm.program.shutdown i3-wm.program.shutdown /usr/bin/gnome-session-quit --power-off
-bindsym $mod+Shift+p exec $i3-wm.program.shutdown
-
 ## Session // Lock Screen // <> Escape ##
 set_from_resource $i3-wm.program.lock i3-wm.program.lock dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
 bindsym $mod+Escape exec $i3-wm.program.lock
+bindsym $mod+Mod1+l exec $i3-wm.program.lock
 
 ## Session // Sleep // <><Shift> s ##
 set_from_resource $i3-wm.program.sleep i3-wm.program.sleep systemctl suspend
@@ -299,20 +291,20 @@ set_from_resource $i3-wm.program.display i3-wm.program.display gnome-control-cen
 bindsym $mod+d exec $i3-wm.program.display
 
 ## Modify // Wifi Settings // <> w ##
-set_from_resource $i3-wm.program.wifi i3-wm.program.wifi gnome-control-center wifi
+#set_from_resource $i3-wm.program.wifi i3-wm.program.wifi gnome-control-center wifi
 #bindsym $mod+w exec $i3-wm.program.wifi
 
 ## Modify // Bluetooth Settings // <> b ##
 set_from_resource $i3-wm.program.bluetooth i3-wm.program.bluetooth gnome-control-center bluetooth
 bindsym $mod+b exec $i3-wm.program.bluetooth
 
-## Launch // File Browser // <><Shift> n ##
+## Launch // File Browser // <><Shift> f ##
 set_from_resource $i3-wm.program.files i3-wm.program.files /usr/bin/nautilus --new-window
-bindsym $mod+Shift+n exec $i3-wm.program.files
+bindsym $mod+Shift+f exec $i3-wm.program.files
 
-## Launch // Notification Viewer // <> n ##
+## Launch // Notification Viewer // <>Alt n ##
 set_from_resource $i3-wm.program.notification_ui i3-wm.program.notification_ui /usr/bin/rofication-gui
-bindsym $mod+n exec $i3-wm.program.notification_ui
+bindsym $mod+$alt+n exec $i3-wm.program.notification_ui
 
 ###############################################################################
 # Workspace Management
@@ -483,7 +475,28 @@ bar {
   font                    $i3-wm.bar.font
   separator_symbol        $i3-wm.bar.separator
   status_command          $i3-wm.bar.status_command
-  tray_output             $i3-wm.bar.trayoutput
+  tray_output             yes
+  strip_workspace_numbers $i3-wm.bar.stripworkspacenumbers
+
+  colors {
+      background $i3-wm.bar.background.color
+      statusline $i3-wm.bar.statusline.color
+      separator  $i3-wm.bar.separator.color
+
+#                        BORDER  BACKGROUND TEXT
+      focused_workspace  $i3-wm.bar.workspace.focused.border.color      $i3-wm.bar.workspace.focused.background.color   $i3-wm.bar.workspace.focused.text.color
+      active_workspace   $i3-wm.bar.workspace.active.border.color       $i3-wm.bar.workspace.active.background.color    $i3-wm.bar.workspace.active.text.color
+      inactive_workspace $i3-wm.bar.workspace.inactive.border.color     $i3-wm.bar.workspace.inactive.background.color  $i3-wm.bar.workspace.inactive.text.color
+      urgent_workspace   $i3-wm.bar.workspace.urgent.border.color       $i3-wm.bar.workspace.urgent.background.color    $i3-wm.bar.workspace.urgent.text.color
+  }
+}
+
+bar {
+  position                $i3-wm.bar.position
+  font                    -xos4-terminus-medium-r-normal-*-16-120-*-*-*-*-iso8859-1
+  separator_symbol        $i3-wm.bar.separator
+  tray_output primary
+  status_command py3status -i ~/.config/i3status/lib
   strip_workspace_numbers $i3-wm.bar.stripworkspacenumbers
 
   colors {
@@ -531,6 +544,10 @@ exec --no-startup-id $i3-wm.program.3
 
 ################################################################################
 #
+bindsym Mod1+Ctrl+v            exec copyq show
+bindsym --release $mod+s       exec flameshot gui
+bindsym $mod+u                 [urgent=latest] focus
+
 bindsym $mod+w       mark --add quickswap
 bindsym $mod+Shift+w swap container with mark quickswap; [con_mark="quickswap"] focus; unmark quickswap
 
@@ -541,11 +558,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id xdotool behave_screen_edge --delay 500 --quiesce 2500 top-right exec $i3-wm.program.lock
 exec --no-startup-id xsetroot -solid "#282a2e"
-
-bindsym Mod1+Ctrl+v            exec copyq show
-bindsym --release $mod+s       exec flameshot gui
-bindsym $mod+Tab               exec $i3-wm.program.launcher.window
-bindsym $mod+u                 [urgent=latest] focus
 
 for_window [class="nm-connection-editor"] floating enable
 for_window [class="Pavucontrol"] floating enable
@@ -580,3 +592,19 @@ mode "$pass_mode" {
 }
 
 bindsym $mod+p mode "$pass_mode"
+
+set $spotify_mode Spotify: (n) next, (p) pause, (Shift+p) previ, (a) vol-, (s) vol+, (d) mute
+
+mode "$spotify_mode" {
+  bindsym n exec --no-startup-id playerctl next
+  bindsym p exec --no-startup-id playerctl play-pause
+  bindsym Shift+p exec --no-startup-id playerctl previous
+  bindsym a exec --no-startup-id ~/bin/vol.sh down
+  bindsym s exec --no-startup-id ~/bin/vol.sh up
+  bindsym d exec --no-startup-id ~/bin/vol.sh mute
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+p mode "$spotify_mode"
