@@ -42,6 +42,46 @@
 set_from_resource $mod  i3-wm.mod Mod4
 set_from_resource $alt  i3-wm.alt Mod1
 
+set_from_resource $i3-wm.workspace.01.display i3-wm.workspace.01.display
+set_from_resource $i3-wm.workspace.02.display i3-wm.workspace.02.display
+set_from_resource $i3-wm.workspace.03.display i3-wm.workspace.03.display
+set_from_resource $i3-wm.workspace.04.display i3-wm.workspace.04.display
+set_from_resource $i3-wm.workspace.05.display i3-wm.workspace.05.display
+set_from_resource $i3-wm.workspace.06.display i3-wm.workspace.06.display
+set_from_resource $i3-wm.workspace.07.display i3-wm.workspace.07.display
+set_from_resource $i3-wm.workspace.08.display i3-wm.workspace.08.display
+set_from_resource $i3-wm.workspace.09.display i3-wm.workspace.09.display
+set_from_resource $i3-wm.workspace.10.display i3-wm.workspace.10.display
+set_from_resource $i3-wm.workspace.11.display i3-wm.workspace.11.display
+set_from_resource $i3-wm.workspace.12.display i3-wm.workspace.12.display
+set_from_resource $i3-wm.workspace.13.display i3-wm.workspace.13.display
+set_from_resource $i3-wm.workspace.14.display i3-wm.workspace.14.display
+set_from_resource $i3-wm.workspace.15.display i3-wm.workspace.15.display
+set_from_resource $i3-wm.workspace.16.display i3-wm.workspace.16.display
+set_from_resource $i3-wm.workspace.17.display i3-wm.workspace.17.display
+set_from_resource $i3-wm.workspace.18.display i3-wm.workspace.18.display
+set_from_resource $i3-wm.workspace.19.display i3-wm.workspace.19.display
+
+workspace  1 output $i3-wm.workspace.01.display
+workspace  2 output $i3-wm.workspace.02.display
+workspace  3 output $i3-wm.workspace.03.display
+workspace  4 output $i3-wm.workspace.04.display
+workspace  5 output $i3-wm.workspace.05.display
+workspace  6 output $i3-wm.workspace.06.display
+workspace  7 output $i3-wm.workspace.07.display
+workspace  8 output $i3-wm.workspace.08.display
+workspace  9 output $i3-wm.workspace.09.display
+workspace 10 output $i3-wm.workspace.10.display
+workspace 11 output $i3-wm.workspace.11.display
+workspace 12 output $i3-wm.workspace.12.display
+workspace 13 output $i3-wm.workspace.13.display
+workspace 14 output $i3-wm.workspace.14.display
+workspace 15 output $i3-wm.workspace.15.display
+workspace 16 output $i3-wm.workspace.16.display
+workspace 17 output $i3-wm.workspace.17.display
+workspace 18 output $i3-wm.workspace.18.display
+workspace 19 output $i3-wm.workspace.19.display
+
 ###############################################################################
 # Workspace Names
 # These are the labels which define each i3 workspace.
@@ -468,6 +508,7 @@ set_from_resource $i3-wm.bar.stripworkspacenumbers i3-wm.bar.stripworkspacenumbe
 
 # i3xrocks config file. Override this for custom status indicators on the bar.
 set_from_resource $i3-wm.bar.status_command i3-wm.bar.status_command i3xrocks -u ~/.config/regolith/i3xrocks/conf.d -d /etc/regolith/i3xrocks/conf.d
+set_from_resource $i3-wm.bar.status_alt_command i3-wm.bar.status_alt_command
 
 # The bar configuration
 bar {
@@ -475,8 +516,11 @@ bar {
   font                    $i3-wm.bar.font
   separator_symbol        $i3-wm.bar.separator
   status_command          $i3-wm.bar.status_command
-  tray_output             yes
+  tray_output             primary
+  tray_padding            4
   strip_workspace_numbers $i3-wm.bar.stripworkspacenumbers
+
+  output primary
 
   colors {
       background $i3-wm.bar.background.color
@@ -493,11 +537,14 @@ bar {
 
 bar {
   position                $i3-wm.bar.position
-  font                    -xos4-terminus-medium-r-normal-*-16-120-*-*-*-*-iso8859-1
+  font                    $i3-wm.bar.font
   separator_symbol        $i3-wm.bar.separator
-  tray_output primary
-  status_command py3status -i ~/.config/i3status/lib
+  status_command          $i3-wm.bar.status_alt_command
+  tray_output             no
   strip_workspace_numbers $i3-wm.bar.stripworkspacenumbers
+
+  output DP-0.1
+  output eDP-1-1
 
   colors {
       background $i3-wm.bar.background.color
@@ -555,24 +602,50 @@ exec --no-startup-id ~/bin/fix_inputs
 exec --no-startup-id copyq
 exec --no-startup-id nextcloud
 exec --no-startup-id nm-applet
-exec --no-startup-id pasystray
 exec --no-startup-id xdotool behave_screen_edge --delay 500 --quiesce 2500 top-right exec $i3-wm.program.lock
 exec --no-startup-id xsetroot -solid "#282a2e"
 
-for_window [class="nm-connection-editor"] floating enable
+# Floating windows and window decorations
+#for_window [class="jetbrains-rubymine"] border normal
+#for_window [title="1Password"] floating enable
+#for_window [title="Firefox Developer Edition"]  border normal
+#for_window [title="Google+ Hangouts is sharing your screen"] floating enable
+#for_window [title="Mozilla Firefox"]  border normal
 for_window [class="Pavucontrol"] floating enable
-for_window [class="flameshot"] floating enable
 for_window [class="Slack"] move to workspace 3
 for_window [class="Surf"] border normal, floating enable
+for_window [class="Thunar"] floating enable, border normal
 for_window [class="Vncviewer"] floating enable
 for_window [class="Xmessage"] floating enable
+for_window [class="flameshot"] floating enable
+for_window [class="nm-connection-editor"] floating enable
+for_window [class="qutebrowser"] border pixel 3
+for_window [class="shutter"]       floating enable
 for_window [class="zik-manager"] floating enable
+for_window [class="zoom" title="Zoom - Free Account"] move to workspace 6, floating disable
+for_window [class="zoom"] floating enable, border normal
+for_window [title="About Mozilla Firefox"]  floating enable
+for_window [title="Chromium"] border normal
+for_window [title="Code42 CrashPlan"] floating enable
 for_window [title="CopyQ"] floating enable
-for_window [title="mail:1:pim"] floating enable, border normal, resize shrink left 100000px, resize shrink right 100000px, resize shrink down 100000px, resize shrink up 100000px, resize grow right 1024px, resize grow down 768px, move position 2800 340, move to scratchpad
-for_window [title="recordMyDesktop"] floating enable
+for_window [title="Firefox Preferences"]  floating enable
+for_window [title="Hangouts"] border normal
+for_window [title="Hangouts"] floating disable
+for_window [title="Oracle VM VirtualBox"] floating enable
+for_window [title="Picky Config"] floating enable, border normal
+for_window [title="Screen Layout Editor"] floating enable
+for_window [title="Sonata"] floating enable, border normal
 for_window [title="Spotify"] move to workspace 9
 for_window [title="Today's Reminders"] floating enable, resize shrink left 100000px, resize shrink right 100000px, resize shrink down 100000px, resize shrink up 100000px, resize grow right 1024px, resize grow down 768px, move position 2500 40
 for_window [title="YakYak"] move to workspace 3
+for_window [title="^Authy$"] floating enable, border normal
+for_window [title="^BlueProximity Preferences$"] floating enable
+for_window [title="^Buddy List$"]  floating enable
+for_window [title="^pianobar$"] floating disable
+for_window [title="mail:1:pim"] floating enable, border normal, resize shrink left 100000px, resize shrink right 100000px, resize shrink down 100000px, resize shrink up 100000px, resize grow right 1024px, resize grow down 768px, move position 2800 340, move to scratchpad
+for_window [title="oclock"] border none, floating enable, sticky enable
+for_window [title="recordMyDesktop"] floating enable
+for_window [title="xclock"] border none, floating enable, sticky enable
 
 force_display_urgency_hint 500 ms
 mouse_warping none
