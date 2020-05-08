@@ -2,12 +2,7 @@
 
 xmodmap ~/.Xmodmap
 
-# Disable touchpad
-#xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
-
 ## Enable natural scrolling
-#xinput set-prop "pointer:Logitech M570"                 "libinput Natural Scrolling Enabled" 1
-#xinput set-prop "pointer:TPPS/2 IBM TrackPoint"         "libinput Natural Scrolling Enabled" 1
 xinput set-prop "pointer:Kensington Expert Wireless TB Mouse" "libinput Natural Scrolling Enabled" 1
 xinput set-prop "pointer:SYNA1202:00 06CB:CD79 Touchpad" "libinput Tapping Enabled" 1
 xinput set-prop "pointer:SYNA1202:00 06CB:CD79 Touchpad" "libinput Natural Scrolling Enabled" 1
