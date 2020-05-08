@@ -28,6 +28,7 @@ settings = {
 }
 
 config.load_autoconfig()
+config.source('fonts.py')
 
 c.bindings.commands = {
     "normal": {
@@ -41,11 +42,11 @@ c.bindings.commands = {
         ',d': 'hint all delete',
         ',a': 'hint --rapid all tab-bg',
         ',p': settings['pass_command'],
-        ',r': 'hint links spawn /home/jcmuller/go/bin/picky {hint-url}',
+        ',r': 'hint links spawn picky {hint-url}',
         ',s': 'spawn --userscript searchbar-command',
         ',,': 'config-cycle tabs.show always never',
         ',ym': 'yank inline [{title}]({url})',  # Copy URL for markdown links
-        ',z': 'hint links spawn /home/jcmuller/go/bin/zoom-handler {hint-url}',
+        ',z': 'hint links spawn zoom-handler {hint-url}',
         ',f': 'hint links spawn firefox {hint-url}',
     },
 
@@ -67,7 +68,7 @@ c.colors.tabs.selected.odd.fg = settings['foreground']
 c.content.host_blocking.whitelist = ['rollbar.com']
 c.content.pdfjs = True
 c.content.plugins = True
-c.downloads.location.directory = "/home/jcmuller/Downloads"
+c.downloads.location.directory = "~/Downloads"
 c.editor.command = [
     "alacritty",
     "-e",
@@ -77,20 +78,6 @@ c.editor.command = [
     "-c",
     "normal {line}G{column0}l",
 ]
-c.fonts.completion.category = "bold 9pt terminus"
-c.fonts.completion.entry = "9pt terminus"
-c.fonts.contextmenu = "9pt terminus"
-c.fonts.debug_console = "9pt terminus"
-c.fonts.default_size = "10pt"
-c.fonts.downloads = "9pt terminus"
-c.fonts.hints = "bold 9pt terminus"
-c.fonts.keyhint = "9pt terminus"
-c.fonts.messages.error = "9pt terminus"
-c.fonts.messages.info = "9pt terminus"
-c.fonts.messages.warning = "9pt terminus"
-c.fonts.prompts = "10pt sans-serif"
-c.fonts.statusbar = "9pt terminus"
-c.fonts.tabs = "9pt terminus"
 c.hints.mode = "letter"
 c.session.lazy_restore = True
 c.spellcheck.languages = ["en-US", "es-ES"]
@@ -113,4 +100,3 @@ c.url.searchengines = {
     "r": "https://www.reddit.com/r/{}",
     "rg": "https://rubygems.org/gems/{}",
 }
-c.zoom.default = "85%"
