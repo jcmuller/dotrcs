@@ -1,0 +1,26 @@
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "💀"
+disabled = false
+
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+threshold = 30
+style = "bold yellow"
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+threshold = 50
+style = "white"
+
+[docker_context]
+disabled = false
+
+[kubernetes]
+disabled = false
+
+[time]
+disabled = false
