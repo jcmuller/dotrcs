@@ -56,5 +56,6 @@ stack
 docker-compose.juan.yml
 .solargraph.yml
 secrets.yml
+.envrc
 .asdf-vars
 tags
