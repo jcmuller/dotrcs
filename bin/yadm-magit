@@ -1,0 +1,3 @@
+#!/bin/bash
+
+nvim -n -c "let g:magit_git_cmd='yadm'" +MagitOnly
