@@ -598,6 +598,8 @@ bindsym $mod+u                 [urgent=latest] focus
 bindsym $mod+w       mark --add quickswap
 bindsym $mod+Shift+w swap container with mark quickswap; [con_mark="quickswap"] focus; unmark quickswap
 
+bindsym $mod+a                 focus parent
+
 exec --no-startup-id ~/bin/fix_inputs
 exec --no-startup-id copyq
 exec --no-startup-id nextcloud
@@ -681,3 +683,11 @@ mode "$spotify_mode" {
 }
 
 bindsym $mod+Shift+p mode "$spotify_mode"
+
+set $passthrough_mode Passthrough: (Mod4+Shift+Esc) to exit
+
+mode "$passthrough_mode" {
+  bindsym $mod+Shift+Escape mode "default"
+}
+
+bindsym $mod+Shift+Escape mode "$passthrough_mode"
