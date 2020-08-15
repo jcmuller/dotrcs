@@ -48,44 +48,44 @@ i3-wm.font: pango:Terminus (TTF) 12px
 
 i3-wm.gaps.focus_follows_mouse: yes
 
-i3-wm.workspace.01.display : DP-0.1
-i3-wm.workspace.01.name    : "1"
-i3-wm.workspace.02.display : DP-0.2
-i3-wm.workspace.02.name    : "2"
-i3-wm.workspace.03.display : eDP-1-1
-i3-wm.workspace.03.name    : "3"
-i3-wm.workspace.04.display : DP-0.1
-i3-wm.workspace.04.name    : "4"
-i3-wm.workspace.05.display : DP-0.2
-i3-wm.workspace.05.name    : "5"
-i3-wm.workspace.06.display : eDP-1-1
-i3-wm.workspace.06.name    : "6"
-i3-wm.workspace.07.display : DP-0.1
-i3-wm.workspace.07.name    : "7"
-i3-wm.workspace.08.display : DP-0.2
-i3-wm.workspace.08.name    : "8"
-i3-wm.workspace.09.display : eDP-1-1
-i3-wm.workspace.09.name    : "9"
-i3-wm.workspace.10.display : DP-0.1
-i3-wm.workspace.10.name    : "10"
-i3-wm.workspace.11.display : DP-0.2
-i3-wm.workspace.11.name    : "11"
-i3-wm.workspace.12.display : eDP-1-1
-i3-wm.workspace.12.name    : "12"
-i3-wm.workspace.13.display : DP-0.1
-i3-wm.workspace.13.name    : "13"
-i3-wm.workspace.14.display : DP-0.2
-i3-wm.workspace.14.name    : "14"
-i3-wm.workspace.15.display : eDP-1-1
-i3-wm.workspace.15.name    : "15"
-i3-wm.workspace.16.display : DP-0.1
-i3-wm.workspace.16.name    : "16"
-i3-wm.workspace.17.display : DP-0.2
-i3-wm.workspace.17.name    : "17"
-i3-wm.workspace.18.display : eDP-1-1
-i3-wm.workspace.18.name    : "18"
-i3-wm.workspace.19.display : DP-0.1
-i3-wm.workspace.19.name    : "19"
+i3-wm.workspace.01.name: 1
+i3-wm.workspace.02.name: 2
+i3-wm.workspace.03.name: 3
+i3-wm.workspace.04.name: 4
+i3-wm.workspace.05.name: 5
+i3-wm.workspace.06.name: 6
+i3-wm.workspace.07.name: 7
+i3-wm.workspace.08.name: 8
+i3-wm.workspace.09.name: 9
+i3-wm.workspace.10.name: 10
+i3-wm.workspace.11.name: 11
+i3-wm.workspace.12.name: 12
+i3-wm.workspace.13.name: 13
+i3-wm.workspace.14.name: 14
+i3-wm.workspace.15.name: 15
+i3-wm.workspace.16.name: 16
+i3-wm.workspace.17.name: 17
+i3-wm.workspace.18.name: 18
+i3-wm.workspace.19.name: 19
+i3-wm.workspace.01.display: DP-0.1
+i3-wm.workspace.02.display: DP-0.2
+i3-wm.workspace.03.display: eDP-1-1
+i3-wm.workspace.04.display: DP-0.1
+i3-wm.workspace.05.display: DP-0.2
+i3-wm.workspace.06.display: eDP-1-1
+i3-wm.workspace.07.display: DP-0.1
+i3-wm.workspace.08.display: DP-0.2
+i3-wm.workspace.09.display: eDP-1-1
+i3-wm.workspace.10.display: DP-0.1
+i3-wm.workspace.11.display: DP-0.2
+i3-wm.workspace.12.display: eDP-1-1
+i3-wm.workspace.13.display: DP-0.1
+i3-wm.workspace.14.display: DP-0.2
+i3-wm.workspace.15.display: eDP-1-1
+i3-wm.workspace.16.display: DP-0.1
+i3-wm.workspace.17.display: DP-0.2
+i3-wm.workspace.18.display: eDP-1-1
+i3-wm.workspace.19.display: DP-0.1
 
 i3xrocks.date.format2: +%m/%d %T
 i3xrocks.egress.name-server: 208.67.222.222
