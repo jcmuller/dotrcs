@@ -11,6 +11,6 @@ c.fonts.messages.info = "14pt terminus"
 c.fonts.messages.warning = "14pt terminus"
 c.fonts.prompts = "15pt sans-serif"
 c.fonts.statusbar = "14pt terminus"
-c.fonts.tabs = "14pt terminus"
+c.fonts.tabs = "12pt terminus"
 
 c.zoom.default = "125%"
