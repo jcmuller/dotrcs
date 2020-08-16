@@ -1,50 +1,64 @@
-gnome.terminal.font: Terminus (TTF) 12px
+#define text_font Terminus (TTF) 12px
+#define icon_font Material Design Icons 12px
+
+#define default_text_color                 #1d1f21
+#define default_background_color           #373b41
+#define active_text_color                  #ffffff
+#define focused_workspace_background_color #81a2be
+#define inactive_background_color          #282a2e
+#define inactive_text_color                #969896
+#define urgent_background_color            #cc6666
+#define widget_color                       #c5c8c6
+#define label_color                        #fdf6e3
+#define focused_client_background_color    #ffffcc
+
+gnome.terminal.font: text_font
 
 i3-wm.bar.status_command: i3xrocks -u ~/.config/regolith/i3xrocks/conf.d -d /etc/regolith/i3xrocks/conf.d
 i3-wm.bar.status_alt_command: i3xrocks -c ~/.config/regolith/i3xrocks/clock_only
 
-i3-wm.bar.background.color:  #1d1f21
-i3-wm.bar.font: pango:Terminus (TTF) 12px, Material Design Icons 12px
-i3-wm.bar.separator.color:   #969896
-i3-wm.bar.statusline.color:  #c5c8c6
+i3-wm.bar.background.color:  default_text_color
+i3-wm.bar.font: pango:text_font, icon_font
+i3-wm.bar.separator.color:   inactive_text_color
+i3-wm.bar.statusline.color:  widget_color
 i3-wm.bar.stripworkspacenumbers: yes
 i3-wm.bar.trayoutput: primary
 
-i3-wm.bar.workspace.active.background.color:   #373b41
-i3-wm.bar.workspace.active.border.color:       #373b41
-i3-wm.bar.workspace.active.text.color:         #ffffff
-i3-wm.bar.workspace.focused.background.color:  #81a2be
-i3-wm.bar.workspace.focused.border.color:      #81a2be
-i3-wm.bar.workspace.focused.text.color:        #1d1f21
-i3-wm.bar.workspace.inactive.background.color: #282a2e
-i3-wm.bar.workspace.inactive.border.color:     #282a2e
-i3-wm.bar.workspace.inactive.text.color:       #969896
-i3-wm.bar.workspace.urgent.background.color:   #cc6666
-i3-wm.bar.workspace.urgent.border.color:       #cc6666
-i3-wm.bar.workspace.urgent.text.color:         #ffffff
+i3-wm.bar.workspace.active.background.color:   default_background_color
+i3-wm.bar.workspace.active.border.color:       default_background_color
+i3-wm.bar.workspace.active.text.color:         active_text_color
+i3-wm.bar.workspace.focused.background.color:  focused_workspace_background_color
+i3-wm.bar.workspace.focused.border.color:      focused_workspace_background_color
+i3-wm.bar.workspace.focused.text.color:        default_text_color
+i3-wm.bar.workspace.inactive.background.color: inactive_background_color
+i3-wm.bar.workspace.inactive.border.color:     inactive_background_color
+i3-wm.bar.workspace.inactive.text.color:       inactive_text_color
+i3-wm.bar.workspace.urgent.background.color:   urgent_background_color
+i3-wm.bar.workspace.urgent.border.color:       urgent_background_color
+i3-wm.bar.workspace.urgent.text.color:         active_text_color
 
-i3-wm.client.focused.color.background:            #ffffcc
-i3-wm.client.focused.color.border:                #81a2be
+i3-wm.client.focused.color.background:            focused_client_background_color
+i3-wm.client.focused.color.border:                focused_workspace_background_color
 !i3-wm.client.focused.color.child_border:          #xxxxxx
-i3-wm.client.focused.color.indicator:             #282a2e
-i3-wm.client.focused.color.text:                  #1d1f21
-i3-wm.client.focused_inactive.color.background:   #373b41
-i3-wm.client.focused_inactive.color.border:       #373b41
+i3-wm.client.focused.color.indicator:             inactive_background_color
+i3-wm.client.focused.color.text:                  default_text_color
+i3-wm.client.focused_inactive.color.background:   default_background_color
+i3-wm.client.focused_inactive.color.border:       default_background_color
 !i3-wm.client.focused_inactive.color.child_border: #xxxxxx
-i3-wm.client.focused_inactive.color.indicator:    #282a2e
-i3-wm.client.focused_inactive.color.text:         #969896
-i3-wm.client.unfocused.color.background:          #282a2e
-i3-wm.client.unfocused.color.border:              #282a2e
+i3-wm.client.focused_inactive.color.indicator:    inactive_background_color
+i3-wm.client.focused_inactive.color.text:         inactive_text_color
+i3-wm.client.unfocused.color.background:          inactive_background_color
+i3-wm.client.unfocused.color.border:              inactive_background_color
 !i3-wm.client.unfocused.color.child_border:        #xxxxxx
-i3-wm.client.unfocused.color.indicator:           #282a2e
-i3-wm.client.unfocused.color.text:                #969896
-i3-wm.client.urgent.color.background:             #cc6666
-i3-wm.client.urgent.color.border:                 #373b41
+i3-wm.client.unfocused.color.indicator:           inactive_background_color
+i3-wm.client.unfocused.color.text:                inactive_text_color
+i3-wm.client.urgent.color.background:             urgent_background_color
+i3-wm.client.urgent.color.border:                 default_background_color
 !i3-wm.client.urgent.color.child_border:           #xxxxxx
-i3-wm.client.urgent.color.indicator:              #cc6666
-i3-wm.client.urgent.color.text:                   #ffffff
+i3-wm.client.urgent.color.indicator:              urgent_background_color
+i3-wm.client.urgent.color.text:                   active_text_color
 
-i3-wm.font: pango:Terminus (TTF) 12px
+i3-wm.font: pango:text_font
 
 i3-wm.gaps.focus_follows_mouse: yes
 
@@ -89,14 +103,14 @@ i3-wm.workspace.19.display: DP-0.1
 
 i3xrocks.date.format2: +%m/%d %T
 i3xrocks.egress.name-server: 208.67.222.222
-i3xrocks.label.color: #fdf6e3
-i3xrocks.label.font: pango:Material Design Icons 12px
-i3xrocks.value.color: #c5c8c6
-i3xrocks.value.font: Terminus (TTF) 12px
+i3xrocks.label.color: label_color
+i3xrocks.label.font: pango:icon_font
+i3xrocks.value.color: widget_color
+i3xrocks.value.font: text_font
 
 rofi.drun-display-format: {name}
 rofi.drun-icon-theme:   icon_theme
-rofi.font:              pango:Terminus (TTF) 12px
+rofi.font:              pango:text_font
 rofi.show-icons:        true
 rofi.theme:             ~/.config/rofi/theme
 rofi.window-format: 	\ {n} {t}
@@ -104,3 +118,6 @@ rofi.window-format: 	\ {n} {t}
 i3xrocks.weather.format: 1
 i3xrocks.weather.symbol: ℉
 i3xrocks.weather.units: imperial
+i3xrocks.weather.api-key: d4708c12c3df0aed0b5190578f356278
+i3xrocks.weather.city-id: 5099129
+i3xrocks.value.mediaplayerwidth: 50
