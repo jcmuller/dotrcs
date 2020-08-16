@@ -1,5 +1,5 @@
-#define text_font Terminus (TTF) 12px
-#define icon_font Material Design Icons 12px
+#define text_font Terminus (TTF) 16px
+#define icon_font Material Design Icons 16px
 
 #define default_text_color                 #1d1f21
 #define default_background_color           #373b41
