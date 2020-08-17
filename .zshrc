@@ -46,7 +46,7 @@ antigen bundles <<EOBUNDLE
   docker-machine
   git
   git-extras
-  go
+  golang
   kubectl
   pass
   ruby
