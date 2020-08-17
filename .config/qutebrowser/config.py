@@ -47,6 +47,7 @@ c.bindings.commands = {
         ',,': 'config-cycle tabs.show always never',
         ',ym': 'yank inline [{title}]({url})',  # Copy URL for markdown links
         ',z': 'hint links spawn zoom-handler {hint-url}',
+        ',Z': 'spawn zoom-handler {url}',
         ',f': 'hint links spawn firefox {hint-url}',
     },
 
