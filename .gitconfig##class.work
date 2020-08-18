@@ -87,6 +87,5 @@
 	allowed = vendor/*
 	allowed = user[0-9]*:pass[word]*[0-9]*@
 [url "git@github.com:"]
-  insteadOf = gh:
-[url "git@github.com:"]
-	insteadof = https://github.com/
+	insteadOf = gh:
+	insteadOf = https://github.com/
