@@ -10,7 +10,7 @@ rofi.eh:                             1
 rofi.fake-transparency:              false
 rofi.filter:
 rofi.fixed-num-lines:                false
-rofi.font:                           xos4 Terminus 12
+rofi.font:                           Iosevka Term Bold 20px
 rofi.fullscreen:                     false
 rofi.fuzzy:                          true
 rofi.glob:                           false

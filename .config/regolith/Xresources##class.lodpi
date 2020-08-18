@@ -110,7 +110,6 @@ i3xrocks.value.font: text_font
 
 rofi.drun-display-format: {name}
 rofi.drun-icon-theme:   icon_theme
-rofi.font:              pango:text_font
 rofi.show-icons:        true
 rofi.theme:             ~/.config/rofi/theme
 rofi.window-format: 	\ {n} {t}
