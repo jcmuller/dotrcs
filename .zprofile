@@ -21,15 +21,12 @@ path=(
   "/bin"
   "/usr/games"
   "/usr/local/games"
-  "/usr/local/openresty/bin"
-  "/usr/local/openresty/nginx/sbin"
-  "$HOME/Development/Greenhouse/infrastructure/bin"
 )
 
 fpath=(
   $HOME/go/share/zsh
   /home/jcmuller/.local/share/zsh/functions
-  "${fpath[@]}"
+  $fpath
 )
 
 set noclobber

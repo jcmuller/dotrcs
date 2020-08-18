@@ -3,3 +3,8 @@ aws-vault-use support
 alias pctl="pipelinectl -a https://release-pipeline-dev.dev.use1.gh.internal"
 alias pc="pipelinectl -a https://release-pipeline-dev.dev.use1.gh.internal"
 eval "$(pipelinectl completion zsh)"
+
+path=(
+  $path
+  "$HOME/Development/Greenhouse/infrastructure/bin"
+)
