@@ -1,20 +1,16 @@
+! vim:set ft=xdefaults:
+
+rofi.font:                           Terminus (TTF) 16px
+
+rofi.theme:                          purple
+
 rofi.auto-select:                    false
-rofi.borderwidth: 3
-rofi.bw:                             3
 rofi.case-sensitive:                 false
-rofi.columns:                        1
 rofi.combi-modi:                     window,run
 rofi.disable-history:                false
-rofi.dpi:                            -1
-rofi.eh:                             1
 rofi.fake-transparency:              false
-rofi.filter:
-rofi.fixed-num-lines:                false
-rofi.font:                           Terminus (TTF) 16px
-rofi.fullscreen:                     false
 rofi.fuzzy:                          true
 rofi.glob:                           false
-rofi.hide-scrollbar:                 false
 rofi.kb-accept-custom:               Control+Return
 rofi.kb-accept-entry-continue:       Shift+Return
 rofi.kb-accept-entry:                Control+j,Control+m,Return,KP_Enter
@@ -72,34 +68,14 @@ rofi.key-station:                    Shift+Alt+c
 rofi.key-window:                     SuperL+Tab
 rofi.lazy-filter-limit:              15000
 rofi.levenshtein-sort:               true
-rofi.line-margin:                    2
-rofi.lines:       20
-rofi.location:                       0
-rofi.m:                              -1
-rofi.markup-rows:                    false
 rofi.matching:                       fuzzy
 rofi.modi:                           combi,drun,keys,run,ssh,window,windowcd,workspace:~/bin/i3_switch_workspace.sh,calc:qalc\ +u8\ -nocurrencies
-rofi.opacity:                        100
-rofi.padding:     3
 rofi.parse-hosts:                    false
 rofi.parse-known-hosts:              true
 rofi.run-command:                    {cmd}
 rofi.run-list-command:
 rofi.run-shell-command:              {terminal} -e {cmd}
-rofi.separator-style:                dash
-rofi.sidebar-mode:                   false
 rofi.ssh-client:                     ssh
 rofi.ssh-command:                    {terminal} -e {ssh-client} {host}
 rofi.terminal:                       rofi-sensible-terminal
 rofi.tokenize:                       true
-rofi.width:                          50
-rofi.xoffset:                        0
-rofi.yoffset:                        0
-
-rofi.color-enabled:                  true
-
-! Tomorrow-ish
-rofi.color-window: #ffffff, #d6d6d6, #d6d6d6
-rofi.color-normal: #ffffff, #4d4d4c, #ffffff, #d6d6d6, #4d4d4c
-rofi.color-active: #ffffff, #8e908c, #ffffff, #8e908c, #000000
-rofi.color-urgent: #ffffff, #c82829, #ffffff, #c82829, #ffffff
