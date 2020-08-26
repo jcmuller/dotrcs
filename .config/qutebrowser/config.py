@@ -49,6 +49,8 @@ c.bindings.commands = {
         ',z': 'hint links spawn zoom-handler {hint-url}',
         ',Z': 'spawn zoom-handler {url}',
         ',f': 'hint links spawn firefox {hint-url}',
+        ',m': 'spawn devour mpv {url}',
+        ',M': 'hint links spawn devour mpv {hint-url}',
     },
 
     # Emacs-like keybindings for insert mode
