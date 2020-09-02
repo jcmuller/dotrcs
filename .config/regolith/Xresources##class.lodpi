@@ -101,7 +101,7 @@ i3-wm.workspace.17.display: DP-0.2
 i3-wm.workspace.18.display: eDP-1-1
 i3-wm.workspace.19.display: DP-0.1
 
-i3xrocks.date.format2: +%m/%d %T
+i3xrocks.date.format2: + %A %m/%d %T
 i3xrocks.egress.name-server: 208.67.222.222
 i3xrocks.label.color: label_color
 i3xrocks.label.font: pango:icon_font
