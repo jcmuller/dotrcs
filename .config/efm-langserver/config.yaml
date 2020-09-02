@@ -129,6 +129,7 @@ languages:
 
   yaml:
     - <<: *yaml-yamllint
+    - <<: *yaml-prettier
 
   python:
     - <<: *python-flake8
@@ -153,7 +154,7 @@ languages:
   json:
     - <<: *json-jq
     - <<: *json-fixjson
-    # - <<: *json-prettier
+    - <<: *json-prettier
 
   csv:
     - <<: *csv-csvlint
