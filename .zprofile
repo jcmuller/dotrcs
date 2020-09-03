@@ -1,6 +1,6 @@
 BROWSER=/home/jcmuller/go/bin/picky; export BROWSER
 GOPRIVATE=github.com/grnhse; export GOPRIVATE
-MANPAGER='nvim +Man!'; export MANPAGER
+MANPAGER='nvim -n +Man!'; export MANPAGER
 NVIM_LISTEN_ADDRESS="/tmp/neovim.sock"; export NVIM_LISTEN_ADDRESS
 QT_QPA_PLATFORMTHEME=gtk3; export QT_QPA_PLATFORMTHEME
 REPORTTIME=5; export REPORTTIME
