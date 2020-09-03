@@ -1,11 +1,11 @@
 BROWSER=/home/jcmuller/go/bin/picky; export BROWSER
 GOPRIVATE=github.com/grnhse; export GOPRIVATE
+MANPAGER='nvim +Man!'; export MANPAGER
 NVIM_LISTEN_ADDRESS="/tmp/neovim.sock"; export NVIM_LISTEN_ADDRESS
-QT_QPA_PLATFORMTHEME=qt5ct; export QT_QPA_PLATFORMTHEME
-# Report any command running longer than 5 seconds
+QT_QPA_PLATFORMTHEME=gtk3; export QT_QPA_PLATFORMTHEME
 REPORTTIME=5; export REPORTTIME
-TIMEFMT="'$fg[green]%J$reset_color' time: $fg[yellow]%*Es$reset_color, cpu: $fg[yellow]%P$reset_color, mem: $fg[yellow]%M$reset_color"; export TIMEFMT
 TF_PLUGIN_CACHE_DIR=~/.terraform/terraform-plugin-dir; export TF_PLUGIN_CACHE_DIR
+TIMEFMT="'$fg[green]%J$reset_color' time: $fg[yellow]%*Es$reset_color, cpu: $fg[yellow]%P$reset_color, mem: $fg[yellow]%M$reset_color"; export TIMEFMT
 _Z_CMD=j; export _Z_CMD
 
 unset SSH_AGENT_PID SSH_AUTH_SOCK
