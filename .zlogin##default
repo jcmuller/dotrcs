@@ -9,3 +9,5 @@ path=(
 )
 
 alias occ='ssh -t home.lan docker exec -it --user www-data nextcloud ./occ'
+alias photoprism='ssh -t home.lan docker exec -it photoprism photoprism'
+alias stream='summon -f ~/Development/MyStuff/servers/secrets.yml -- ~/bin/stream.sh'
