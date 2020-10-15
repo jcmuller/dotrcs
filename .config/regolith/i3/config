@@ -129,7 +129,7 @@ bindsym $mod+r exec $i3-wm.program.launcher.cmd
 
 ## Navigate // Window by Name // <><Ctrl> Space ##
 set_from_resource $i3-wm.program.launcher.window i3-wm.program.launcher.window rofi -show window -theme $rofiTheme
-bindsym $mod+tab exec $i3-wm.program.launcher.window
+bindsym $mod+Tab exec $i3-wm.program.launcher.window
 
 ## Launch // File Search // <><Alt> Space ##
 set_from_resource $i3-wm.program.file_search i3-wm.program.file_search rofi -show find -modi find:/usr/share/rofi/modi/finder.sh
