@@ -1,14 +1,9 @@
-aws-vault-use support
-
 alias pctl="pipelinectl -a https://release-pipeline-dev.dev.use1.gh.internal"
 alias pc="pipelinectl -a https://release-pipeline-dev.dev.use1.gh.internal"
 eval "$(pipelinectl completion zsh)"
 
-alias a243='ASDF_ARGO_VERSION=2.4.3   argo -n argo'
-alias a2117='ASDF_ARGO_VERSION=2.11.7 argo -n argo-next'
-
 alias tf=terraform
-alias tfi='rf init -backend-config state.conf -upgrade'
+alias tfi='tf init -backend-config state.conf -upgrade'
 alias tfp='tf plan -out .tfplan'
 alias tfa='tf apply .tfplan && rm -v .tfplan'
 
