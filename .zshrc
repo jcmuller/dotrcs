@@ -56,6 +56,7 @@ autoload -U +X bashcompinit && bashcompinit
 unset GOROOT GOPATH
 
 alias cd='HOME=${PROJECT:-$HOME} cd'
+alias cdr='cd $(~/bin/cdr)'
 
 eval "$(starship init zsh)"
 eval "$(asdf exec direnv hook zsh)"

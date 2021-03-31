@@ -24,3 +24,9 @@ disabled = false
 
 [time]
 disabled = false
+
+[git_commit]
+only_detached = false
+
+[terraform]
+format = "[🏎💨 $version$workspace]($style) "
