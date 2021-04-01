@@ -24,7 +24,6 @@ antigen bundles <<EOBUNDLE
 
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh git_funcs.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh aliases.zsh
-  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh aws.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh colors.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh cargo.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh dajoku.zsh
@@ -70,3 +69,10 @@ source ~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmux/tmux.plugin.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 complete -o nospace -C /home/jcmuller/.asdf/installs/tanka/0.11.0/bin/tk tk
+
+complete -o nospace -C /home/jcmuller/go/bin/mc mc
+
+if [[ ":$PATH:" != *":$HOME/.datacoral/cli/bin:"* ]];
+then
+  export PATH=$HOME/.datacoral/cli/bin:$PATH
+fi
