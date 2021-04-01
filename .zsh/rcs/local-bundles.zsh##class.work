@@ -1,4 +1,3 @@
-antigen bundle aws
 antigen bundle helm
 antigen bundle kubectl
 antigen bundle minikube
