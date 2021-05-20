@@ -74,6 +74,24 @@ tools:
     lint-formats:
       - "%f:%l %m"
 
+  ruby-rubocop: &ruby-rubocop
+    lint-command: bundle exec rubocop --config .rubocop.yml
+    lint-formats:
+      - "%f:%l:%c: %t: %m"
+        #format-command:
+        #  bundle exec rubocop
+        #  --config .rubocop.yml
+        #  --auto-correct
+        #  --stderr
+        #format-stdin: true
+
+  ruby-standard: &ruby-standard
+    lint-command: standardrb --no-fix
+    lint-formats:
+      - "%f:%l:%c: %t: %m"
+    format-command: standardrb --fix
+      #format-stdin: true
+
   sh-shellcheck: &sh-shellcheck
     lint-command: "shellcheck -f gcc -x"
     lint-formats:
@@ -82,7 +100,10 @@ tools:
       - "%f:%l:%c: %tote: %m"
 
   sh-shfmt: &sh-shfmt
-    format-command: "shfmt -ci -s -bn"
+    # Tabs
+    # format-command: "shfmt -ci -s -bn"
+    # Spaces
+    format-command: "shfmt -ci -s -bn -i 2"
     format-stdin: true
 
   javascript-eslint: &javascript-eslint
@@ -111,6 +132,14 @@ tools:
   any-excitetranslate: &any-excitetranslate
     hover-command: "excitetranslate"
     hover-stdin: true
+
+  terraform-lint: &terraform-lint
+    lint-command: tflint
+    lint-stdin: true
+
+  terraform-format: &terraform-format
+    format-command: terraform fmt
+    format-stdin: true
 
 languages:
   eruby:
@@ -162,6 +191,14 @@ languages:
 
   csv:
     - <<: *csv-csvlint
+
+  terraform:
+    - <<: *terraform-lint
+    - <<: *terraform-format
+
+  ruby:
+    #- <<: *ruby-rubocop
+    - <<: *ruby-standard
 
   _:
     - <<: *any-excitetranslate
