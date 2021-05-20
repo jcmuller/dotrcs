@@ -35,6 +35,9 @@ tools:
   markdown-pandoc: &markdown-pandoc
     format-command: "pandoc -f markdown -t gfm -sp --tab-stop=2"
 
+  markdown-prettier: &markdown-prettier
+    format-command: "/home/jcmuller/.asdf/shims/prettier --parser markdown"
+
   rst-pandoc: &rst-pandoc
     format-command: "pandoc -f rst -t rst -s --columns=79"
 
@@ -122,6 +125,7 @@ languages:
   markdown:
     - <<: *markdown-markdownlint
     - <<: *markdown-pandoc
+    - <<: *markdown-prettier
 
   rst:
     - <<: *rst-lint
