@@ -25,7 +25,7 @@ tools:
     lint-stdin: true
 
   markdown-markdownlint: &markdown-markdownlint
-    lint-command: 'markdownlint -s -c %USERPROFILE%\.markdownlintrc'
+    lint-command: markdownlint --stdin
     lint-stdin: true
     lint-formats:
       - "%f:%l %m"
