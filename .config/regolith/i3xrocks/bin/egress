@@ -6,6 +6,9 @@ LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
 VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color "#D8DEE9")}
 VALUE_FONT=${font:-$(xrescat i3xrocks.value.font "Source Code Pro Medium 13")}
 
-EGRESS=$(dig myip.opendns.com @$NAMESERVER)
+EGRESS=$(dig +short myip.opendns.com "@$NAMESERVER")
 
-echo "<span color=\"${LABEL_COLOR}\">$LABEL_ICON</span><span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$EGRESS</span>"
+ICON_SPAN="<span color=\"${LABEL_COLOR}\">$LABEL_ICON</span>"
+VALUE_SPAN="<span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\"> $EGRESS%</span>"
+
+echo "${ICON_SPAN}${VALUE_SPAN}"

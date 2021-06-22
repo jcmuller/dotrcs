@@ -77,6 +77,7 @@ sudo rsync \
   --stats \
   --progress \
   --exclude .asdf/installs \
+  --exclude .asdf/tags \
   --exclude .bundle/cache \
   --exclude .cache \
   --exclude .config/Slack/Cache \

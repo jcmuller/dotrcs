@@ -41,9 +41,6 @@ Session.vim
 .svn
 .*sw?
 *.swp
-/tags
-/tags.*
-/TAGS
 .tern-port
 .vagrant
 vendor/cache/greenhouse-logging-*/Gemfile.lock
@@ -52,10 +49,15 @@ xcuserdata
 yarn-error.log
 zeus.json
 .zeus.rb
-stack
 docker-compose.juan.yml
 .solargraph.yml
 secrets.yml
 .envrc
 .asdf-vars
-tags
+/tags
+
+# for dajoku-api
+certs
+docker-compose.yml
+
+

@@ -23,24 +23,24 @@ WEATHER_MAIN=$(echo "${WEATHER_INFO}" | grep -o -e '\"main\":\"[a-Z]*\"' | awk -
 WEATHER_TEMP=$(echo "${WEATHER_INFO}" | grep -o -e '\"temp\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
 WEATHER_DATA="${WEATHER_TEMP}${SYMBOL}"
 
-if [[ "${WEATHER_MAIN}" = *Snow* ]]; then
-  LABEL_ICON=$ICON_SNOW
-elif [[ "${WEATHER_MAIN}" = *Rain* ]] || [[ "${WEATHER_MAIN}" = *Drizzle* ]]; then
-  LABEL_ICON="${ICON_RAINY}"
-elif [[ "${WEATHER_MAIN}" = *Thunderstorm* ]]; then
-  LABEL_ICON="${ICON_STORM}"
-elif [[ "${WEATHER_MAIN}" = *Cloud* ]]; then
-  LABEL_ICON="${ICON_CLOUDY}"
-elif [[ "${WEATHER_MAIN}" = *Clear* ]]; then
-  LABEL_ICON="${ICON_SUNNY}"
-elif [[ "${WEATHER_MAIN}" = *Fog* ]] || [[ "${WEATHER_MAIN}" = *Mist* ]]; then
-  LABEL_ICON="${ICON_FOG}"
+if [[ ${WEATHER_MAIN} == *Snow* ]]; then
+	LABEL_ICON=$ICON_SNOW
+elif [[ ${WEATHER_MAIN} == *Rain* ]] || [[ ${WEATHER_MAIN} == *Drizzle* ]]; then
+	LABEL_ICON="${ICON_RAINY}"
+elif [[ ${WEATHER_MAIN} == *Thunderstorm* ]]; then
+	LABEL_ICON="${ICON_STORM}"
+elif [[ ${WEATHER_MAIN} == *Cloud* ]]; then
+	LABEL_ICON="${ICON_CLOUDY}"
+elif [[ ${WEATHER_MAIN} == *Clear* ]]; then
+	LABEL_ICON="${ICON_SUNNY}"
+elif [[ ${WEATHER_MAIN} == *Fog* ]] || [[ ${WEATHER_MAIN} == *Mist* ]]; then
+	LABEL_ICON="${ICON_FOG}"
 else
-  LABEL_ICON="${WEATHER_MAIN}"
+	LABEL_ICON="${WEATHER_MAIN}"
 fi
 
 echo "<span font_desc=\"${VALUE_FONT}\" color=\"${LABEL_COLOR}\">$LABEL_ICON</span><span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\"> ${WEATHER_DATA}</span>"
 
 if [ ! -z "$button" ]; then
-  /usr/bin/i3-msg -q exec xdg-open https://openweathermap.org/city/${CITY_ID}
+	/usr/bin/i3-msg -q exec xdg-open https://openweathermap.org/city/${CITY_ID}
 fi

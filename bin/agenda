@@ -1,4 +1,4 @@
 #!/usr/bin/zsh
 
 format="%D %I:00:00%P"
-gcalcli $@ agenda --nostarted --nodeclined "$(date +$format)" "$(date +$format --date=tomorrow)"
+ASDF_PYTHON_VERSION=3.8.6 python -m gcalcli.cli $@ agenda --nostarted --nodeclined "$(date +$format)" "$(date +$format --date=tomorrow)"

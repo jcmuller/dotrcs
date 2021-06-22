@@ -19,6 +19,9 @@ my $file;
 
 #system('chromium', '-app', $file);
 #system('firefox', $file);
-system('surf', $file);
+#system('surf', $file);
+#system('qpm', 'run', 'work', "$file");
+system('qp', '--load', 'work', "$file");
+sleep 2;
 #system('qutebrowser-home', $file);
 unlink $file;

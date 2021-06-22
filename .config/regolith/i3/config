@@ -362,8 +362,9 @@ bindsym $mod+i bar mode toggle
 
 # Cause Settings app to float above tiled windows
 floating_maximum_size -1 x -1
-for_window [class="Gnome-control-center"] floating enable
+for_window [class="Gnome-control-center"] floating enable, border normal
 
+workspace_auto_back_and_forth yes
 ###############################################################################
 # Window Resize and Gaps
 ###############################################################################
@@ -545,6 +546,7 @@ bar {
 
   output DP-0.1
   output eDP-1-1
+  output HDMI-0
 
   colors {
       background $i3-wm.bar.background.color
@@ -590,7 +592,6 @@ set_from_resource $i3-wm.program.3 i3-wm.program.3 :
 exec --no-startup-id $i3-wm.program.3
 
 ################################################################################
-#
 bindsym Mod1+Ctrl+v            exec copyq show
 bindsym --release $mod+s       exec flameshot gui
 bindsym $mod+u                 [urgent=latest] focus
@@ -604,7 +605,7 @@ exec --no-startup-id ~/bin/fix_inputs
 exec --no-startup-id copyq
 exec --no-startup-id nextcloud
 exec --no-startup-id nm-applet
-exec --no-startup-id xdotool behave_screen_edge --delay 500 --quiesce 2500 top-right exec $i3-wm.program.lock
+# exec --no-startup-id xdotool behave_screen_edge --delay 500 --quiesce 2500 top-right exec $i3-wm.program.lock
 exec --no-startup-id xsetroot -solid "#282a2e"
 
 # Floating windows and window decorations
@@ -624,9 +625,9 @@ for_window [class="nm-connection-editor"] floating enable
 for_window [class="qutebrowser"] border pixel 3
 for_window [class="shutter"]       floating enable
 for_window [class="zik-manager"] floating enable
+for_window [class="zoom"] floating enable, border normal
 for_window [class="zoom" title="Zoom - Free Account"] move to workspace 6, floating disable
 for_window [class="zoom" title="Zoom - Licensed Account"] move to workspace 6, floating disable
-for_window [class="zoom" title="Zoom Meeting"] floating enable, border normal
 for_window [title="About Mozilla Firefox"]  floating enable
 for_window [title="Chromium"] border normal
 for_window [title="Code42 CrashPlan"] floating enable
@@ -653,9 +654,10 @@ for_window [title="xclock"] border none, floating enable, sticky enable
 force_display_urgency_hint 500 ms
 mouse_warping none
 show_marks yes
-workspace_auto_back_and_forth yes
 
-################################################################################
+###############################################################################
+# Pass Mode
+###############################################################################
 set $pass_mode pass: (u) user, (p) password, (o) OTP
 
 mode "$pass_mode" {
@@ -669,6 +671,9 @@ mode "$pass_mode" {
 
 bindsym $mod+p mode "$pass_mode"
 
+###############################################################################
+# Spotify Mode
+###############################################################################
 set $spotify_mode Spotify: (n) next, (p) pause, (Shift+p) previ, (a) vol-, (s) vol+, (d) mute
 
 mode "$spotify_mode" {
@@ -686,7 +691,7 @@ mode "$spotify_mode" {
 bindsym $mod+Shift+p mode "$spotify_mode"
 
 ###############################################################################
-# Window Move
+# Window Move Mode
 ###############################################################################
 
 ## Move // Enter Move Mode // <> r ##
@@ -716,7 +721,7 @@ mode "$move_mode" {
 bindsym $mod+m mode "$move_mode"
 
 ###############################################################################
-# Passthrough Move
+# Passthrough Mode
 ###############################################################################
 
 set $passthrough_mode Passthrough: (Mod4+Shift+Esc) to exit

@@ -3,7 +3,7 @@
   email = jcmuller@gmail.com
   signingkey = A76E55A7FBA1E283
 [core]
-  excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore
   quotepath = false
 [difftool]
   prompt = false
@@ -23,6 +23,7 @@
   default = current
 [init]
   templatedir = ~/.git_template
+	defaultBranch = main
 [branch]
   autosetuprebase = always
 #[remote "origin"]
@@ -31,6 +32,7 @@
   ci = commit
   co = checkout
   cor = !git-jump-to
+  cub = clean-up-branches
   local-ignore = update-index --assume-unchanged
   local-ignored = !git ls-files -v | grep "^[[:lower:]]"
   local-unignore = update-index --no-assume-unchanged

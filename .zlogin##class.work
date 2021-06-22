@@ -1,11 +1,15 @@
-alias pctl="pipelinectl -a https://release-pipeline-dev.dev.use1.gh.internal"
-alias pc="pipelinectl -a https://release-pipeline-dev.dev.use1.gh.internal"
+alias pctl="pipelinectl -a https://release-pipeline-dev.dev.use1.gh.team"
+alias pc="pipelinectl -a https://release-pipeline-dev.dev.use1.gh.team"
 eval "$(pipelinectl completion zsh)"
 
 alias tf=terraform
 alias tfi='tf init -backend-config state.conf -upgrade'
 alias tfp='tf plan -out .tfplan'
 alias tfa='tf apply .tfplan && rm -v .tfplan'
+
+alias adw='a --context dev.usw2-argo'
+alias ade='a --context dev.use1-argo'
+alias ape='a --context prod.use1-argo'
 
 path=(
   $path

@@ -1,8 +1,9 @@
 #!/bin/bash
 
-echo 'master'
+echo main
+echo master
 for i in {1..30}; do
   git rev-parse --abbrev-ref=loose "@{-$i}"
 done 2>/dev/null |
-  grep -Eve '@{' -e '^$' -e '^master$' |
+  grep -Eve '@{' -e '^(|main|master)$' |
   sort -u

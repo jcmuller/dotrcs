@@ -21,16 +21,25 @@ set realname = "Juan C. Müller"
 set mail_check_recent = yes
 set envelope_from
 
-mailboxes \
-  +Personal \
-  +Personal/INBOX \
-  +'Personal/[Gmail].Sent Mail' \
-  +Work \
-  +Work/INBOX \
-  +'Work/[Gmail].Sent Mail' \
-  +Notes \
-  /var/mail/jcmuller
+named-mailboxes \
+  Personal '' \
+  Personal +Personal/INBOX \
+  Work '' \
+  Work +Work/INBOX \
+  Search +search 
+  #local /var/mail/jcmuller
 
+#named-mailboxes \
+#  Person '' \
+#  Personal +Personal/INBOX \
+#  "  Important" +'Personal/[Gmail].Important' \
+#  "  Drafts" +'Personal/[Gmail].Drafts' \
+#  "  Notes" +'Personal/Notes' \
+#  Work +Work/INBOX \
+#  "  PRs" +'Work/Pull requests' \
+#  "  Monitors" +Work/Monitors \
+#  "  Important" +'Work/[Gmail].Important' \
+#  /var/mail/jcmuller
 
   #+'Personal/[Gmail].All Mail' \
   #+'Personal/[Gmail].Drafts' \

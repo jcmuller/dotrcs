@@ -49,8 +49,8 @@ c.bindings.commands = {
         ',z': 'hint links spawn zoom-handler {hint-url}',
         ',Z': 'spawn zoom-handler {url}',
         ',f': 'hint links spawn firefox {hint-url}',
-        ',m': 'spawn devour mpv {url}',
-        ',M': 'hint links spawn devour mpv {hint-url}',
+        ',m': 'spawn mpv {url}',
+        ',M': 'hint all spawn mpv {hint-url}',
     },
 
     # Emacs-like keybindings for insert mode
@@ -68,7 +68,7 @@ c.colors.tabs.selected.even.bg = settings['background']
 c.colors.tabs.selected.even.fg = settings['foreground']
 c.colors.tabs.selected.odd.bg = settings['background']
 c.colors.tabs.selected.odd.fg = settings['foreground']
-c.content.host_blocking.whitelist = ['rollbar.com']
+c.content.blocking.whitelist = ['rollbar.com', 'api.datadoghq.com', 'app.datadoghq.com']
 c.content.pdfjs = True
 c.content.plugins = True
 c.downloads.location.directory = "~/Downloads"
@@ -90,7 +90,7 @@ c.tabs.position = "left"
 c.tabs.select_on_remove = "next"
 c.tabs.show = "never"
 #c.tabs.switch_to_open_url = True
-c.tabs.width = 250
+c.tabs.width = 175
 c.tabs.show = 'always'
 c.tabs.title.format = '{audio}{current_title}'
 c.tabs.title.format_pinned = '{audio}'
