@@ -8,6 +8,9 @@ TF_PLUGIN_CACHE_DIR=~/.terraform/terraform-plugin-dir; export TF_PLUGIN_CACHE_DI
 TIMEFMT="'$fg[green]%J$reset_color' time: $fg[yellow]%*Es$reset_color, cpu: $fg[yellow]%P$reset_color, mem: $fg[yellow]%M$reset_color"; export TIMEFMT
 _Z_CMD=j; export _Z_CMD
 
+# GPG
+GPG_TTY=$(tty); export GPG_TTY
+
 unset SSH_AGENT_PID SSH_AUTH_SOCK
 
 path=(
