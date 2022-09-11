@@ -1,4 +1,5 @@
-source ~/.antigen-src/antigen.zsh
+[[ -f ~/.antigen-src/antigen.zsh ]] && source ~/.antigen-src/antigen.zsh
+[[ -f /usr/share/zsh/share/antigen.zsh ]] && source /usr/share/zsh/share/antigen.zsh
 
 antigen use oh-my-zsh
 
