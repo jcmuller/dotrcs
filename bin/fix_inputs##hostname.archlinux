@@ -1,0 +1,5 @@
+#!/bin/bash
+
+xmodmap ~/.Xmodmap
+
+xinput set-prop "Kensington Expert Wireless TB Mouse" "libinput Natural Scrolling Enabled" 1
