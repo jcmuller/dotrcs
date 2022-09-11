@@ -1,4 +1,0 @@
-antigen bundle helm
-antigen bundle kubectl
-antigen bundle minikube
-antigen bundle terraform
