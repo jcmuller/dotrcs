@@ -22,8 +22,8 @@ scrolling:
 
 font:
   normal:
-    family: Iosevka Term Light
-  size: 10.0
+    family: Iosevka Term
+  size: 9
 
 draw_bold_text_with_bright_colors: true
 
@@ -59,8 +59,6 @@ visual_bell:
   duration: 0
   color: "0xffffff"
 
-background_opacity: 1.0
-
 mouse_bindings:
   - mouse: Middle
     action: PasteSelection
@@ -71,8 +69,9 @@ mouse:
   triple_click:
     threshold: 300
   hide_when_typing: true
-  url:
-    modifiers: None
+  hints:
+    url:
+      modifiers: None
 
 selection:
   semantic_escape_chars: ',│`|:"'' ()[]{}<>'
