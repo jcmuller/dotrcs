@@ -1,7 +1,7 @@
 #!/bin/bash
 
 click() {
-  paplay ~/.local/sounds/click.wav &
+  pactl play-sample audio-volume-change @DEFAULT_SINK@ &
 }
 
 COMMAND=$1
