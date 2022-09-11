@@ -7,7 +7,7 @@ config = config  # noqa: F821 pylint: disable=E0602,C0103
 settings = {
     'background': '#ffffcc',
     'foreground': 'black',
-    'pass_command': 'spawn --userscript qute-pass --dmenu-invocation dmenu --username-target secret --username-pattern="(?:login|username): +(.*)"',
+    'pass_command': 'spawn --userscript qute-pass --dmenu-invocation dmenu --mode gopass --password-store ~/.local/share/gopass/stores/root --username-target secret --username-pattern="(?:login|username): +(.*)"',
     'base_keybindings': {
         '<Alt-Backspace>': 'fake-key <Ctrl-Backspace>',
         '<Alt-b>': 'fake-key <Ctrl-Left>',
@@ -39,6 +39,10 @@ c.bindings.commands = {
         ',Po': settings['pass_command'] + ' --otp-only',
         ',Pp': settings['pass_command'] + ' --password-only',
         ',Pu': settings['pass_command'] + ' --username-only',
+        ',o':  'spawn --userscript qute-1pass --auto-submit --cache-session fill_credentials',
+        ',Ou': 'spawn --userscript qute-1pass --auto-submit --cache-session fill_username',
+        ',Op': 'spawn --userscript qute-1pass --auto-submit --cache-session fill_password',
+        ',Oo': 'spawn --userscript qute-1pass --auto-submit --cache-session fill_totp',
         ',d': 'hint all delete',
         ',a': 'hint --rapid all tab-bg',
         ',p': settings['pass_command'],
@@ -91,7 +95,7 @@ c.tabs.select_on_remove = "next"
 c.tabs.show = "never"
 #c.tabs.switch_to_open_url = True
 c.tabs.width = 175
-c.tabs.show = 'always'
+c.tabs.show = 'never'
 c.tabs.title.format = '{audio}{current_title}'
 c.tabs.title.format_pinned = '{audio}'
 c.url.open_base_url = True
