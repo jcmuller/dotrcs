@@ -1,0 +1,4 @@
+antigen bundle kiurchv/asdf.plugin.zsh
+
+eval "$(asdf exec direnv hook zsh)"
+source ~/.asdf/completions/asdf.bash

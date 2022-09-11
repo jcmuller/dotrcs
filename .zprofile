@@ -7,7 +7,6 @@ REPORTTIME=5; export REPORTTIME
 TF_PLUGIN_CACHE_DIR=~/.terraform/terraform-plugin-dir; export TF_PLUGIN_CACHE_DIR
 TIMEFMT="'$fg[green]%J$reset_color' time: $fg[yellow]%*Es$reset_color, cpu: $fg[yellow]%P$reset_color, mem: $fg[yellow]%M$reset_color"; export TIMEFMT
 _Z_CMD=j; export _Z_CMD
-PASSWORD_STORE_DIR=~/.local/share/gopass/stores/root; export PASSWORD_STORE_DIR
 
 unset SSH_AGENT_PID SSH_AUTH_SOCK
 
@@ -31,3 +30,5 @@ fpath=(
 )
 
 set noclobber
+
+source ~/.zsh/zprofile.d/*.zsh

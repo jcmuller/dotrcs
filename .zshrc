@@ -3,14 +3,12 @@
 
 antigen use oh-my-zsh
 
-source ~/.zsh/rcs/local-bundles.zsh
+source ~/.zsh/zsh.d/*.zsh
 
 antigen bundles <<EOBUNDLE
   zsh-users/zsh-autosuggestions
   zsh-users/zsh-completions src
   zsh-users/zsh-syntax-highlighting
-
-  kiurchv/asdf.plugin.zsh
 
   docker
   docker-compose
@@ -64,16 +62,6 @@ eval "$(asdf exec direnv hook zsh)"
 eval "$(helm completion zsh)"
 eval "$(kubectl completion zsh)"
 eval "$(minikube completion zsh)"
-source ~/.asdf/completions/asdf.bash
 source ~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmux/tmux.plugin.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-complete -o nospace -C /home/jcmuller/.asdf/installs/tanka/0.11.0/bin/tk tk
-
-complete -o nospace -C /home/jcmuller/go/bin/mc mc
-
-if [[ ":$PATH:" != *":$HOME/.datacoral/cli/bin:"* ]];
-then
-  export PATH=$HOME/.datacoral/cli/bin:$PATH
-fi

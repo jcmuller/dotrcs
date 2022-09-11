@@ -1,0 +1,10 @@
+eval "$(asdf exec direnv hook zsh)"
+source ~/.asdf/completions/asdf.bash
+
+complete -o nospace -C /home/jcmuller/.asdf/installs/tanka/0.11.0/bin/tk tk
+complete -o nospace -C /home/jcmuller/go/bin/mc mc
+
+if [[ ":$PATH:" != *":$HOME/.datacoral/cli/bin:"* ]];
+then
+  export PATH=$HOME/.datacoral/cli/bin:$PATH
+fi
