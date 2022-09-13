@@ -1,0 +1,4 @@
+#bindsym $mod+u       [urgent=latest] focus
+
+## Modify // Border Mode Toggle // <><Ctrl> t ##
+bindsym $mod+Ctrl+t border toggle

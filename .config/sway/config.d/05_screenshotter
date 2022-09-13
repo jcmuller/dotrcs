@@ -1,0 +1,3 @@
+#bindsym --release $mod+s       exec flameshot gui
+bindsym $mod+s       exec grimshot --notify copy area
+bindsym $mod+Shift+s exec grimshot --notify save area

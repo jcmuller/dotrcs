@@ -1,0 +1,25 @@
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+input "2:10:TPPS/2_IBM_TrackPoint" {
+  natural_scroll enabled
+}
+
+input "1149:32792:Kensington_Expert_Wireless_TB_Mouse" natural_scroll enabled
+
+input "2:7:SynPS/2_Synaptics_TouchPad" events disabled
+
+# input "1:1:AT_Translated_Set_2_keyboard" {
+#   xkb_options ctrl:nocaps
+# }

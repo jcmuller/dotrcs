@@ -1,0 +1,6 @@
+# Launchers
+
+#bindsym $mod+u                 [urgent=latest] focus
+
+bindsym $mod+w       mark --add quickswap
+bindsym $mod+Shift+w swap container with mark quickswap; [con_mark="quickswap"] focus; unmark quickswap

@@ -1,0 +1,33 @@
+###############################################################################
+# Window Resize Mode
+###############################################################################
+
+## Resize // Enter Resize Mode // <> r ##
+set $resize_mode resize: (h,j,k,l) 5px, Shift+(h,j,k,l) 10px, (c) center
+mode "$resize_mode" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        ## Resize // Resize Window // k j h l ##
+        bindsym h resize shrink width 5 px
+        bindsym k resize grow height 5 px
+        bindsym j resize shrink height 5 px
+        bindsym l resize grow width 5 px
+
+        ## Resize // Resize Window // k j h l ##
+        bindsym Shift+h resize shrink width 10 px
+        bindsym Shift+k resize grow height 10 px
+        bindsym Shift+j resize shrink height 10 px
+        bindsym Shift+l resize grow width 10 px
+
+        ## Resize // Window Gaps // + - ##
+        bindsym minus gaps inner current minus 6
+        bindsym plus gaps inner current plus 6
+        bindsym Shift+minus gaps inner current minus 12
+        bindsym Shift+plus gaps inner current plus 12
+
+        ## Resize // Exit Resize Mode // Escape or Enter ##
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+z mode "$resize_mode"

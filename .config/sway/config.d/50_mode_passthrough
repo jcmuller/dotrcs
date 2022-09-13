@@ -1,0 +1,11 @@
+###############################################################################
+# Passthrough Mode
+###############################################################################
+
+set $passthrough_mode Passthrough: (Mod4+Shift+Esc) to exit
+
+mode "$passthrough_mode" {
+  bindsym $mod+Shift+Escape mode "default"
+}
+
+bindsym $mod+Shift+Escape mode "$passthrough_mode"

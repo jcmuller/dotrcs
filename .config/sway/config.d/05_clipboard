@@ -1,0 +1,7 @@
+# exec --no-startup-id copyq
+# bindsym Mod1+Ctrl+v exec copyq show
+
+# Start the clipboard manager in the background
+exec wl-paste -t text --watch clipman store
+# Select a clipboard entry using rofi
+bindsym Mod1+Ctrl+v exec clipman pick -t rofi

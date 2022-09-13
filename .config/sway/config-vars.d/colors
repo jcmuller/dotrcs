@@ -1,0 +1,10 @@
+set $default_text_color                 #1d1f21
+set $default_background_color           #373b41
+set $active_text_color                  #ffffff
+set $focused_workspace_background_color #fdf6e3
+set $inactive_background_color          #282a2e
+set $inactive_text_color                #969896
+set $urgent_background_color            #cc6666
+set $widget_color                       #c5c8c6
+set $label_color                        #fdf6e3
+set $focused_client_background_color    #ffffcc

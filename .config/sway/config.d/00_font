@@ -1,0 +1,3 @@
+# Sets i3 font for dialogs
+#set_from_resource $i3-wm.font i3-wm.font pango:Source Code Pro Medium 13
+font pango:Iosevka Term 11

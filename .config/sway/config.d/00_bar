@@ -1,0 +1,29 @@
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    position bottom
+    #   swaybar_command waybar
+    tray_padding 4
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    #status_command while date +'%Y-%m-%d %H:%M:%S'; do sleep 1; done
+    #status_command i3status -c ~/.config/i3status/config
+    # status_command i3blocks
+    status_command i3blocks -c ~/.config/i3blocks/config
+    font Iosevka Term 11
+
+    colors {
+        background $default_background_color
+        statusline $widget_color
+        separator  $inactive_text_color
+
+#                          BORDER                              BACKGROUND                          TEXT
+        focused_workspace  $focused_workspace_background_color $focused_workspace_background_color $default_text_color
+        active_workspace   $default_background_color           $default_background_color           $active_text_color
+        inactive_workspace $inactive_background_color          $inactive_background_color          $inactive_text_color
+        urgent_workspace   $urgent_background_color            $urgent_background_color            $active_text_color
+    }
+}

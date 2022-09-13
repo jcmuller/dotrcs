@@ -1,0 +1,8 @@
+set $laptop eDP-1
+
+output $laptop scale 1.25
+
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+
+exec_always ~/bin/disable-laptop-screen-on-lid-closed

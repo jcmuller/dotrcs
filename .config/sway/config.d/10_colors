@@ -1,0 +1,35 @@
+###############################################################################
+# i3 Colors
+###############################################################################
+
+# Create variables from Xresources for i3's look.
+set $focused.color.border       $focused_workspace_background_color
+set $focused.color.background   $focused_workspace_background_color
+set $focused.color.text         $default_text_color
+set $focused.color.indicator    $inactive_background_color
+set $focused.color.child_border "#ffffff"
+
+set $focused_inactive.color.border       $default_background_color
+set $focused_inactive.color.background   $default_background_color
+set $focused_inactive.color.text         $inactive_text_color
+set $focused_inactive.color.indicator    $inactive_background_color
+set $focused_inactive.color.child_border "#ffffff"
+
+set $unfocused.color.border       $inactive_background_color
+set $unfocused.color.background   $inactive_background_color
+set $unfocused.color.text         $inactive_text_color
+set $unfocused.color.indicator    $inactive_background_color
+set $unfocused.color.child_border "#ffffff"
+
+set $urgent.color.border       $default_background_color
+set $urgent.color.background   $urgent_background_color
+set $urgent.color.text         $active_text_color
+set $urgent.color.indicator    $urgent_background_color
+set $urgent.color.child_border "#ffffff"
+
+# Window Border color
+# class                 border                             background                         text                               indicator                          child_border
+client.focused          $focused.color.border              $focused.color.background          $focused.color.text                $focused.color.indicator           $focused.color.child_border
+client.focused_inactive $focused_inactive.color.border     $focused_inactive.color.background $focused_inactive.color.text       $focused_inactive.color.indicator  $focused_inactive.color.child_border
+client.unfocused        $unfocused.color.border            $unfocused.color.background        $unfocused.color.text              $unfocused.color.indicator         $unfocused.color.child_border
+client.urgent           $urgent.color.border               $urgent.color.background           $urgent.color.text                 $urgent.color.indicator            $urgent.color.child_border

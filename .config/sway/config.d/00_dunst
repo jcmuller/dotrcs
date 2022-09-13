@@ -1,0 +1,6 @@
+exec --no-startup-id dunst
+
+bindsym Ctrl+Space       exec dunstctl close
+bindsym Ctrl+Shift+Space exec dunstctl close-all
+bindsym Ctrl+grave       exec dunstctl history-pop
+bindsym Ctrl+asciitilde  exec dunstctl context

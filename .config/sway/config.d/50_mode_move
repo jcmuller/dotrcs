@@ -1,0 +1,29 @@
+###############################################################################
+# Window Move Mode
+###############################################################################
+
+## Move // Enter Move Mode // <> r ##
+set $move_mode move: (h,j,k,l) 5px, Shift+(h,j,k,l) 10px, (c) center
+mode "$move_mode" {
+        # These bindings trigger as soon as you enter the move mode
+
+        ## Move // Move Window // k j h l ##
+        bindsym h move left 5 px
+        bindsym k move up 5 px
+        bindsym j move down 5 px
+        bindsym l move right 5 px
+
+        ## Move // Move Window // k j h l ##
+        bindsym Shift+h move left 10 px
+        bindsym Shift+k move up 10 px
+        bindsym Shift+j move down 10 px
+        bindsym Shift+l move right 10 px
+
+        bindsym c move position center
+
+        ## Move // Exit Move Mode // Escape or Enter ##
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+m mode "$move_mode"

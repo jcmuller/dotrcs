@@ -1,0 +1,14 @@
+# from https://sr.ht/~tsdh/swayr/#swayr-installation
+set $swayr /home/jcmuller/.asdf/shims/swayr
+set $swayrd /home/jcmuller/.asdf/shims/swayrd
+
+exec env RUST_BACKTRACE=1 RUST_LOG=swayr=debug $swayrd > /tmp/swayrd.log 2>&1
+
+bindsym $mod+Tab       exec env RUST_BACKTRACE=1 $swayr switch-window >> /tmp/swayr.log 2>&1
+bindsym $mod+Shift+Tab exec env RUST_BACKTRACE=1 $swayr switch-workspace-or-window >> /tmp/swayr.log 2>&1
+bindsym $mod+u         exec env RUST_BACKTRACE=1 $swayr switch-to-urgent-or-lru-window >> /tmp/swayr.log 2>&1
+bindsym $mod+grave     exec env RUST_BACKTRACE=1 $swayr prev-window all-workspaces >> /tmp/swayr.log 2>&2
+bindsym $mod+Ctrl+k    exec env RUST_BACKTRACE=1 $swayr quit-window >> /tmp/swayr.log 2>&1
+bindsym $mod+Ctrl+x    exec env RUST_BACKTRACE=1 $swayr execute-swaymsg-command >> /tmp/swayr.log 2>&1
+bindsym $mod+Shift+x   exec env RUST_BACKTRACE=1 $swayr execute-swayr-command >> /tmp/swayr.log 2>&1
+#bindsym --release Mod4 exec $swayr nop

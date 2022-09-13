@@ -1,0 +1,7 @@
+exec --no-startup-id flashfocus
+exec --no-startup-id gammastep
+exec --no-startup-id nextcloud
+exec --no-startup-id nm-applet
+exec --no-startup-id sway-alttab
+
+# exec --no-startup-id gnome-keyring-daemon --start -c pkcs11,secrets,ssh

@@ -1,0 +1,37 @@
+### Key bindings
+#
+# Basics:
+#
+# Start a terminal
+bindsym $mod+Return exec $term
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Start your launcher
+bindsym $mod+Space exec $menu
+bindsym $mod+r exec $menu_r
+#bindsym $mod+Shift+Space exec $menu_r
+bindsym $mod+Ctrl+Space exec rofi -show window
+bindsym $mod+Mod1+Space exec rofi -show find -modi find:/usr/share/rofi/modi/look-selector.sh
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+bindsym $mod+Ctrl+r restart
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+bindsym $mod+Escape exec loginctl lock-session
+bindsym $mod+Mod1+l exec loginctl lock-session
+
+bindsym $mod+Ctrl+i inhibit_idle toggle
+
+bindsym $mod+i bar mode toggle

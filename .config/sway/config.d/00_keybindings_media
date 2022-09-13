@@ -1,0 +1,12 @@
+bindsym XF86AudioLowerVolume exec ~/bin/vol.sh down
+bindsym XF86AudioRaiseVolume exec ~/bin/vol.sh up
+bindsym XF86AudioMute        exec ~/bin/vol.sh mute
+bindsym XF86AudioMicMute     exec pactl -- set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86Search           exec ~/.config/sway/toggle-audio-output
+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp   exec brightnessctl set 5%+
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
