@@ -1,0 +1,8 @@
+for_window [title="Ultimaker Cura"] move to workspace 2
+for_window [title="OpenSCAD"]       move to workspace 2
+for_window [title="Mainsail"]       move to workspace 2
+
+for_window [title="Google Chat - Chat"] move to workspace 3
+
+for_window [title="Home Assistant - Overview – Home Assistant"] move to scratchpad
+for_window [title="jcmuller@gmail.com - Gmail"]                 move to scratchpad
