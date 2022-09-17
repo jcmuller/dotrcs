@@ -1,1 +1,2 @@
 BROWSER=/home/jcmuller/go/bin/picky; export BROWSER
+PINENTRY_PROGRAM=pinentry-rofi
