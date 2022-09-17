@@ -40,10 +40,7 @@ bindsym $mod+Shift+Return exec alacritty --config-file=/home/jcmuller/.config/al
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+space  exec --no-startup-id rofi -show drun
-bindsym $mod+r      exec --no-startup-id rofi -show run
-bindsym $mod+Tab    exec --no-startup-id rofi -show window
-bindsym $mod+g      exec --no-startup-id rofi-surfraw
+bindsym $mod+space  exec --no-startup-id rofi -show combi
 
 # change focus
 bindsym $mod+$left  focus left
