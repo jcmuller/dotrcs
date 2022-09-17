@@ -25,8 +25,8 @@ named-mailboxes \
   Personal '' \
   Personal +Personal/INBOX \
   Work '' \
-  Work +Work/INBOX \
-  Search +search 
+  Work +Work/INBOX
+  #Search +search 
   #local /var/mail/jcmuller
 
 #named-mailboxes \
