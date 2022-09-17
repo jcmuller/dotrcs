@@ -1,5 +1,5 @@
-eval "$(asdf exec direnv hook zsh)"
-source ~/.asdf/completions/asdf.bash
+eval "$(direnv hook zsh)"
+source /opt/asdf-vm/asdf.sh
 
 complete -o nospace -C /home/jcmuller/.asdf/installs/tanka/0.11.0/bin/tk tk
 complete -o nospace -C /home/jcmuller/go/bin/mc mc

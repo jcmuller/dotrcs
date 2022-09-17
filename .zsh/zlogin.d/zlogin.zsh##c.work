@@ -1,15 +1,74 @@
+if which fasd >/dev/null; then
+  # install fasd hooks and basic aliases in the shell
+  eval "$(fasd --init auto)"
+
+    # if there is fzf available use it to search fasd results
+    if which fzf >/dev/null; then
+
+      alias v >/dev/null && unalias v
+      alias vv >/dev/null && unalias vv
+      alias vd >/dev/null && unalias vd
+      alias z >/dev/null && unalias z
+
+        # edit given file or search in recently used files
+        function v {
+          local file
+          # if arg1 is a path to existing file then simply open it in the editor
+          test -e "$1" && $EDITOR "$@" && return
+          # else use fasd and fzf to search for recent files
+          file="$(fasd -Rfl "$*" | fzf -1 -0 --no-sort +m)" && $EDITOR "${file}" || $EDITOR "$@"
+        }
+
+        function vv {
+          local file editor
+          editor=nvr
+          # if arg1 is a path to existing file then simply open it in the editor
+          test -e "$1" && $editor "$@" && return
+          # else use fasd and fzf to search for recent files
+          file="$(fasd -Rfl "$*" | fzf -1 -0 --no-sort +m)" && $editor "${file}" || $editor "$@"
+        }
+
+        # cd into the directory containing a recently used file
+        function vd {
+          local dir
+          local file
+          file="$(fasd -Rfl "$*" | fzf -1 -0 --no-sort +m)" && dir=$(dirname "$file") && cd "$dir"
+        }
+
+        # cd into given dir or search in recently used dirs
+        function z {
+          [ $# -eq 1 ] && test -d "$1" && cd "$1" && return
+          local dir
+          dir="$(fasd -Rdl "$*" | fzf -1 -0 --no-sort +m)" && cd "${dir}" || return 1
+        }
+    fi
+fi
+
 alias pctl="pipelinectl -a https://release-pipeline-dev.dev.use1.gh.team"
 alias pc="pipelinectl -a https://release-pipeline-dev.dev.use1.gh.team"
 eval "$(pipelinectl completion zsh)"
+eval "$(stern --completion zsh)"
 
 alias tf=terraform
 alias tfi='tf init -backend-config state.conf -upgrade'
 alias tfp='tf plan -out .tfplan'
 alias tfa='tf apply .tfplan && rm -v .tfplan'
 
-alias adw='a --context dev.usw2-argo'
-alias ade='a --context dev.use1-argo'
-alias ape='a --context prod.use1-argo'
+alias al='argo --context minikube-argo'
+alias adw='argo --context dev.usw2-argo'
+alias ade='argo --context dev.use1-argo'
+alias ape='argo --context prod.use1-argo'
+
+alias ldj="BUNDLE_GEMFILE=~/Development/Greenhouse/dajoku_cli/Gemfile bundle exec ruby -I ~/Development/Greenhouse/dajoku_cli/lib ~/Development/Greenhouse/dajoku_cli/bin/dajoku"
+alias logclide='logcli --addr https://dev-loki-green.dev.use1.gh.internal --bearer-token=$(sso-token-cli -e loki.dev)'
+alias logclidw='logcli --addr https://dev-loki-green.dev.usw2.gh.internal --bearer-token=$(sso-token-cli -e loki.dev)'
+alias logclipe='logcli --addr https://prod-loki-green.prod.use1.gh.internal --bearer-token=$(sso-token-cli -e loki.prod)'
+alias logclipw='logcli --addr https://prod-loki-green.prod.usw2.gh.internal --bearer-token=$(sso-token-cli -e loki.prod)'
+
+alias aa='fasd -a'        # any
+alias vv='f -e nvr'
+
+alias kgsecp='k get secret -ogo-template='"'"'{{range $k,$v := .data}}{{printf "%s: " $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{"\n"}}{{end}}'"'"
 
 path=(
   $path
