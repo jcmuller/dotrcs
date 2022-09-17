@@ -2,6 +2,7 @@
 #
 # URL View
 macro pager \cu "|urlview\n" "Send URL to urlview"
+macro index \cu "|urlview\n" "Send URL to urlview"
 
 # Mark all new messages read
 macro index ,R "<tag-pattern>~N<enter><tag-prefix><toggle-new><tag-prefix><clear-flag>*"    "mark all read"
