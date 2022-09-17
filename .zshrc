@@ -63,6 +63,7 @@ eval "$(direnv hook zsh)"
 eval "$(helm completion zsh)"
 eval "$(kubectl completion zsh)"
 eval "$(minikube completion zsh)"
+eval "$(op completion zsh)"
 source ~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmux/tmux.plugin.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
