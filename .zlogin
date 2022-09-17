@@ -1,1 +1,2 @@
-source ~/.zsh/zlogin.d/*.zsh
+source ~/.zsh/zlogin.d/vars.zsh
+source ~/.zsh/zlogin.d/zlogin.zsh

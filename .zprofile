@@ -34,4 +34,4 @@ fpath=(
 
 set noclobber
 
-source ~/.zsh/zprofile.d/*.zsh
+source ~/.zsh/zprofile.d/zprofile.zsh

@@ -73,4 +73,5 @@ alias kgsecp='k get secret -ogo-template='"'"'{{range $k,$v := .data}}{{printf "
 path=(
   $path
   "$HOME/Development/Greenhouse/infrastructure/bin"
+  "$HOME/.dajoku-cli/bin"
 )

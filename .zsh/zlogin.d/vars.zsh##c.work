@@ -1,4 +1,4 @@
 export AWS_PROFILE=dev.use1
 export VAULT_ADDR=https://vault.dev.use1.gh.internal:8200
 export AWS_VAULT_BACKEND=pass
-
+export SSO_TOKEN_CLI_CONFIG=~/.config/sso-token-cli/config

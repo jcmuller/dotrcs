@@ -3,7 +3,8 @@
 
 antigen use oh-my-zsh
 
-source ~/.zsh/zsh.d/*.zsh
+source ~/.zsh/zsh.d/configs.zsh
+source ~/.zsh/zsh.d/local-bundles.zsh
 
 antigen bundles <<EOBUNDLE
   zsh-users/zsh-autosuggestions
@@ -57,7 +58,7 @@ alias cd='HOME=${PROJECT:-$HOME} cd'
 alias cdr='cd $(~/bin/cdr)'
 
 eval "$(starship init zsh)"
-eval "$(asdf exec direnv hook zsh)"
+eval "$(direnv hook zsh)"
 
 eval "$(helm completion zsh)"
 eval "$(kubectl completion zsh)"

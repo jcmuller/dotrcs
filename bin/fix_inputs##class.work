@@ -10,5 +10,3 @@ xinput set-prop "pointer:SYNA1202:00 06CB:CD79 Touchpad" "libinput Natural Scrol
 
 # Adjust acceleartion
 xinput set-prop "pointer:Kensington Expert Wireless TB Mouse" "libinput Accel Speed" 0.5
-
-~/bin/turn_off_caps
