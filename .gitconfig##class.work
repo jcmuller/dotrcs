@@ -78,6 +78,7 @@
 	patterns = \"type\"\\s*:\\s*\"service_account\"
 	patterns = SK[a-z0-9]{32}
 	patterns = [a-f0-9]{24}[-][0-9]{1,2}
+	patterns = [a-f0-9]{32}[-][0-9]{1,2}
 	patterns = A[K|S]IA[0-9A-Z]{16}
 	patterns = amzn\\.mws\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}
 	patterns = AIza[0-9a-z\\-_]{35}
