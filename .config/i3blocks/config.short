@@ -1,0 +1,27 @@
+[media]
+command=playerctl metadata --all-players --format '{{playerName}} ({{status}}): {{artist}} - {{title}}' --follow
+interval=persist
+color=#81a2be
+
+[volume-pipewire]
+command=/home/jcmuller/Development/OSS/i3blocks-contrib/volume-pipewire/volume-pipewire
+interval=persist
+signal=1
+SUBSCRIBE=1
+
+[pst]
+color=#fb2c3e
+interval=5
+TZ=America/Los_Angeles
+command=date +"%H:%M PST"
+
+[utc]
+interval=5
+TZ=Etc/UTC
+command=date +"%H:%M UTC"
+color=#2cfb3e
+
+[time]
+color=#cbcbcb
+command=date +"%a %m/%d %T EST|"
+interval=1

@@ -1,0 +1,82 @@
+[window]
+command=xtitle -s
+interval=persist
+
+[media]
+command=playerctl metadata --all-players --format '{{playerName}} ({{status}}): {{artist}} - {{title}}' --follow
+interval=persist
+color=#81a2be
+
+[volume-pipewire]
+command=/home/jcmuller/Development/OSS/i3blocks-contrib/volume-pipewire/volume-pipewire
+interval=persist
+signal=1
+SUBSCRIBE=1
+
+[eyedropper]
+command=/usr/lib/i3blocks/eyedropper/eyedropper
+full_text=<span foreground="#ffffff"></span>
+instance=#ffffff
+markup=pango
+
+[bandwidth2]
+command=/home/jcmuller/Development/OSS/i3blocks-contrib/bandwidth2/bandwidth2
+interval=persist
+markup=pango
+LABEL=
+WARN_RX=307200
+WARN_TX=30720
+CRIT_RX=512000
+CRIT_TX=51200
+
+[battery2]
+command=/usr/lib/i3blocks/battery2/battery2
+markup=pango
+interval=60
+
+[egress]
+command=drill -Q myip.opendns.com @208.67.222.222
+interval=1800
+
+[load]
+command=awk '{print $1" "$2" "$3}' </proc/loadavg
+interval=30
+
+[weather]
+#   command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+command=weather.sh
+interval=3600
+color=#A4C2F4
+
+[dunst]
+command=/usr/lib/i3blocks/dunst/dunst
+interval=once
+format=json
+markup=pango
+
+[pst]
+color=#fb2c3e
+interval=5
+TZ=America/Los_Angeles
+command=date +"%H:%M PST"
+
+[utc]
+interval=5
+TZ=Etc/UTC
+command=date +"%H:%M UTC"
+color=#2cfb3e
+
+# [time]
+# color=#cbcbcb
+# command=date +"%a %m/%d %T EST|"
+# interval=1
+
+[calendar]
+command=/usr/lib/i3blocks/calendar/calendar
+interval=1
+LABEL= 
+#DATEFMT=+%H:%M:%S
+DATEFMT=+%a %m/%d %T EST|
+# SHORTFMT=+%H:%M:%S
+HEIGHT=280
+WIDTH=420
