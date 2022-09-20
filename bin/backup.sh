@@ -32,7 +32,7 @@ sudo apt-get dselect-upgrade -y
 for i in opt usr/local/bin
 do
   LAST=$(ls -1 $BASE/$i/ | tail -1)
-  sudo rsync -avzpl \
+  sudo rsync -avzzpl \
     --stats \
     --progress \
     "${BASE}/${i}/${LAST}/$(basename ${i})/" \
@@ -40,7 +40,7 @@ do
 done
 
 sudo rsync \
-  -avzpl \
+  -avzzpl \
   --stats \
   --progress \
   "${BASE}/home/${VERSION}/jcmuller/"
@@ -60,7 +60,7 @@ for i in etc opt usr/local/bin; do
   ssh "$REMOTE_HOST" mkdir -p "$REMOTE_PATH/$i"
   # shellcheck disable=SC2029
   LAST=$(ssh "$REMOTE_HOST" ls -1 "$REMOTE_PATH/$i/" | tail -1)
-  sudo rsync -avzpl \
+  sudo rsync -avzzpl \
     --stats \
     --progress \
     "/$i" \
@@ -73,7 +73,7 @@ ssh "$REMOTE_HOST" mkdir -p "$REMOTE_PATH/home"
 # shellcheck disable=SC2029
 LAST=$(ssh "$REMOTE_HOST" ls -1 "$REMOTE_PATH/home/" | tail -1)
 sudo rsync \
-  -avzpl \
+  -avzzpl \
   --stats \
   --progress \
   --exclude .asdf/installs \
