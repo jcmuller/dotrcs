@@ -17,7 +17,11 @@ case $COMMAND in
     sleep 0.5
     pactl set-sink-mute @DEFAULT_SINK@ toggle &
     ;;
+  mic-mute)
+    $(click)
+    sleep 0.5
+    pactl set-source-mute @DEFAULT_SINK@ toggle &
+    ;;
 esac
 
 $(click)
-killall -USR1 i3status
