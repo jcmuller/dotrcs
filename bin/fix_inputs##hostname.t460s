@@ -2,3 +2,6 @@
 
 # Disable touchpad
 xinput --disable "SynPS/2 Synaptics TouchPad"
+
+# Enable natural scrolling
+xinput set-prop "TPPS/2 IBM TrackPoint" "libinput Natural Scrolling Enabled" 1
