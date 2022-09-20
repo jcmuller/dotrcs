@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Disable touchpad
+xinput --disable "SynPS/2 Synaptics TouchPad"
