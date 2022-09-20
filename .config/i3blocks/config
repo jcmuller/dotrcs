@@ -8,19 +8,19 @@ interval=persist
 color=#81a2be
 
 [volume-pipewire]
-command=/home/jcmuller/Development/OSS/i3blocks-contrib/volume-pipewire/volume-pipewire
+command=/usr/lib/i3blocks/volume-pipewire
 interval=persist
 signal=1
 SUBSCRIBE=1
 
 [eyedropper]
-command=/usr/lib/i3blocks/eyedropper/eyedropper
+command=/usr/lib/i3blocks/eyedropper
 full_text=<span foreground="#ffffff"></span>
 instance=#ffffff
 markup=pango
 
 [bandwidth2]
-command=/home/jcmuller/Development/OSS/i3blocks-contrib/bandwidth2/bandwidth2
+command=/usr/lib/i3blocks/bandwidth2
 interval=persist
 markup=pango
 LABEL=
@@ -30,7 +30,7 @@ CRIT_RX=512000
 CRIT_TX=51200
 
 [battery2]
-command=/usr/lib/i3blocks/battery2/battery2
+command=/usr/lib/i3blocks/battery2
 markup=pango
 interval=60
 
@@ -49,7 +49,7 @@ interval=3600
 color=#A4C2F4
 
 [dunst]
-command=/usr/lib/i3blocks/dunst/dunst
+command=/usr/lib/i3blocks/dunst
 interval=once
 format=json
 markup=pango
@@ -72,11 +72,11 @@ color=#2cfb3e
 # interval=1
 
 [calendar]
-command=/usr/lib/i3blocks/calendar/calendar
+command=/usr/lib/i3blocks/calendar
 interval=1
 LABEL= 
 #DATEFMT=+%H:%M:%S
 DATEFMT=+%a %m/%d %T EST|
 # SHORTFMT=+%H:%M:%S
-HEIGHT=280
+HEIGHT=320
 WIDTH=420
