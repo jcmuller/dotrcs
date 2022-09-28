@@ -6,4 +6,4 @@ c.fonts.web.size.default = 12
 c.fonts.web.size.default_fixed = 12
 c.fonts.tabs.selected = "default_size default_family"
 c.fonts.tabs.unselected = "default_size default_family"
-c.zoom.default = "100%"
+c.qt.highdpi = True
