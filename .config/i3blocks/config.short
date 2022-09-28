@@ -4,7 +4,7 @@ interval=persist
 color=#81a2be
 
 [volume-pipewire]
-command=/home/jcmuller/Development/OSS/i3blocks-contrib/volume-pipewire/volume-pipewire
+command=/usr/lib/i3blocks/volume-pipewire
 interval=persist
 signal=1
 SUBSCRIBE=1
@@ -13,15 +13,15 @@ SUBSCRIBE=1
 color=#fb2c3e
 interval=5
 TZ=America/Los_Angeles
-command=date +"%H:%M PST"
+command=date +"🕛 %H:%M PST"
 
 [utc]
 interval=5
 TZ=Etc/UTC
-command=date +"%H:%M UTC"
+command=date +"🕛 %H:%M UTC"
 color=#2cfb3e
 
 [time]
 color=#cbcbcb
-command=date +"%a %m/%d %T EST|"
+command=date +"📅 %a %m/%d %T EST|"
 interval=1

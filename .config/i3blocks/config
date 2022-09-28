@@ -38,13 +38,28 @@ interval=60
 command=drill -Q myip.opendns.com @208.67.222.222
 interval=1800
 
+[iface]
+command=/usr/lib/i3blocks/iface
+interval=300
+
 [load]
 command=awk '{print $1" "$2" "$3}' </proc/loadavg
 interval=30
 
+[cpu]
+command=/usr/lib/i3blocks/cpu_usage2
+markup=pango
+interval=persist
+
+[memory]
+command=/usr/lib/i3blocks/memory2
+markup=pango
+interval=persist
+
 [weather]
 #   command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
-command=weather.sh
+#   command=weather.sh
+command=/usr/lib/i3blocks/rofi-wttr
 interval=3600
 color=#A4C2F4
 
@@ -54,16 +69,22 @@ interval=once
 format=json
 markup=pango
 
+[sun]
+color=#2fbc3e
+interval=1800
+format=json
+command=sunevents
+
 [pst]
 color=#fb2c3e
 interval=5
 TZ=America/Los_Angeles
-command=date +"%H:%M PST"
+command=date +"🕛 %H:%M PST"
 
 [utc]
 interval=5
 TZ=Etc/UTC
-command=date +"%H:%M UTC"
+command=date +"🕛 %H:%M UTC"
 color=#2cfb3e
 
 # [time]
@@ -74,7 +95,8 @@ color=#2cfb3e
 [calendar]
 command=/usr/lib/i3blocks/calendar
 interval=1
-LABEL= 
+#LABEL= 
+LABEL=📅 
 #DATEFMT=+%H:%M:%S
 DATEFMT=+%a %m/%d %T EST|
 # SHORTFMT=+%H:%M:%S
