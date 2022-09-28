@@ -21,57 +21,5 @@ set realname = "Juan C. Müller"
 set mail_check_recent = yes
 set envelope_from
 
-named-mailboxes \
-  Personal '' \
-  Personal +Personal/INBOX \
-  Work '' \
-  Work +Work/INBOX
-  #Search +search 
-  #local /var/mail/jcmuller
-
-#named-mailboxes \
-#  Person '' \
-#  Personal +Personal/INBOX \
-#  "  Important" +'Personal/[Gmail].Important' \
-#  "  Drafts" +'Personal/[Gmail].Drafts' \
-#  "  Notes" +'Personal/Notes' \
-#  Work +Work/INBOX \
-#  "  PRs" +'Work/Pull requests' \
-#  "  Monitors" +Work/Monitors \
-#  "  Important" +'Work/[Gmail].Important' \
-#  /var/mail/jcmuller
-
-  #+'Personal/[Gmail].All Mail' \
-  #+'Personal/[Gmail].Drafts' \
-  #+'Personal/[Gmail].Important' \
-  #+'Personal/[Gmail].Sent Mail' \
-  #+'Personal/[Gmail].Spam' \
-  #+'Personal/[Gmail].Starred' \
-  #+'Personal/[Gmail].Trash' \
-  #
-  # +'Personal/Clients' \
-  # +'Personal/Consulting' \
-  # +'Personal/Cycling' \
-  # +'Personal/Drafts' \
-  # +'Personal/Employment' \
-  # +'Personal/Family' \
-  # +'Personal/Friends' \
-  # +'Personal/Notes' \
-  # +'Personal/Sent' \
-  # +'Personal/Sent Messages' \
-  # +'Personal/Travel' \
-  # +'Personal/Work' \
-  #
-  #+'Work/[Gmail].All Mail' \
-  #+'Work/[Gmail].Drafts' \
-  #+'Work/[Gmail].Important' \
-  #+'Work/[Gmail].Sent Mail' \
-  #+'Work/[Gmail].Spam' \
-  #+'Work/[Gmail].Starred' \
-  #
-  #+'Work/[Gmail].Trash' \
-  #
-  #+'Work/Monitors' \
-  #+'Work/Licenses' \
-  #+'Work/Notes' \
-  #+'Work/Sent' \
+mailboxes +Personal/Personal
+mailboxes +Work/Work
