@@ -1,4 +1,11 @@
 #!/usr/bin/zsh
 
+pass=gopass
+client_id=$("$pass" show apps/gcalcli/tokens | grep -e client-id | cut -d ' ' -f 2)
+client_secret=$("$pass" show -o apps/gcalcli/tokens)
+
 format="%D %I:00:00%P"
-ASDF_PYTHON_VERSION=3.8.6 python -m gcalcli.cli $@ agenda --nostarted --nodeclined "$(date +$format)" "$(date +$format --date=tomorrow)"
+
+ASDF_PYTHON_VERSION=3.8.6 python -m gcalcli.cli $@ agenda --client-id="$client_id" --client-secret="$client_secret" --nostarted --nodeclined "$(date +$format)" "$(date +$format --date=tomorrow)"
+
+#ASDF_PYTHON_VERSION=3.8.6 python -m gcalcli.cli $@ agenda --nostarted --nodeclined "$(date +$format)" "$(date +$format --date=tomorrow)"
