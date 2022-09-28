@@ -1,0 +1,21 @@
+[MIME Cache]
+application/rdf+xml=org.qutebrowser.qutebrowser.desktop;picky.desktop;
+application/x-zoom=Zoom.desktop;
+application/xhtml+xml=org.qutebrowser.qutebrowser.desktop;picky.desktop;
+application/xml=org.qutebrowser.qutebrowser.desktop;picky.desktop;
+image/gif=org.qutebrowser.qutebrowser.desktop;picky.desktop;
+image/jpeg=org.qutebrowser.qutebrowser.desktop;picky.desktop;
+image/png=org.qutebrowser.qutebrowser.desktop;picky.desktop;
+text/html=org.qutebrowser.qutebrowser.desktop;picky.desktop;
+text/xml=org.qutebrowser.qutebrowser.desktop;picky.desktop;
+x-scheme-handler/about=picky.desktop;
+x-scheme-handler/callto=Zoom.desktop;
+x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop;picky.desktop;
+x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop;picky.desktop;
+x-scheme-handler/qute=org.qutebrowser.qutebrowser.desktop;picky.desktop;
+x-scheme-handler/slack=slack.desktop;
+x-scheme-handler/tel=Zoom.desktop;
+x-scheme-handler/unknown=picky.desktop;
+x-scheme-handler/zoommtg=Zoom.desktop;
+x-scheme-handler/zoomphonecall=Zoom.desktop;
+x-scheme-handler/zoomus=Zoom.desktop;
