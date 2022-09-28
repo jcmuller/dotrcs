@@ -93,6 +93,6 @@ macro index <F9> "<change-folder-readonly>~/Mail/search" "mu find results"
 # ~(PATTERN)	messages in threads containing messages matching PATTERN, e.g. all threads containing messages from you: ~(~P)
 # ~<(PATTERN)	messages whose immediate parent matches PATTERN, e.g. replies to your messages: ~<(~P)
 # ~>(PATTERN)	messages having an immediate child matching PATTERN, e.g. messages you replied to: ~>(~P)
-macro index <esc>D "<delete-pattern>~f machine@greenhouse | ~f jira@greenhouse | ~f \"dead man's snitch\" | ~s \"Finicky Spec\" | ~f hackerone | ~s \"Signal Sciences\" | ~s \"Rollbar Anomaly Detection\" | ~e calendar-notification@google.com<enter>"
+macro index <esc>D "<delete-pattern>~f machine@greenhouse | ~f jira@greenhouse | ~f \"dead man's snitch\" | ~s \"Finicky Spec\" | ~f hackerone | ~s \"Signal Sciences\" | ~s \"Rollbar Anomaly Detection\" | ~e calendar-notification@google.com | ~f greenhouse-lotus\\\\[bot\\\\] <enter>"
 
 # vim:set ft=muttrc:
