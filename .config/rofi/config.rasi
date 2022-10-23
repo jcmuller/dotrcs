@@ -160,4 +160,5 @@ configuration {
     hide-active-window: true;
   }
 }
+
 @theme "/usr/share/rofi/themes/solarized.rasi"
