@@ -4,9 +4,11 @@ xmodmap ~/.Xmodmap
 
 ## Enable natural scrolling
 xinput set-prop "pointer:Kensington Expert Wireless TB Mouse" "libinput Natural Scrolling Enabled" 1
-xinput set-prop "pointer:SYNA1202:00 06CB:CD79 Touchpad" "libinput Tapping Enabled" 1
 xinput set-prop "pointer:SYNA1202:00 06CB:CD79 Touchpad" "libinput Natural Scrolling Enabled" 1
 
+xinput set-prop "pointer:SYNA1202:00 06CB:CD79 Touchpad" "libinput Tapping Enabled" 1
 
-# Adjust acceleartion
-xinput set-prop "pointer:Kensington Expert Wireless TB Mouse" "libinput Accel Speed" 0.5
+# Adjust acceleration
+xinput set-prop "pointer:Kensington Expert Wireless TB Mouse" "libinput Accel Speed"             0.5
+xinput set-prop "pointer:Kensington Expert Wireless TB Mouse" "libinput Scroll Method Enabled"   0, 0, 1
+xinput set-prop "pointer:Kensington Expert Wireless TB Mouse" "libinput Button Scrolling Button" 8
