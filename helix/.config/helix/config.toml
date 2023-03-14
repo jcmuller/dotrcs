@@ -1,0 +1,40 @@
+theme = "tokyonight"
+
+[editor]
+auto-save = true
+bufferline = "always"
+color-modes = true
+
+[editor.statusline]
+left = [
+  "mode",
+  "spinner",
+  "file-name",
+]
+center = [
+]
+right = [
+  "diagnostics",
+  "primary-selection-length",
+  "position-percentage",
+  "total-line-numbers",
+  # "file-encoding",
+  # "file-line-ending",
+  "file-type",
+]
+separator = "│"
+mode.normal = "N"
+mode.insert = "I"
+mode.select = "S"
+
+[editor.lsp]
+display-messages = true
+
+[keys.normal]
+C-h = "jump_view_left"
+C-j = "jump_view_down"
+C-k = "jump_view_up"
+C-l = "jump_view_right"
+g = { a = "code_action" }
+
+# ";-w" = "command_mode" # Not ":"
