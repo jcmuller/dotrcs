@@ -4,6 +4,7 @@ theme = "tokyonight"
 auto-save = true
 bufferline = "always"
 color-modes = true
+true-color = true
 
 [editor.statusline]
 left = [
