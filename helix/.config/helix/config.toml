@@ -1,4 +1,4 @@
-theme = "tokyonight"
+theme = "monokai_pro"
 
 [editor]
 auto-save = true
@@ -17,6 +17,7 @@ center = [
 right = [
   "diagnostics",
   "primary-selection-length",
+  "selections",
   "position-percentage",
   "total-line-numbers",
   # "file-encoding",
@@ -24,9 +25,9 @@ right = [
   "file-type",
 ]
 separator = "│"
-mode.normal = "N"
-mode.insert = "I"
-mode.select = "S"
+mode.normal = "NOR"
+mode.insert = "INS"
+mode.select = "SEL"
 
 [editor.lsp]
 display-messages = true
@@ -36,6 +37,7 @@ C-h = "jump_view_left"
 C-j = "jump_view_down"
 C-k = "jump_view_up"
 C-l = "jump_view_right"
+"C-w" = { "C-c" = "wclose", c = "wclose" }
 g = { a = "code_action" }
 
-# ";-w" = "command_mode" # Not ":"
+";" = ":write" # Not ":"
