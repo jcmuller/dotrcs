@@ -40,4 +40,7 @@ C-l = "jump_view_right"
 "C-w" = { "C-c" = "wclose", c = "wclose" }
 g = { a = "code_action" }
 
-";" = ":write" # Not ":"
+# ";" = ":write" # Not ":"
+
+C-y = "scroll_up"
+C-e = "scroll_down"
