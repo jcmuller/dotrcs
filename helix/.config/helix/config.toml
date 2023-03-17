@@ -46,3 +46,6 @@ g = { a = "code_action" }
 C-y = "scroll_up"
 C-e = "scroll_down"
 G = "goto_last_line"
+
+# D = ["select_all", "select_regex"]
+D = ["extend_to_line_bounds", "delete_selection"]
