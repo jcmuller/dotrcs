@@ -2,9 +2,9 @@ theme = "monokai_pro"
 
 [editor]
 auto-save = true
-bufferline = "always"
 color-modes = true
 true-color = true
+rulers = [80, 110]
 
 [editor.statusline]
 left = [
@@ -16,6 +16,7 @@ center = [
 ]
 right = [
   "diagnostics",
+  "workspace-diagnostics",
   "primary-selection-length",
   "selections",
   "position-percentage",
@@ -44,3 +45,4 @@ g = { a = "code_action" }
 
 C-y = "scroll_up"
 C-e = "scroll_down"
+G = "goto_last_line"
