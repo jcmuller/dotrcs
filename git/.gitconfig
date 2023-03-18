@@ -3,7 +3,7 @@
   email = jcmuller@gmail.com
   signingkey = 7043E6BBE9DC465D48801FBFA76E55A7FBA1E283
 [core]
-  excludesfile = ~/.gitignore
+  excludesfile = ~/.git_global_excludes
   quotepath = false
 [difftool]
   prompt = false
