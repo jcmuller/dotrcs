@@ -1,9 +1,10 @@
 c.fonts.prompts = "10pt sans-serif"
-c.fonts.default_size = "8pt"
+c.fonts.default_size = "18px"
 c.fonts.default_family = "Iosevka Term"
 c.fonts.statusbar = "default_size default_family"
-c.fonts.web.size.default = 12
-c.fonts.web.size.default_fixed = 12
+c.fonts.web.size.default = 18
+c.fonts.web.size.default_fixed = 18
 c.fonts.tabs.selected = "default_size default_family"
 c.fonts.tabs.unselected = "default_size default_family"
-c.qt.highdpi = True
+c.qt.highdpi = False
+# c.zoom.default = "75%"

@@ -15,6 +15,7 @@
 gnome.terminal.font: text_font
 
 i3-wm.bar.status_command: i3xrocks -u ~/.config/regolith/i3xrocks/conf.d -d /etc/regolith/i3xrocks/conf.d
+!i3-wm.bar.status_command: bar3x
 i3-wm.bar.status_alt_command: i3xrocks -c ~/.config/regolith/i3xrocks/clock_only
 
 i3-wm.bar.background.color:  default_text_color

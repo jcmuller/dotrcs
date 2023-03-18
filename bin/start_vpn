@@ -3,7 +3,7 @@
 OPENVPN="/usr/sbin/openvpn"
 CLOSE_ALL="close_all"
 BASE_PATH=~/Nextcloud/vpns
-OPTIONS="--auth-user-pass ~/.openvpnrc --auth-nocache --script-security 2"
+OPTIONS="--auth-user-pass ~/.openvpn-user-pass --auth-nocache --script-security 2"
 
 close_all() {
   notify-send "Killing all openvpn connections"

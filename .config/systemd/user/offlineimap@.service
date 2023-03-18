@@ -9,4 +9,4 @@ RestartSec=3
 Nice=5
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target

@@ -107,3 +107,4 @@ c.url.searchengines = {
     "r": "https://www.reddit.com/r/{}",
     "rg": "https://rubygems.org/gems/{}",
 }
+c.content.javascript.can_access_clipboard = True

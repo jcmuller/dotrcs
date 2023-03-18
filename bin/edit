@@ -1,0 +1,49 @@
+#!/bin/bash
+
+set -euo pipefail
+[[ -n "${DEBUG:-}" ]] && set -x
+
+main() {
+  local current_window opts wait
+
+  opts=$(getopt -o 'w' --long 'wait' -- "$@")
+
+  if [ $? -ne 0 ]; then
+    echo 'Terminating...' >&2
+    exit 1
+  fi
+
+  eval set -- "$opts"
+  unset opts
+
+  wait=""
+  while true; do
+    case "$1" in
+      '-w'|'--wait')
+        shift
+        wait="wait"
+        continue
+        ;;
+      '--')
+        shift
+        break
+        ;;
+      *)
+        echo 'Internal error!' >&2
+        exit 1
+        ;;
+    esac
+  done
+
+  if [[ "$wait" = "wait" ]]; then
+    current_window=$(xdotool getwindowfocus)
+    i3-msg -q '[con_mark="editor"]' focus
+    nvr --remote-tab-wait-silent "$@"
+    xdotool windowfocus "$current_window"
+  else
+    i3-msg -q '[con_mark="editor"]' focus
+    nvr --remote-tab-silent "$@"
+  fi
+}
+
+main "$@"

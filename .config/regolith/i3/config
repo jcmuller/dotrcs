@@ -228,7 +228,7 @@ bindsym Mod1+space focus mode_toggle
 bindsym $mod+x layout toggle tabbed splith splitv
 bindsym $mod+e layout toggle split
 
-## Modify // Border Mode Toggle // <><Shift> t ##
+# ## Modify // Border Mode Toggle // <><Shift> t ##
 bindsym $mod+Shift+t border toggle
 
 ## Modify // Move Window to Workspace 1 - 10 // <><Shift> 0..9 ##
@@ -590,6 +590,9 @@ set_from_resource $i3-wm.program.2 i3-wm.program.2 :
 exec --no-startup-id $i3-wm.program.2
 set_from_resource $i3-wm.program.3 i3-wm.program.3 :
 exec --no-startup-id $i3-wm.program.3
+
+## Only on laptops
+exec --no-startup-id xcape -e 'Control_L=Escape'
 
 ################################################################################
 bindsym Mod1+Ctrl+v            exec copyq show

@@ -29,4 +29,14 @@ disabled = false
 only_detached = false
 
 [terraform]
+disabled = true
 format = "[🏎💨 $version$workspace]($style) "
+
+[golang]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[ruby]
+disabled = true

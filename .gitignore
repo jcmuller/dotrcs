@@ -54,7 +54,6 @@ docker-compose.juan.yml
 secrets.yml
 .envrc
 .asdf-vars
-/tags
 
 # for dajoku-api
 certs

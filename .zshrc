@@ -66,4 +66,9 @@ eval "$(minikube completion zsh)"
 eval "$(op completion zsh)"
 source ~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmux/tmux.plugin.zsh
 
+export HELIX_RUNTIME=~/Development/github.com/helix-editor/helix/runtime
+export EDITOR=hx
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+complete -o nospace -C /home/jcmuller/go/bin/mc mc

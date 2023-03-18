@@ -11,6 +11,7 @@ source ~/.config/mutt/muttrc_personal
 
 folder-hook Personal/* source ~/.config/mutt/muttrc_personal
 folder-hook Work/* source ~/.config/mutt/muttrc_work
+folder-hook KesKas/* source ~/.config/mutt/muttrc_keskas
 
 # Reding mail
 set timeout=60
@@ -23,3 +24,4 @@ set envelope_from
 
 mailboxes +Personal/Personal
 mailboxes +Work/Work
+mailboxes +KesKas/KesKas

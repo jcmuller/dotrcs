@@ -1,9 +1,3 @@
-Xft.dpi: 96
-Xft.antialias: true
-Xft.rgba: rgb
-Xft.hinting: true
-Xft.hintstyle: hintslight
-
 XTerm*allowSendEvents: true
 XTerm*faceName: Terminus
 XTerm*faceSize: 9

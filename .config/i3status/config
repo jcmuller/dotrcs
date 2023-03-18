@@ -5,135 +5,31 @@ general {
   separator = true
 }
 
-order += "simple_button wp"
-order += "simple_button small"
-order += "simple_button large"
-order += "simple_button undock"
-order += "simple_button lock"
-order += "simple_button modmap"
-order += "simple_button monitors_off"
 order += "backlight"
-order += "battery_level 0"
-order += "battery_level 1"
-order += "weather_owm"
-order += "do_not_disturb"
-order += "dpms"
-order += "diskdata /"
-order += "egress"
+order += "battery 0"
+order += "battery 1"
+order += "disk /"
 order += "networkmanager"
 order += "ethernet enp0s31f6"
 order += "wireless wlp4s0"
 order += "ethernet tun0"
 order += "load"
-order += "my_sysdata"
 order += "volume master"
 order += "tztime UTC"
 order += "tztime local"
 
-battery_level 0 {
-  battery_id = 0
+battery 0 {
+  format = "%status %percentage %remaining"
 }
 
-battery_level 1 {
-  battery_id = 1
+battery 1 {
+  format = "%status %percentage %remaining"
 }
 
-dpms {
-  icon_off = "DPMS OFF"
-  icon_on = "DPMS ON"
-}
-
-do_not_disturb {
-  state_on = "DND"
-  state_off = "DND OFF"
-}
-
-egress {
-  format = "Eg: {egress}"
-  color = "#ffff00"
-}
-
-diskdata "/" {
-  disk = "/dev/mapper/xubuntu--vg-root"
+disk "/" {
   low_threshold = 10
   threshold_type = "percentage_free"
   format = "/: {used_percent}%"
-  on_click 1 = "exec thunar /"
-}
-
-simple_button wp {
-  text = "RND WP"
-  on_click 1 = "exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/"
-}
-
-simple_button large {
-  text = "BIG"
-  on_click 1 = "exec --no-startup-id xfce4-terminal-themes tomorrow-large"
-}
-
-simple_button small {
-  text = "SMALL"
-  on_click 1 = "exec --no-startup-id xfce4-terminal-themes tomorrow-night-small"
-}
-
-simple_button undock {
-  text = "UNDOCK"
-  color = "#ff0000"
-  on_click 1 = "exec --no-startup-id ~/bin/undock.sh"
-}
-
-simple_button at_office {
-  text = "AT OFFICE"
-  on_click 1 = "exec --no-startup-id ~/bin/at_office.sh"
-}
-
-simple_button at_home {
-  text = "AT HOME"
-  color = "#cacafe"
-  on_click 1 = "exec --no-startup-id ~/bin/at_home.sh"
-}
-
-simple_button lock {
-  text = "LOCK"
-  on_click 1 = "exec --no-startup-id ~/bin/lock.sh"
-}
-
-simple_button sleep {
-  text = "SLEEP"
-  on_click 1 = "exec --no-startup-id ~/bin/sleep.sh"
-}
-
-simple_button modmap {
-  text = "FIX INPUTS"
-  color = "#00DD11"
-  on_click 1 = "exec --no-startup-id ~/bin/fix_inputs"
-}
-
-simple_button monitors_off {
-  text = "MONITORS OFF"
-  color = "#00DD11"
-  on_click 1 = "exec --no-startup-id xset dpms force off"
-}
-
-dynamic_button agenda {
-  script = "~/bin/next_thing_one_line.sh"
-  color = "#ffffff"
-  on_click 1 = "exec --no-startup-id rem.sh"
-}
-
-weather_owm {
-  cache_timeout = 1800
-  api_key = d4708c12c3df0aed0b5190578f356278
-  location = (40.9864, -74.1112)
-  city = "HHK"
-  #format_today = "{icon}{temp}°{units}"
-  #forecast_days = 3
-}
-
-battery_level {
-  format = "Battery: {}"
-  mode = "bar"
-  on_click 1 = "exec gnome-power-statistics"
 }
 
 wireless wlp4s0 {
@@ -155,8 +51,6 @@ ethernet tun0 {
   #format_up = "VPN: %ip"
   format_up = "VPN: up"
   format_down = "VPN S"
-  on_click 1 = "exec --no-startup-id nmcli con up support"
-  on_click 3 = "exec --no-startup-id nmcli con down support"
 }
 
 ethernet tun1 {
@@ -164,8 +58,6 @@ ethernet tun1 {
   #format_up = "VPe: %ip"
   format_up = "VPe: up"
   format_down = "VPN Pe"
-  on_click 1 = "exec --no-startup-id nmcli con up prod"
-  on_click 3 = "exec --no-startup-id nmcli con down prod"
 }
 
 ethernet tun2 {
@@ -173,8 +65,6 @@ ethernet tun2 {
   #format_up = "VPw: %ip"
   format_up = "VPw: up"
   format_down = "VPN Pw"
-  on_click 1 = "exec --no-startup-id nmcli con up prod-usw2"
-  on_click 3 = "exec --no-startup-id nmcli con down prod-usw2"
 }
 
 battery 0 {
@@ -183,7 +73,6 @@ battery 0 {
   format_down = "No battery"
   path = "/sys/class/power_supply/BAT%d/uevent"
   low_threshold = 10
-  on_click 1 = "exec gnome-power-statistics"
 }
 
 battery 1 {
@@ -191,7 +80,6 @@ battery 1 {
   format_down = "No battery"
   path = "/sys/class/power_supply/BAT%d/uevent"
   low_threshold = 10
-  on_click 1 = "exec gnome-power-statistics"
 }
 
 # run_watch DHCP {
@@ -216,11 +104,6 @@ volume master {
   device = "default"
   mixer = "Master"
   mixer_idx = 0
-  on_click 1 = "exec sp play"
-  on_click 2 = "exec --no-startup-id /usr/bin/pactl set-sink-mute   @DEFAULT_SINK@ toggle && killall -USR1 py3status"
-  on_click 3 = "exec sp next"
-  on_click 4 = "exec --no-startup-id /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-5%' && killall -USR1 i3status"
-  on_click 5 = "exec --no-startup-id /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+5%' && killall -USR1 i3status"
 }
 
 # file /tmp/gcalcli_agenda.txt {
@@ -229,35 +112,11 @@ volume master {
 #   #limit = -1
 # }
 
-my_sysdata {
-  color = "#000000"
-}
-
 tztime UTC {
   format = "%H:%M UTC"
   timezone = "Etc/UTC"
-  #on_click 1 = "exec xclock -fg black -bg white -hd red -update 1 -geometry 300x300"
-  #on_click 2 = "exec xclock -padding 15 -digital -face "Terminus-11" -strftime "%a %m/%d %H:%M:%S%P" -update 1"
 }
 
 tztime local {
   format = "%a %m/%d %H:%M:%S"
-  #on_click 1 = "exec xclock -fg black -bg white -hd red -update 1 -geometry 300x300"
-  #on_click 2 = "exec xclock -padding 15 -digital -face "Terminus-11" -strftime "%a %m/%d %H:%M:%S%P" -update 1"
-}
-
-xrandr {
-  force_on_start = "DP-2-1+DP-2-2-8+eDP-1"
-  DP-2-1_pos = "2560x1440+0+0"
-  DP-2-2-8_pos = "2560x1440+0+0"
-  eDP-1_pos = "2560x1440+2560+88"
-
-}
-
-openvpn 1 {
-  color = "#00FF00"
-}
-
-networkmanager {
-  devices = ['e*', 'w*', 't*', 'd*']
 }

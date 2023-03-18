@@ -80,6 +80,7 @@ password_files=("${password_files[@]#"$prefix"/}")
 password_files=("${password_files[@]%.gpg}")
 
 password=$(printf '%s\n' "${password_files[@]}" | dmenu -p Secret "$@")
+#password=$(printf '%s\n' "${password_files[@]}" | ilia -p textlist -l Secret "$@")
 
 [[ -n $password ]] || exit
 
@@ -100,6 +101,7 @@ if [[ "$typeit" == "1" ]]; then
     IFS= read -r password
     printf %s "$password"
   } | xdotool type --clearmodifiers --file -
+  #} | wtype -
 else
   clip "$secret" "$password"
 fi

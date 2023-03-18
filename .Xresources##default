@@ -84,3 +84,12 @@ xmessage*faceSize:                           12
 xmessage*baseTranslations:#augment\
     <Key>Return:exit()\n\
     <Key>space:exit()
+
+Xft.dpi: 96
+Xft.antialias: 1
+Xft.autohint: 0
+Xft.hinting: 1
+Xft.hintstyle:  hintfull
+!Xft.hintstyle: hintslight
+Xft.lcdfilter:  lcddefault
+Xft.rgba: rgb

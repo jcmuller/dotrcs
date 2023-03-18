@@ -8,9 +8,11 @@ COMMAND=$1
 case $COMMAND in
   up)
     pactl set-sink-volume @DEFAULT_SINK@ '+2500'
+    #playerctl volume 0.1+
     ;;
   down)
     pactl set-sink-volume @DEFAULT_SINK@ '-2500'
+    #playerctl volume 0.1-
     ;;
   mute)
     $(click)
@@ -25,3 +27,4 @@ case $COMMAND in
 esac
 
 $(click)
+#killall -USR1 i3status

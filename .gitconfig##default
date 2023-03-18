@@ -1,7 +1,7 @@
 [user]
   name = Juan C. Müller
   email = jcmuller@gmail.com
-  signingkey = A76E55A7FBA1E283
+  signingkey = 7043E6BBE9DC465D48801FBFA76E55A7FBA1E283
 [core]
   excludesfile = ~/.gitignore
   quotepath = false
@@ -23,6 +23,7 @@
   default = current
 [init]
   templatedir = ~/.git_template
+	defaultBranch = main
 [branch]
   autosetuprebase = always
 #[remote "origin"]
@@ -51,6 +52,8 @@
   binary = true
 [commit]
   gpgsign = true
-[url "git@github.com:"]
-	insteadOf = gh:
-	insteadOf = https://github.com/
+# [url "git@github.com:"]
+# 	insteadOf = gh:
+# 	insteadOf = https://github.com/
+[safe]
+	directory = /net/192.168.20.3/mnt/pool0/video/data/frigate
