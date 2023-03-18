@@ -36,6 +36,10 @@ separator = "│"
 display-messages = true
 display-inlay-hints = true
 
+[editor.cursor-shape]
+insert = "bar"
+select = "underline"
+
 [keys.normal]
 C-h = "jump_view_left"
 C-j = "jump_view_down"
