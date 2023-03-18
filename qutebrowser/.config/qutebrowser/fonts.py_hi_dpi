@@ -1,0 +1,7 @@
+c.fonts.prompts = "10pt sans-serif"
+c.fonts.default_size = "16px"
+c.fonts.default_family = "Iosevka Term"
+c.fonts.statusbar = "16px Iosevka Term"
+c.fonts.tabs.selected = "16px Iosevka Term"
+c.fonts.tabs.unselected = "16px Iosevka Term"
+c.zoom.default = "110%"
