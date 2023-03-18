@@ -43,6 +43,9 @@ select = "underline"
 [editor.soft-wrap]
 enable = true
 
+[editor.search]
+wrap-around = false
+
 [keys.normal]
 C-h = "jump_view_left"
 C-j = "jump_view_down"
