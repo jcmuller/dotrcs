@@ -14,6 +14,7 @@ left = [
   "file-name",
 ]
 center = [
+  "version-control",
 ]
 right = [
   "diagnostics",
