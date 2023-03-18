@@ -15,6 +15,7 @@ left = [
   "file-modification-indicator",
 ]
 center = [
+  # "file-base-name",
   "version-control",
 ]
 right = [
@@ -22,6 +23,7 @@ right = [
   "workspace-diagnostics",
   "primary-selection-length",
   "selections",
+  # "position",
   "position-percentage",
   "total-line-numbers",
   # "file-encoding",
