@@ -1,0 +1,10 @@
+*~
+.*swp
+alias
+cache
+cache_gmail
+cache_gmail_body
+signature*
+muttrc_*
+!muttrc_common
+!muttrc_local
