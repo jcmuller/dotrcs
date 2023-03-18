@@ -48,17 +48,16 @@ C-h = "jump_view_left"
 C-j = "jump_view_down"
 C-k = "jump_view_up"
 C-l = "jump_view_right"
-"C-w" = { "C-c" = "wclose", c = "wclose" }
-g = { a = "code_action" }
-
-# ";" = ":write" # Not ":"
+C-w = { C-c = "wclose", c = "wclose" }
+C-r = "redo"
 
 C-y = "scroll_up"
 C-e = "scroll_down"
 G = "goto_last_line"
 
-# D = ["select_all", "select_regex"]
-D = ["extend_to_line_bounds", "delete_selection"]
+# Delete to end of line
+D = ["extend_to_line_end", "delete_selection"]
+
 Y = [
   "save_selection",
   "select_all",
@@ -71,3 +70,14 @@ Y = [
   "commit_undo_checkpoint",
   ":write",
 ]
+
+[keys.normal.";"]
+w = ":write"
+";" = ":w"
+a = "code_action"
+
+[keys.normal.g]
+a = "code_action"
+
+[keys.normal."space"]
+G = ":run-shell-command lazygit; pkill -WINCH hx" # Open LazyGit
