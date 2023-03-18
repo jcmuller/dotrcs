@@ -6,8 +6,12 @@ file-types = ["hcl", "tf"]
 auto-format = true
 formatter = { command = "/home/jcmuller/.asdf/shims/terraform", args = ["fmt", "-"] }
 language-server = { command = "terraform-lsp" }
-#language-server = { command = "terraform-ls", args = ["-"] } 
+#language-server = { command = "terraform-ls", args = ["-"] }
 
 [[language]]
 name = "go"
 formatter = { command = "goimports" }
+
+[[language]]
+name = "yaml"
+formatter = { command = "~/bin/strip-white-space" }
