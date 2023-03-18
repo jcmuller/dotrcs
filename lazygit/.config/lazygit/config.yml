@@ -38,18 +38,18 @@ gui:
   showRandomTip: true
   showBottomLine: true # for hiding the bottom information line (unless it has important information to tell you)
   showCommandLog: true
-  showIcons: false
+  showIcons: true
   commandLogSize: 8
   splitDiff: 'auto' # one of 'auto' | 'always'
   skipRewordInEditorWarning: false # for skipping the confirmation before launching the reword editor
-  border: 'single' # one of 'single' | 'double' | 'rounded' | 'hidden'
+  border: 'rounded' # one of 'single' | 'double' | 'rounded' | 'hidden'
 git:
   paging:
     colorArg: always
     useConfig: false
   commit:
-    signOff: false
-    verbose: default # one of 'default' | 'always' | 'never'
+    signOff: true
+    verbose: never # one of 'default' | 'always' | 'never'
   merging:
     # only applicable to unix users
     manualCommit: false
@@ -72,7 +72,7 @@ git:
   allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium'
   overrideGpg: false # prevents lazygit from spawning a separate process when using GPG
   disableForcePushing: false
-  parseEmoji: false
+  parseEmoji: true
   diffContextSize: 3 # how many lines of context are shown around a change in diffs
 os:
   editCommand: '' # see 'Configuring File Editing' section
@@ -87,12 +87,12 @@ update:
 confirmOnQuit: false
 # determines whether hitting 'esc' will quit the application when there is nothing to cancel/close
 quitOnTopLevelReturn: false
-disableStartupPopups: false
-notARepository: 'prompt' # one of: 'prompt' | 'create' | 'skip' | 'quit'
-promptToReturnFromSubprocess: true # display confirmation when subprocess terminates
+disableStartupPopups: true
+notARepository: quit # one of: 'prompt' | 'create' | 'skip' | 'quit'
+promptToReturnFromSubprocess: false # display confirmation when subprocess terminates
 keybinding:
   universal:
-    quit: 'q'
+    quit: q
     quit-alt1: '<c-c>' # alternative/alias of quit
     return: '<esc>' # return to previous menu, will quit if there's nowhere to return
     # When set to a printable character, this will work for returning from non-prompt panels
