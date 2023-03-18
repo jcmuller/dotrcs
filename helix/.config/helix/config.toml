@@ -12,6 +12,7 @@ left = [
   "mode",
   "spinner",
   "file-name",
+  "file-modification-indicator",
 ]
 center = [
   "version-control",
