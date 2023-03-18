@@ -2,7 +2,7 @@
 
 OPENVPN="/usr/sbin/openvpn"
 CLOSE_ALL="close_all"
-BASE_PATH=~/Nextcloud/vpns
+BASE_PATH=~/Documents/vpns
 OPTIONS="--auth-user-pass ~/.openvpn-user-pass --auth-nocache --script-security 2"
 
 close_all() {
