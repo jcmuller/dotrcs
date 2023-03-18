@@ -31,9 +31,6 @@ right = [
   "file-type",
 ]
 separator = "│"
-mode.normal = "NOR"
-mode.insert = "INS"
-mode.select = "SEL"
 
 [editor.lsp]
 display-messages = true
