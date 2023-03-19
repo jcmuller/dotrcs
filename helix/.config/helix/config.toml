@@ -34,7 +34,7 @@ separator = "│"
 
 [editor.lsp]
 display-messages = true
-display-inlay-hints = true
+# display-inlay-hints = true
 
 [editor.cursor-shape]
 insert = "bar"
