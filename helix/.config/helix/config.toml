@@ -54,8 +54,8 @@ C-l = "jump_view_right"
 
 # vim goodness
 G = "goto_last_line"
-"^" = "goto_first_nonwhitespace"
-"$" = "goto_line_end"
+# "^" = "goto_first_nonwhitespace"
+# "$" = "goto_line_end"
 C-w = { C-c = "wclose", c = "wclose" }
 C-r = "redo"
 C-y = "scroll_up"
