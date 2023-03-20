@@ -52,7 +52,7 @@
   binary = true
 [commit]
   gpgsign = true
-[url "git@github.com:"]
+[url "ssh://git@github.com/"]
  	insteadOf = gh:
  	insteadOf = https://github.com/
 [url "ssh://git@gitea.home.lan:2222/"]
