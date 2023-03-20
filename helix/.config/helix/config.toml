@@ -51,16 +51,18 @@ C-h = "jump_view_left"
 C-j = "jump_view_down"
 C-k = "jump_view_up"
 C-l = "jump_view_right"
+
+# vim goodness
+G = "goto_last_line"
+"^" = "goto_first_nonwhitespace"
+"$" = "goto_line_end"
 C-w = { C-c = "wclose", c = "wclose" }
 C-r = "redo"
-
 C-y = "scroll_up"
 C-e = "scroll_down"
-G = "goto_last_line"
-
-# Delete to end of line
 D = ["extend_to_line_end", "delete_selection"]
 
+# attempt at removing wayward white space
 Y = [
   "save_selection",
   "select_all",
