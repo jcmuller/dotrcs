@@ -59,3 +59,7 @@
  	insteadOf = https://gitea.home.lan/
 [safe]
 	directory = /net/192.168.20.3/mnt/pool0/video/data/frigate
+[sendemail]
+  smtpServer = ~/go/bin/sendgmail
+  smtpServerOption = -sender=jcmuller@gmail.com
+  annotate = yes
