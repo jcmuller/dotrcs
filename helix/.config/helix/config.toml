@@ -34,6 +34,7 @@ separator = "│"
 
 [editor.lsp]
 display-messages = true
+auto-signature-help = false # this is covering completions
 # display-inlay-hints = true
 
 [editor.cursor-shape]
@@ -52,6 +53,14 @@ C-j = "jump_view_down"
 C-k = "jump_view_up"
 C-l = "jump_view_right"
 
+# from reddit
+V = ["goto_first_nonwhitespace", "extend_to_line_end"]
+D = ["ensure_selections_forward", "extend_to_line_end"]
+x = "extend_line"
+a = ["append_mode", "collapse_selection"]
+i = ["insert_mode", "collapse_selection"]
+C-space = "signature_help"
+
 # vim goodness
 G = "goto_last_line"
 # "^" = "goto_first_nonwhitespace"
@@ -60,7 +69,7 @@ C-w = { C-c = "wclose", c = "wclose" }
 C-r = "redo"
 C-y = "scroll_up"
 C-e = "scroll_down"
-D = ["extend_to_line_end", "delete_selection"]
+# D = ["extend_to_line_end", "delete_selection"]
 
 # attempt at removing wayward white space
 Y = [
@@ -86,3 +95,15 @@ a = "code_action"
 
 [keys.normal."space"]
 G = ":run-shell-command lazygit; pkill -WINCH hx" # Open LazyGit
+
+[keys.normal.Z]
+Z = ":write-quit-all"
+
+[keys.select]
+x = "extend_line"
+";" = ["collapse_selection", "normal_mode"]
+V = "extend_to_line_end"
+
+[keys.insert]
+C-q = "collapse_selection"
+C-space = "signature_help"
