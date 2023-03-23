@@ -1,6 +1,6 @@
 [user]
-  name = Juan C. Müller
-  email = jcmuller@gmail.com
+	name = Juan C. Müller
+	email = me@juancmuller.com
   signingkey = 7043E6BBE9DC465D48801FBFA76E55A7FBA1E283
 [core]
   excludesfile = ~/.git_global_excludes
@@ -58,8 +58,8 @@
 [url "ssh://git@gitea.home.lan:2222/"]
  	insteadOf = https://gitea.home.lan/
 [safe]
-	directory = /net/192.168.20.3/mnt/pool0/video/data/frigate
+  directory = /net/192.168.20.3/mnt/pool0/video/data/frigate
 [sendemail]
-  smtpServer = ~/go/bin/sendgmail
-  smtpServerOption = -sender=jcmuller@gmail.com
+  sendmailcmd = msmtp -a personal
   annotate = yes
+  confirm = auto
