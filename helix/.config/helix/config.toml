@@ -34,7 +34,7 @@ separator = "│"
 
 [editor.lsp]
 display-messages = true
-auto-signature-help = false # this is covering completions
+auto-signature-help = true # this is covering completions
 # display-inlay-hints = true
 
 [editor.cursor-shape]
@@ -71,24 +71,22 @@ C-y = "scroll_up"
 C-e = "scroll_down"
 # D = ["extend_to_line_end", "delete_selection"]
 
-# attempt at removing wayward white space
-Y = [
-  "save_selection",
-  "select_all",
-  # Delete trailing whitespace from end of each line
-  ":pipe sed 's/[ \t]*$//'",
-  # Delete trailing blank lines (including whitespace) from end of the buffer
-  ":pipe awk '/^\\s*$/ {b=b $0 \"\\n\"; next;} {printf \"%s\",b; b=\"\"; print;}'",
-  "collapse_selection",
-  "jump_backward",
-  "commit_undo_checkpoint",
-  ":write",
-]
-
 [keys.normal.";"]
 w = ":write"
 ";" = ":w"
 a = "code_action"
+o = [":hsplit ~/.config/helix/config.toml"]
+r = [":config-reload"]
+# remove wayward white space
+space = [
+  "save_selection",
+  "select_all",
+  ":pipe trim-whitespace",
+  "collapse_selection",
+  "jump_backward",
+  "commit_undo_checkpoint",
+  ":write"
+]
 
 [keys.normal.g]
 a = "code_action"
@@ -98,6 +96,7 @@ G = ":run-shell-command lazygit; pkill -WINCH hx" # Open LazyGit
 
 [keys.normal.Z]
 Z = ":write-quit-all"
+Q = ":quit-all"
 
 [keys.select]
 x = "extend_line"

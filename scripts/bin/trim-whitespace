@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+main() {
+  cat </dev/stdin |
+    sed -e 's/[ \t]*$//g' -e '/./b' -e :n -e 'N;s/\n$//;tn' |
+    awk '/^\s*$/ {b=b $0 "\n"; next;} {printf "%s",b; b=""; print;}'
+}
+
+main "$@"
