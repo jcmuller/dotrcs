@@ -1,6 +1,6 @@
 [user]
-	name = Juan C. Müller
-	email = me@juancmuller.com
+  name = Juan C. Müller
+  email = me@juancmuller.com
   signingkey = 7043E6BBE9DC465D48801FBFA76E55A7FBA1E283
 [core]
   excludesfile = ~/.git_global_excludes
@@ -23,7 +23,7 @@
   default = current
 [init]
   templatedir = ~/.git_template
-	defaultBranch = main
+  defaultBranch = main
 [branch]
   autosetuprebase = always
 #[remote "origin"]
@@ -53,10 +53,10 @@
 [commit]
   gpgsign = true
 [url "ssh://git@github.com/"]
- 	insteadOf = gh:
- 	insteadOf = https://github.com/
+  insteadOf = gh:
+  insteadOf = https://github.com/
 [url "ssh://git@gitea.home.lan:2222/"]
- 	insteadOf = https://gitea.home.lan/
+  insteadOf = https://gitea.home.lan/
 [safe]
   directory = /net/192.168.20.3/mnt/pool0/video/data/frigate
 [sendemail]

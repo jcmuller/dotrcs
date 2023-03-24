@@ -1,9 +1,9 @@
 [user]
   name = Juan C. Müller
-  email = jcmuller@gmail.com
-  signingkey = A76E55A7FBA1E283
+  email = me@juancmuller.com
+  signingkey = 7043E6BBE9DC465D48801FBFA76E55A7FBA1E283
 [core]
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.git_global_excludes
   quotepath = false
 [difftool]
   prompt = false
@@ -23,7 +23,7 @@
   default = current
 [init]
   templatedir = ~/.git_template
-	defaultBranch = main
+  defaultBranch = main
 [branch]
   autosetuprebase = always
 #[remote "origin"]
@@ -54,41 +54,45 @@
 [commit]
   gpgsign = true
 [secrets]
-	providers = git secrets --aws-provider
-	patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
-	patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
-	patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
-	allowed = AKIAIOSFODNN7EXAMPLE
-	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-	patterns = xox[p|b|a]-[0-9]{10,12}-[0-9]{10,12}-[0-9]{10,12}-[a-z0-9]{30,35}
-	patterns = xox[b|p|a]-[0-9]{10,12}-[a-z0-9]{24,35}
-	patterns = BEGIN\\s+RSA\\s+PRIVATE\\s+KEY
-	patterns = BEGIN\\s+OPENSSH\\s+PRIVATE\\s+KEY
-	patterns = BEGIN\\s+DSA\\s+PRIVATE\\s+KEY
-	patterns = BEGIN\\s+PGP\\s+PRIVATE\\s+KEY\\s+BLOCK
-	patterns = BEGIN\\s+EC\\s+PRIVATE\\s+KEY-----
-	patterns = facebook.*[=|:]\\s*['|\"][0-9a-f]{32}['|\"]
-	patterns = twitter.*[=|:]\\s*['|\"][0-9a-z]{35,44}['|\"]
-	patterns = github.*[=|:]\\s*['|\"][0-9a-z]{36,41}['|\"]
-	patterns = client[_|-]?secret.*[=|:]\\s*['|\"][a-z0-9_-]{24}['|\"]
-	patterns = heroku.*[=|:]\\s*['|\"][0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}['|\"]
-	patterns = api[_|-]?key.*[=|:]\\s*['|\"][0-9a-z]{32,45}['|\"]
-	patterns = secret.*[=|:]\\s*['|\"][0-9a-z]{32,45}['|\"]
-	patterns = https://hooks.slack.com/services/T[a-z0-9_]{8}/B[a-z0-9_]{8}/[a-z0-9_]{24}
-	patterns = \"type\"\\s*:\\s*\"service_account\"
-	patterns = SK[a-z0-9]{32}
-	patterns = [a-f0-9]{24}[-][0-9]{1,2}
-	patterns = [a-f0-9]{32}[-][0-9]{1,2}
-	patterns = A[K|S]IA[0-9A-Z]{16}
-	patterns = amzn\\.mws\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}
-	patterns = AIza[0-9a-z\\-_]{35}
-	patterns = [0-9]+-[0-9a-z_]{32}\\.apps\\.googleusercontent\\.com
-	patterns = ya29\\.[0-9a-z\\-_]+
-	patterns = [0-9a-f]{32}-us[0-9]{1,2}
-	patterns = key-[0-9a-z]{32}
-	patterns = [a-z]{3,10}://[^$%]{1}[^\\/:@]{3,20}:[^$%]{1}[^\\/:@]{3,20}@.{1,100}
-	allowed = vendor/*
-	allowed = user[0-9]*:pass[word]*[0-9]*@
-[url "git@github.com:"]
-	insteadOf = gh:
-	insteadOf = https://github.com/
+  providers = git secrets --aws-provider
+  patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+  patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
+  patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
+  allowed = AKIAIOSFODNN7EXAMPLE
+  allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+  patterns = xox[p|b|a]-[0-9]{10,12}-[0-9]{10,12}-[0-9]{10,12}-[a-z0-9]{30,35}
+  patterns = xox[b|p|a]-[0-9]{10,12}-[a-z0-9]{24,35}
+  patterns = BEGIN\\s+RSA\\s+PRIVATE\\s+KEY
+  patterns = BEGIN\\s+OPENSSH\\s+PRIVATE\\s+KEY
+  patterns = BEGIN\\s+DSA\\s+PRIVATE\\s+KEY
+  patterns = BEGIN\\s+PGP\\s+PRIVATE\\s+KEY\\s+BLOCK
+  patterns = BEGIN\\s+EC\\s+PRIVATE\\s+KEY-----
+  patterns = facebook.*[=|:]\\s*['|\"][0-9a-f]{32}['|\"]
+  patterns = twitter.*[=|:]\\s*['|\"][0-9a-z]{35,44}['|\"]
+  patterns = github.*[=|:]\\s*['|\"][0-9a-z]{36,41}['|\"]
+  patterns = client[_|-]?secret.*[=|:]\\s*['|\"][a-z0-9_-]{24}['|\"]
+  patterns = heroku.*[=|:]\\s*['|\"][0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}['|\"]
+  patterns = api[_|-]?key.*[=|:]\\s*['|\"][0-9a-z]{32,45}['|\"]
+  patterns = secret.*[=|:]\\s*['|\"][0-9a-z]{32,45}['|\"]
+  patterns = https://hooks.slack.com/services/T[a-z0-9_]{8}/B[a-z0-9_]{8}/[a-z0-9_]{24}
+  patterns = \"type\"\\s*:\\s*\"service_account\"
+  patterns = SK[a-z0-9]{32}
+  patterns = [a-f0-9]{24}[-][0-9]{1,2}
+  patterns = [a-f0-9]{32}[-][0-9]{1,2}
+  patterns = A[K|S]IA[0-9A-Z]{16}
+  patterns = amzn\\.mws\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}
+  patterns = AIza[0-9a-z\\-_]{35}
+  patterns = [0-9]+-[0-9a-z_]{32}\\.apps\\.googleusercontent\\.com
+  patterns = ya29\\.[0-9a-z\\-_]+
+  patterns = [0-9a-f]{32}-us[0-9]{1,2}
+  patterns = key-[0-9a-z]{32}
+  patterns = [a-z]{3,10}://[^$%]{1}[^\\/:@]{3,20}:[^$%]{1}[^\\/:@]{3,20}@.{1,100}
+  allowed = vendor/*
+  allowed = user[0-9]*:pass[word]*[0-9]*@
+[url "ssh://git@github.com/"]
+  insteadOf = gh:
+  insteadOf = https://github.com/
+[sendemail]
+  sendmailcmd = msmtp -a work
+  annotate = yes
+  confirm = auto
