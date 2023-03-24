@@ -60,6 +60,7 @@ x = "extend_line"
 a = ["append_mode", "collapse_selection"]
 i = ["insert_mode", "collapse_selection"]
 C-space = "signature_help"
+c = ["trim_selections", "change_selection"]
 
 # vim goodness
 G = "goto_last_line"
