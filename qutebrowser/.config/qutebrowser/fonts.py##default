@@ -8,3 +8,4 @@ c.fonts.tabs.selected = "default_size default_family"
 c.fonts.tabs.unselected = "default_size default_family"
 c.qt.highdpi = False
 # c.zoom.default = "75%"
+c.zoom.default = "125%"
