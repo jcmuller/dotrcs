@@ -45,7 +45,6 @@
 [pull]
   rebase = true
 [rebase]
-  autosquash = true
   autostash = true
 [diff "gpg"]
   textconv = gpg2 -d --quiet --yes --compress-algo=none --no-encrypt-to --batch --use-agent
@@ -57,6 +56,9 @@
   insteadOf = https://github.com/
 [url "ssh://git@gitea.home.lan:2222/"]
   insteadOf = https://gitea.home.lan/
+[url "ssh://git@git.sr.ht/~"]
+    insteadOf = sh:
+    insteadOf = https://git.sr.ht/~
 [safe]
   directory = /net/192.168.20.3/mnt/pool0/video/data/frigate
 [sendemail]
