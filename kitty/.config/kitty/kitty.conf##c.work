@@ -26,3 +26,4 @@ include themes/monokai.conf
 include conf.d/bindings.conf
 
 show_hyperlink_targets yes
+enabled_layouts vertical,stack,fat,tall,grid,splits
