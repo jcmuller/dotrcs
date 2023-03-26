@@ -29,7 +29,7 @@ set $right l
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return       exec kitty
+bindsym $mod+Return       exec kitty --single-instance
 bindsym $mod+Shift+Return exec kitty --override font_size=9
 
 # kill focused window
