@@ -7,13 +7,11 @@ true-color = true
 rulers = [80, 110]
 completion-replace = true
 
+cursorline = true
+cursorcolumn = true
+
 [editor.statusline]
-left = [
-  "mode",
-  "spinner",
-  "file-name",
-  "file-modification-indicator",
-]
+left = ["mode", "spinner", "file-name", "file-modification-indicator"]
 center = [
   # "file-base-name",
   "version-control",
@@ -41,11 +39,22 @@ auto-signature-help = true # this is covering completions
 insert = "bar"
 select = "underline"
 
+[editor.file-picker]
+hidden = false
+
 [editor.soft-wrap]
 enable = true
 
 [editor.search]
 wrap-around = false
+
+[editor.whitespace]
+# render = "all"
+
+[editor.indent-guides]
+render = true
+character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
 
 [keys.normal]
 C-h = "jump_view_left"
@@ -55,7 +64,8 @@ C-l = "jump_view_right"
 
 # from reddit
 V = ["goto_first_nonwhitespace", "extend_to_line_end"]
-D = ["ensure_selections_forward", "extend_to_line_end"]
+# D = ["ensure_selections_forward", "extend_to_line_end"]
+D = ["goto_first_nonwhitespace", "extend_line", "delete_selection"]
 x = "extend_line"
 a = ["append_mode", "collapse_selection"]
 i = ["insert_mode", "collapse_selection"]
@@ -70,7 +80,6 @@ C-w = { C-c = "wclose", c = "wclose" }
 C-r = "redo"
 C-y = "scroll_up"
 C-e = "scroll_down"
-# D = ["extend_to_line_end", "delete_selection"]
 
 [keys.normal.";"]
 w = ":write"
@@ -86,9 +95,10 @@ space = [
   "collapse_selection",
   "jump_backward",
   "commit_undo_checkpoint",
-  ":write"
+  ":write",
 ]
 c = [":character-info"]
+t = ":run-shell-command make test"
 
 [keys.normal.g]
 a = "code_action"
