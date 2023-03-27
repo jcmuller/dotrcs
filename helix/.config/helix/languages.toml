@@ -17,5 +17,8 @@ name = "yaml"
 formatter = { command = "~/bin/strip-white-space" }
 
 [[language]]
+name = "conf"
 roots = []
+scope = "source.conf"
+file-types = ["conf"]
 comment-token = "#"
