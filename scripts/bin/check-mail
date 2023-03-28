@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+while true; do
+  mailsync
+  sleep 300
+done
