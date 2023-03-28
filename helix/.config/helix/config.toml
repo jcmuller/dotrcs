@@ -54,10 +54,14 @@ wrap-around = false
 [editor.indent-guides]
 render = true
 # character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
-character = "▏"
-# character = "┆"
+# character = "▏"
+# character = "|"
 # character = "┊"
 # character = "⸽"
+# character = "┇"
+# character = "┆"
+character = "┋"
+# character = "╏"
 skip-levels = 1
 
 [keys.normal]
