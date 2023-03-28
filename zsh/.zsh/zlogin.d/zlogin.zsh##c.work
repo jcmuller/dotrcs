@@ -60,10 +60,10 @@ alias ade='argo --context dev.use1-argo'
 alias ape='argo --context prod.use1-argo'
 
 alias ldj="BUNDLE_GEMFILE=~/Development/Greenhouse/dajoku_cli/Gemfile bundle exec ruby -I ~/Development/Greenhouse/dajoku_cli/lib ~/Development/Greenhouse/dajoku_cli/bin/dajoku"
-alias logclide='logcli --addr https://dev-loki-green.dev.use1.gh.internal --bearer-token=$(sso-token-cli -e loki.dev)'
-alias logclidw='logcli --addr https://dev-loki-green.dev.usw2.gh.internal --bearer-token=$(sso-token-cli -e loki.dev)'
-alias logclipe='logcli --addr https://prod-loki-green.prod.use1.gh.internal --bearer-token=$(sso-token-cli -e loki.prod)'
-alias logclipw='logcli --addr https://prod-loki-green.prod.usw2.gh.internal --bearer-token=$(sso-token-cli -e loki.prod)'
+alias logclide='logcli --addr https://dev-loki-green.dev.use1.gh.internal   --bearer-token=$(sso-token-cli -e okta-loki.dev)'
+alias logclidw='logcli --addr https://dev-loki-green.dev.usw2.gh.internal   --bearer-token=$(sso-token-cli -e okta-loki.dev)'
+alias logclipe='logcli --addr https://prod-loki-green.prod.use1.gh.internal --bearer-token=$(sso-token-cli -e okta-loki.prod)'
+alias logclipw='logcli --addr https://prod-loki-green.prod.usw2.gh.internal --bearer-token=$(sso-token-cli -e okta-loki.prod)'
 
 alias aa='fasd -a'        # any
 alias vv='f -e nvr'
