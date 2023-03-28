@@ -68,6 +68,7 @@ source ~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmux/tmux.plugin.zsh
 
 export EDITOR=hx
 export HELIX_RUNTIME=~/.local/share/helix/runtime
+alias lg=lazygit
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
