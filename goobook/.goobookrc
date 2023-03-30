@@ -1,8 +1,4 @@
 [DEFAULT]
-cache_filename:           ~/.config/goobook/personal/cache
-oauth_db_filename:        ~/.config/goobook/personal/.auth.json
-client_secret_filename:   ~/.config/goobook/personal/.client_secret.json
-
 cache_expiry_hours: 24
 filter_groupless_contacts: no
 
