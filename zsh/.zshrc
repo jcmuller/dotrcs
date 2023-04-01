@@ -67,7 +67,7 @@ eval "$(op completion zsh)"
 source ~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmux/tmux.plugin.zsh
 
 export EDITOR=hx
-export HELIX_RUNTIME=~/.local/share/helix/runtime
+export HELIX_RUNTIME=/usr/lib/helix/runtime
 alias lg=lazygit
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
