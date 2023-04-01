@@ -112,7 +112,7 @@ t = ":run-shell-command make test"
 a = "code_action"
 
 [keys.normal."space"]
-G = ":run-shell-command lazygit; pkill -WINCH hx" # Open LazyGit
+B = "file_picker_in_current_buffer_directory"
 
 [keys.normal.Z]
 Z = ":write-quit-all"
