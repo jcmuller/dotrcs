@@ -7,9 +7,6 @@ true-color = true
 rulers = [80, 110]
 completion-replace = true
 
-cursorline = true
-cursorcolumn = true
-
 [editor.statusline]
 left = ["mode", "spinner", "file-name", "file-modification-indicator"]
 center = [
