@@ -6,6 +6,10 @@ color-modes = true
 true-color = true
 rulers = [80, 110]
 completion-replace = true
+bufferline = "always"
+
+# cursorline = true
+# cursorcolumn = true
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name", "file-modification-indicator"]
@@ -30,7 +34,7 @@ separator = "│"
 [editor.lsp]
 display-messages = true
 auto-signature-help = true # this is covering completions
-# display-inlay-hints = true
+display-inlay-hints = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -50,15 +54,15 @@ wrap-around = false
 
 [editor.indent-guides]
 render = true
-# character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
-# character = "▏"
 # character = "|"
-# character = "┊"
-# character = "⸽"
-# character = "┇"
 # character = "┆"
+# character = "┇"
+# character = "┊"
 character = "┋"
+# character = "╎"
 # character = "╏"
+# character = "▏"
+# character = "⸽"
 skip-levels = 1
 
 [keys.normal]
@@ -66,11 +70,12 @@ C-h = "jump_view_left"
 C-j = "jump_view_down"
 C-k = "jump_view_up"
 C-l = "jump_view_right"
+"minus" = "file_picker_in_current_buffer_directory"
 
 # from reddit
 V = ["goto_first_nonwhitespace", "extend_to_line_end"]
-# D = ["ensure_selections_forward", "extend_to_line_end"]
-D = ["goto_first_nonwhitespace", "extend_line", "delete_selection"]
+D = ["ensure_selections_forward", "extend_to_line_end"]
+# D = ["goto_first_nonwhitespace", "extend_line", "delete_selection"]
 x = "extend_line"
 a = ["append_mode", "collapse_selection"]
 i = ["insert_mode", "collapse_selection"]
@@ -91,6 +96,7 @@ w = ":write"
 ";" = ":w"
 a = "code_action"
 o = [":hsplit ~/.config/helix/config.toml"]
+l = [":hsplit ~/.config/helix/languages.toml"]
 r = [":config-reload"]
 # remove wayward white space
 space = [
