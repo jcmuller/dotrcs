@@ -58,5 +58,3 @@ secrets.yml
 # for dajoku-api
 certs
 docker-compose.yml
-
-
