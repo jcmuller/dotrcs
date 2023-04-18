@@ -92,6 +92,9 @@
 [url "ssh://git@github.com/"]
   insteadOf = gh:
   insteadOf = https://github.com/
+[url "ssh://git@git.sr.ht/~"]
+  insteadOf = sh:
+  insteadOf = https://git.sr.ht/~
 [sendemail]
   sendmailcmd = msmtp -a work
   annotate = yes
