@@ -1,7 +1,7 @@
 [user]
   name = Juan C. Müller
   email = me@juancmuller.com
-  signingkey = 7043E6BBE9DC465D48801FBFA76E55A7FBA1E283
+  signingkey = D78D25D8A1B82596267F35B8F44EA51A28F9B4A7
 [core]
   excludesfile = ~/.git_global_excludes
   quotepath = false
