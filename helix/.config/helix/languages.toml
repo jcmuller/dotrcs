@@ -22,3 +22,11 @@ roots = []
 scope = "source.conf"
 file-types = ["conf"]
 comment-token = "#"
+
+[[language]]
+name = "protobuf"
+language-server = { command = "bufls", args = ["serve"] }
+
+[[language]]
+name = "ini"
+file-types = ["ini", "dunstrc"]
