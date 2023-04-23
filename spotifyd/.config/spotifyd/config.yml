@@ -1,0 +1,2 @@
+user-cmd: gopass show websites/spotify.com/jcmuller | grep -e login -e user | yj | jq -r .login
+password-cmd: gopass show -o websites/spotify.com/jcmuller
