@@ -30,3 +30,7 @@ language-server = { command = "bufls", args = ["serve"] }
 [[language]]
 name = "ini"
 file-types = ["ini", "dunstrc"]
+
+[[language]]
+name = "jsonnet"
+auto-format = true
