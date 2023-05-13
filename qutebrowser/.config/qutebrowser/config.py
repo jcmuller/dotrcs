@@ -95,7 +95,7 @@ c.tabs.position = "left"
 c.tabs.select_on_remove = "next"
 c.tabs.show = "always"
 #c.tabs.switch_to_open_url = True
-c.tabs.show = 'never'
+c.tabs.show = 'switching'
 c.tabs.title.format = '{audio}{current_title}'
 c.tabs.title.format_pinned = '{audio}📌 {current_title}'
 c.url.open_base_url = True
@@ -108,3 +108,4 @@ c.url.searchengines = {
     "rg": "https://rubygems.org/gems/{}",
 }
 c.content.javascript.can_access_clipboard = True
+c.content.tls.certificate_errors = "ask-block-thirdparty"
