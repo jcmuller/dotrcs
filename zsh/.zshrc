@@ -24,7 +24,7 @@ antigen bundles <<EOBUNDLE
 
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh git_funcs.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh aliases.zsh
-  /home/jcmuller/Development/MyStuff/custom-oh-my-zsh colors.zsh
+  # /home/jcmuller/Development/MyStuff/custom-oh-my-zsh colors.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh cargo.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh dajoku.zsh
   /home/jcmuller/Development/MyStuff/custom-oh-my-zsh dbus.zsh
