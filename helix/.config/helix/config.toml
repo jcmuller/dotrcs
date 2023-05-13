@@ -1,4 +1,4 @@
-theme = "monokai_pro"
+theme = "nord"
 
 [editor]
 auto-save = true
