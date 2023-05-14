@@ -29,6 +29,7 @@ settings = {
 
 config.load_autoconfig()
 config.source('fonts.py')
+config.source("nord-qutebrowser.py")
 
 c.bindings.commands = {
     "normal": {
